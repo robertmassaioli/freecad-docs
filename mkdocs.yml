@@ -136,6 +136,8 @@ nav:
     - part-design/index.md
     - Tools:
       - part-design/tools/index.md
+      - Additive Features:
+        - Additive Pipe: part-design/tools/additive-pipe.md
   # Uncomment as these sections are written:
   # - Sketcher:
   #   - sketcher/index.md
