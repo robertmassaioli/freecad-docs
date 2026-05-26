@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/robertmassaioli/Code/freecad-related-development/**)",
+      "Read(//Users/robertmassaioli/Code/freecad-related-development/mkdocs-material/**)"
+    ]
+  }
+}
