@@ -1,0 +1,46 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  # Allow manual trigger from the Actions tab (useful for first deploy)
+  workflow_dispatch:
+
+permissions:
+  contents: write   # required to push to the gh-pages branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Full history ensures mike's version tree is intact on subsequent
+          # deploys; shallow clones would drop older version directories.
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          key: mkdocs-${{ hashFiles('requirements.txt') }}
+          path: ~/.cache/pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build and deploy
+        run: mkdocs gh-deploy --force
+        env:
+          # Ensures git commits made by mkdocs gh-deploy are attributed
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com

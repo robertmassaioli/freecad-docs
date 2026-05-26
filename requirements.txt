@@ -1,0 +1,12 @@
+# Core site generator
+# Pin to the minor version that the ../mkdocs-material checkout was sourced from.
+# Bump deliberately and test with `mkdocs build` before merging.
+mkdocs>=1.6,<2.0
+mkdocs-material>=9.7,<10.0
+
+# Versioning (mike manages the gh-pages branch version tree)
+mike>=2.0,<3.0
+
+# PyMdown Extensions are a transitive dependency of mkdocs-material but
+# we pin explicitly to avoid silent upgrades breaking syntax we rely on.
+pymdown-extensions>=10.0,<11.0

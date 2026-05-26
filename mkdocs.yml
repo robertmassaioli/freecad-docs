@@ -1,0 +1,143 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# FreeCAD Documentation — mkdocs.yml
+#
+# IMPORTANT: This site targets the OSS release of Material for MkDocs only.
+# Do NOT add any Insiders-only features (social plugin, typeset plugin,
+# projects plugin, navigation.instant.prefetch). See agents.md for the
+# full list of OSS vs Insiders features.
+#
+# Source reference: ../mkdocs-material/mkdocs.yml
+# ──────────────────────────────────────────────────────────────────────────────
+
+# ── Site metadata ──────────────────────────────────────────────────────────────
+site_name: FreeCAD Documentation
+site_url: https://robertmassaioli.github.io/freecad-docs/
+site_description: >-
+  In-depth documentation for FreeCAD — covering Part Design, Sketcher,
+  and Part workbenches. Accurate for FreeCAD 1.1.
+site_author: Robert Massaioli
+copyright: >-
+  Content licensed under
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+
+# ── Repository (enables edit-page pencil icon on every page) ──────────────────
+repo_name: robertmassaioli/freecad-docs
+repo_url: https://github.com/robertmassaioli/freecad-docs
+edit_uri: edit/main/docs/
+
+# ── Theme ──────────────────────────────────────────────────────────────────────
+theme:
+  name: material
+  features:
+    # Code blocks
+    - content.code.annotate      # inline annotations in code blocks
+    - content.code.copy          # copy-to-clipboard button
+    # Inline tooltips on abbreviation links
+    - content.tooltips
+    # Navigation
+    - navigation.footer          # previous / next page links at page bottom
+    - navigation.indexes         # section folders can have their own index.md
+    - navigation.sections        # top-level nav entries rendered as groups
+    - navigation.tabs            # top-level sections as horizontal tabs
+    - navigation.top             # back-to-top button
+    - navigation.tracking        # active anchor reflected in URL hash
+    # Search
+    - search.highlight           # highlight query terms on result page
+    - search.share               # shareable search link
+    - search.suggest             # typeahead suggestions
+    # Table of contents
+    - toc.follow                 # auto-scroll sidebar TOC to current heading
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep orange       # approximate FreeCAD brand colour
+      accent: orange
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+# ── Plugins (OSS only) ─────────────────────────────────────────────────────────
+plugins:
+  - search:
+      lang: en
+
+# ── Versioning (mike) ──────────────────────────────────────────────────────────
+# Uncomment when the first versioned deploy is ready.
+# See AI-planning/site-generator-decision.md §7 for the full mike setup guide.
+#
+# extra:
+#   version:
+#     provider: mike
+#     default: stable
+
+# ── Markdown extensions ────────────────────────────────────────────────────────
+# Verified against ../mkdocs-material/docs/reference/ — OSS only.
+markdown_extensions:
+  # ── Python Markdown built-ins ──────────────────────────────────────────────
+  - abbr                         # abbreviation tooltips
+  - admonition                   # !!! note / tip / warning / danger / etc.
+  - attr_list                    # {.class #id} attributes on any element
+  - def_list                     # definition lists (term : description)
+  - footnotes                    # [^1] footnote references
+  - md_in_html                   # Markdown inside raw HTML blocks
+  - tables                       # GFM-style tables
+  - toc:
+      permalink: true            # anchor links on every heading
+
+  # ── PyMdown Extensions ────────────────────────────────────────────────────
+  # Reference: ../mkdocs-material/docs/setup/extensions/python-markdown-extensions.md
+  - pymdownx.betterem            # smarter emphasis parsing
+  - pymdownx.caret               # ^^superscript^^
+  - pymdownx.critic              # {++ addition ++} {-- deletion --}
+  - pymdownx.details             # ???/!!! collapsible admonition blocks
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true      # line-number anchors in code blocks
+      line_spans: __span         # required for annotations
+      pygments_lang_class: true  # language class on <code> elements
+  - pymdownx.inlinehilite        # `#!python inline code` syntax highlighting
+  - pymdownx.keys                # ++ctrl+s++ keyboard key rendering
+  - pymdownx.mark                # ==highlighted text==
+  - pymdownx.smartsymbols        # (c) → © etc.
+  - pymdownx.snippets            # --8<-- file includes
+  - pymdownx.superfences:        # fenced code blocks inside admonitions, etc.
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true      # required — without this content tabs don't render
+  - pymdownx.tasklist:
+      custom_checkbox: true      # custom SVG checkboxes
+  - pymdownx.tilde               # ~~strikethrough~~ and ~subscript~
+
+# ── Navigation ────────────────────────────────────────────────────────────────
+# Add new sections here as workbenches are documented.
+# Each section folder must have an index.md for navigation.indexes to work.
+nav:
+  - Home: index.md
+  - Part Design:
+    - part-design/index.md
+    - Tools:
+      - part-design/tools/index.md
+  # Uncomment as these sections are written:
+  # - Sketcher:
+  #   - sketcher/index.md
+  # - Part:
+  #   - part/index.md
