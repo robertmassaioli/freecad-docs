@@ -349,9 +349,12 @@ Before merging any tool page, verify:
 
 ## 8. Open questions
 
-- **Screenshots:** Should every page require at least one screenshot? Proposal:
-  yes for the walkthrough, optional elsewhere. Screenshots age badly across
-  FreeCAD versions and need a clear versioning policy.
+- **Screenshots:** ~~Decide screenshot policy.~~ **Resolved — no screenshots.**
+  Screenshots will only be added if a fully automated capture pipeline (headless
+  FreeCAD + scripted scene setup) can be built. Manual screenshots are
+  permanently excluded because they age badly across FreeCAD versions and cannot
+  be regenerated cheaply. Do not add `![…](…)` image references to any tool page
+  until the automated pipeline exists.
 - **Video embeds:** Material for MkDocs supports embedding via custom HTML.
   Worth investigating for complex tools (Loft, Swept Pad, …).
 - **Insiders features:** ~~Decide whether to target OSS or Insiders.~~

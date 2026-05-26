@@ -77,7 +77,7 @@ of Material for MkDocs. Every feature listed here was verified against
 # Site metadata
 # ──────────────────────────────────────────────────────────────
 site_name: FreeCAD Documentation
-site_url: https://<github-username>.github.io/freecad-docs/
+site_url: https://robertmassaioli.github.io/freecad-docs/
 site_description: >-
   Community-maintained, in-depth documentation for FreeCAD —
   covering Sketcher, Part Design, and Part workbenches.
@@ -89,8 +89,8 @@ copyright: >-
 # ──────────────────────────────────────────────────────────────
 # Source repository (enables the edit-page pencil icon)
 # ──────────────────────────────────────────────────────────────
-repo_name: <github-username>/freecad-docs
-repo_url: https://github.com/<github-username>/freecad-docs
+repo_name: robertmassaioli/freecad-docs
+repo_url: https://github.com/robertmassaioli/freecad-docs
 edit_uri: edit/main/docs/
 
 # ──────────────────────────────────────────────────────────────
@@ -209,8 +209,9 @@ nav:
   #   - part/index.md
 ```
 
-> **Note:** Replace both occurrences of `<github-username>` with the actual
-> GitHub username / organisation before the first deploy.
+> **Note:** `<github-username>` has been resolved to `robertmassaioli`
+> (repo: https://github.com/robertmassaioli/freecad-docs,
+> site: https://robertmassaioli.github.io/freecad-docs/).
 
 ### 2.4 `docs/index.md` (landing page skeleton)
 
@@ -487,7 +488,14 @@ site. The site uses Material for MkDocs.
    (the tool inventory and slug table) to know the full list of tools and
    their target file names.
 
-3. Check the FreeCAD source for every tool before writing about it:
+3. Check the FreeCAD source for every tool before writing about it.
+   IMPORTANT: all source lookups must be based on tag 1.1.1 — the
+   authoritative FreeCAD version this documentation targets. Before
+   reading any source file, confirm the working tree is at that tag:
+     git -C ../FreeCAD describe --tags  # should output 1.1.1
+   If it is not, check out the tag before proceeding:
+     git -C ../FreeCAD checkout 1.1.1
+   Key source paths:
    - Command implementations: ../FreeCAD/src/Mod/PartDesign/Gui/Command*.cpp
    - App-layer feature code:  ../FreeCAD/src/Mod/PartDesign/App/
    - Property names / types:  search for PROPERTY_ADD or App::Property in
@@ -597,12 +605,12 @@ Work in this order to keep mkdocs.yml valid throughout:
 
 ---
 
-## 5. Decisions needed before execution
+## 5. Decisions (resolved)
 
-| # | Decision | Options | Recommendation |
-|---|----------|---------|----------------|
-| 1 | GitHub username / org for `site_url` and `repo_url` | User-supplied | Must fill in before first deploy |
-| 2 | CC licence vs full copyright | CC BY-SA 4.0 / MIT / no licence | **CC BY-SA 4.0** — consistent with FreeCAD wiki |
-| 3 | Screenshots policy | Required / optional / deferred | **Deferred** — add in a follow-up pass; they age across FreeCAD versions |
-| 4 | OSS Material vs Insiders | OSS (this proposal) / Insiders ($) | **OSS** for now; revisit if social cards or the typeset plugin are wanted |
-| 5 | FreeCAD version baseline | 0.21 / 1.0 | **1.0** — first stable release; add `!!! info` blocks for 0.21 differences if needed |
+| # | Decision | Resolution |
+|---|----------|-----------|
+| 1 | GitHub username / org | **`robertmassaioli`** — site at `https://robertmassaioli.github.io/freecad-docs/` |
+| 2 | CC licence vs full copyright | **CC BY-SA 4.0** — consistent with FreeCAD wiki |
+| 3 | Screenshots policy | **No screenshots for now.** May add later only if a fully automated capture pipeline can be built. Manual screenshots are permanently excluded. |
+| 4 | OSS Material vs Insiders | **OSS only** — see `site-generator-decision.md` |
+| 5 | FreeCAD version baseline | **1.1** (specifically tag `1.1.1`, the latest 1.1 patch release). Future versions documented in separate sessions. Source at `../FreeCAD/` should be checked out at tag `1.1.1` when sourcing facts. |
