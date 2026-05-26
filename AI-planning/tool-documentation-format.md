@@ -354,9 +354,12 @@ Before merging any tool page, verify:
   FreeCAD versions and need a clear versioning policy.
 - **Video embeds:** Material for MkDocs supports embedding via custom HTML.
   Worth investigating for complex tools (Loft, Swept Pad, …).
-- **Insiders features:** Some Material features require the paid Insiders build.
-  Need to decide before writing setup config whether we will target the OSS
-  release or Insiders.
+- **Insiders features:** ~~Decide whether to target OSS or Insiders.~~
+  **Resolved — OSS only.** Do not use any Insiders-gated feature. All
+  admonition types, content tabs, code blocks, mermaid diagrams, and the
+  full PyMdown extension suite are available in OSS and are sufficient for
+  every template section. See `AI-planning/site-generator-decision.md` for
+  the full analysis.
 - **Versioning:** FreeCAD 1.0 is the baseline. How do we handle 0.21 →
   1.0 behaviour differences? Suggest a `!!! info "Changed in 1.0"` admonition
   convention, to be formalised in a separate proposal.

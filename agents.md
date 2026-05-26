@@ -70,7 +70,28 @@ Key paths inside the Material for MkDocs checkout:
 
 ---
 
-## Site generator — Material for MkDocs
+## Site generator — Material for MkDocs (OSS release only)
+
+**This project targets the free, open-source release of Material for MkDocs
+exclusively. Do not use, recommend, or configure any Insiders-only feature.**
+
+If you are unsure whether a feature is OSS or Insiders, check
+`../mkdocs-material/docs/` — Insiders-only features are tagged with an
+`<!-- md:flag insiders -->` marker. When in doubt, do not use it.
+
+Key features that are **Insiders-only and must not be used**:
+- Social cards (`social` plugin)
+- Typeset plugin
+- Projects plugin
+- `navigation.instant.prefetch` (sub-feature of instant loading)
+
+Key features that **are available in OSS** and should be used freely:
+- Versioning via `mike` (version selector in the header)
+- All PyMdown markdown extensions
+- Full navigation system (tabs, sections, indexes, breadcrumbs)
+- Built-in search with highlighting and suggestions
+- Blog plugin
+- Dark / light mode palette toggle
 
 The site is built with `mkdocs` + the `material` theme.  
 Configuration lives in **`mkdocs.yml`** at the repo root.
