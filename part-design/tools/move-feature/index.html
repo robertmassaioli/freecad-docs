@@ -12,31 +12,27 @@
         <meta name="author" content="Robert Massaioli">
       
       
-        <link rel="canonical" href="https://robertmassaioli.github.io/freecad-docs/part-design/tools/">
+        <link rel="canonical" href="https://robertmassaioli.github.io/freecad-docs/part-design/tools/move-feature/">
       
       
-        <link rel="prev" href="../">
-      
-      
-        <link rel="next" href="additive-pipe/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Part Design Tools - FreeCAD Documentation</title>
+        <title>Move Object To… - FreeCAD Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#part-design-tools" class="md-skip">
+        <a href="#move-object-to" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="FreeCAD Documentation" class="md-header__button md-logo" aria-label="FreeCAD Documentation" data-md-component="logo">
+    <a href="../../.." title="FreeCAD Documentation" class="md-header__button md-logo" aria-label="FreeCAD Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Part Design Tools
+              Move Object To…
             
           </span>
         </div>
@@ -242,7 +238,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -259,13 +255,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -301,7 +295,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="FreeCAD Documentation" class="md-nav__button md-logo" aria-label="FreeCAD Documentation" data-md-component="logo">
+    <a href="../../.." title="FreeCAD Documentation" class="md-nav__button md-logo" aria-label="FreeCAD Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -331,7 +325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -355,8 +349,6 @@
       
   
   
-    
-  
   
   
     
@@ -372,23 +364,20 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -406,13 +395,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -429,8 +418,6 @@
                 
   
   
-    
-  
   
   
     
@@ -448,21 +435,18 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -480,13 +464,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -562,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="additive-pipe/" class="md-nav__link">
+      <a href="../additive-pipe/" class="md-nav__link">
         
   
   
@@ -633,10 +617,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Structure &amp; setup
+        Overview
       
     </span>
   </a>
@@ -644,10 +628,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additive" class="md-nav__link">
+  <a href="#intuition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Additive features
+        Intuition
       
     </span>
   </a>
@@ -655,10 +639,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#primitives-additive" class="md-nav__link">
+  <a href="#when-to-use-it" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Additive primitives
+        When to use it
       
     </span>
   </a>
@@ -666,10 +650,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#subtractive" class="md-nav__link">
+  <a href="#when-not-to-use-it" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Subtractive features
+        When NOT to use it
       
     </span>
   </a>
@@ -677,10 +661,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#primitives-subtractive" class="md-nav__link">
+  <a href="#step-by-step-walkthrough" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Subtractive primitives
+        Step-by-step walkthrough
       
     </span>
   </a>
@@ -688,10 +672,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dressup" class="md-nav__link">
+  <a href="#parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dress-up features
+        Parameters
       
     </span>
   </a>
@@ -699,10 +683,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transformations" class="md-nav__link">
+  <a href="#advanced-usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Transformation features
+        Advanced usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependency-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-features-that-are-not-yet-in-a-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving features that are not yet in a Body
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effect-on-the-source-bodys-tip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effect on the source Body's Tip
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-and-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common mistakes and pitfalls
       
     </span>
   </a>
@@ -710,32 +744,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#boolean" class="md-nav__link">
+  <a href="#python-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Boolean operations
+        Python API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimal-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal example
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#specialised" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#body-methods" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Specialised tools
+        Body methods
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#tree" class="md-nav__link">
+  <a href="#see-also" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tree management
+        See also
       
     </span>
   </a>
@@ -762,348 +813,212 @@
   
 
 
-<h1 id="part-design-tools">Part Design Tools<a class="headerlink" href="#part-design-tools" title="Permanent link">&para;</a></h1>
-<p>Complete reference index for all Part Design workbench tools, grouped by
-function. Each tool name links to its dedicated page.</p>
+<h1 id="move-object-to">Move Object To…<a class="headerlink" href="#move-object-to" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>In one sentence:</strong> Transfer one or more features from their current Body to a
+different Body in the same document.</p>
+</blockquote>
 <hr />
-<h2 id="structure">Structure &amp; setup<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h2>
-<p>Tools for creating the model container, attaching sketches, and defining
-reference geometry that other features snap to.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><strong>Workbench:</strong> Part Design · <strong>Menu:</strong> <em>(context menu only — right-click a feature in the model tree)</em><br />
+<strong>Toolbar:</strong> none · <strong>Shortcut:</strong> none</p>
+<p>"Move Feature" is the common informal name for the <strong>Move Object To…</strong> command
+(<code>PartDesign_MoveFeature</code>). It transfers the selected feature (or a selection of
+features) out of their source Body and into a target Body that you choose from a
+dialog. Any features that the selection depends on are automatically detected and
+moved along with it. After the move, the target Body is updated to include the
+transferred features at its Tip.</p>
+<hr />
+<h2 id="intuition">Intuition<a class="headerlink" href="#intuition" title="Permanent link">&para;</a></h2>
+<p>A Part Design document often contains multiple Bodies, each representing a
+distinct solid component. If you create a feature in the wrong Body by mistake,
+or if you later decide a feature belongs with a different component, Move Object
+To… lets you correct the assignment without deleting and recreating anything.</p>
+<p>Think of it as physically lifting a building block out of one stack and dropping
+it on top of another stack. The block itself does not change — its geometry,
+sketch constraints, and parameters are preserved — but it now contributes to the
+other Body's result.</p>
+<p>Because features often rely on other features (a Pad needs a Sketch; a Pocket
+may reference a datum plane), the command automatically collects all required
+dependencies and moves them as a group. If a dependency cannot be moved — for
+example, because it is referenced by features that are staying behind — the
+command refuses to proceed and shows an error.</p>
+<hr />
+<h2 id="when-to-use-it">When to use it<a class="headerlink" href="#when-to-use-it" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You accidentally created a feature inside the wrong Body and want to move it
+  to the correct one without rebuilding it.</li>
+<li>You are reorganising a multi-body assembly and need to redistribute features
+  between components.</li>
+<li>You created a sketch and a Pad in Body A as a quick test and now want that
+  solid to live in Body B.</li>
+<li>You are splitting a complex Body into two simpler Bodies and need to redistribute
+  the feature history.</li>
+</ul>
+<hr />
+<h2 id="when-not-to-use-it">When NOT to use it<a class="headerlink" href="#when-not-to-use-it" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>You want to reorder a feature within the same Body</strong> — use
+  <a href="../move-feature-in-tree/">Move Feature After…</a> instead; Move Object To… only
+  transfers between Bodies, not within one.</li>
+<li><strong>You want to change where the Body stops evaluating</strong> — use
+  <a href="../move-tip/">Set Tip</a> instead.</li>
+<li><strong>You want a copy rather than a move</strong> — use
+  <a href="duplicate-selection.md">Duplicate Object</a> to create a copy first, then move
+  the copy if needed.</li>
+<li><strong>The target document has no other Body</strong> — the command requires at least one
+  Body in the document other than the source Body. Create a second Body first.</li>
+</ul>
+<hr />
+<h2 id="step-by-step-walkthrough">Step-by-step walkthrough<a class="headerlink" href="#step-by-step-walkthrough" title="Permanent link">&para;</a></h2>
+<p><strong>Prerequisite:</strong> A document containing at least two Bodies. The feature you
+want to move must belong to one of them.</p>
+<ol>
+<li>
+<p>In the <strong>Model</strong> panel (model tree), select the feature or features you want
+   to move. You can select multiple features using Ctrl-click.</p>
+</li>
+<li>
+<p>Right-click the selection and choose <strong>Move Object To…</strong> from the context
+   menu.</p>
+<div class="admonition warning">
+<p class="admonition-title">Entry not visible</p>
+<p>The context menu entry only appears when right-clicking inside the model
+tree (<code>Tree</code> context), and only when the document contains at least one
+Body other than the source Body.</p>
+</div>
+</li>
+<li>
+<p>A dialog appears listing all valid target Bodies by name. Select the
+   destination Body and click <strong>OK</strong>.</p>
+</li>
+<li>
+<p>The features are removed from the source Body and added to the end of the
+   target Body (at the target Body's Tip).</p>
+</li>
+<li>
+<p>The 3-D viewport updates. The source Body loses the transferred geometry; the
+   target Body gains it.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If the moved features reference sketch planes or datum objects that must move
+with them, the command detects these dependencies automatically and includes
+them in the transfer. Review the target Body's feature tree after the move to
+confirm that all expected objects arrived.</p>
+</div>
+<hr />
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<p>Move Object To… has no task panel. After selecting features and invoking the
+command, a single dialog appears.</p>
 <table>
 <thead>
 <tr>
-<th>Tool</th>
+<th>Input</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="body/">Body</a></td>
-<td>Create a new Body — the mandatory container for all Part Design features</td>
-</tr>
-<tr>
-<td><a href="new-sketch/">New Sketch</a></td>
-<td>Create a sketch attached to a face or datum plane within the active Body</td>
-</tr>
-<tr>
-<td><a href="datum-plane/">Datum Plane</a></td>
-<td>Insert a parametric reference plane at any position or angle</td>
-</tr>
-<tr>
-<td><a href="datum-line/">Datum Line</a></td>
-<td>Insert a parametric reference line (axis)</td>
-</tr>
-<tr>
-<td><a href="datum-point.md">Datum Point</a></td>
-<td>Insert a parametric reference point</td>
-</tr>
-<tr>
-<td><a href="coordinate-system.md">Coordinate System</a></td>
-<td>Insert a local coordinate system (all three datum axes at once)</td>
-</tr>
-<tr>
-<td><a href="shape-binder/">Shape Binder</a></td>
-<td>Copy external geometry into the Body as a non-solid reference</td>
-</tr>
-<tr>
-<td><a href="sub-shape-binder/">Sub-Shape Binder</a></td>
-<td>Reference a specific face, edge, or vertex from another Body</td>
-</tr>
-<tr>
-<td><a href="clone.md">Clone</a></td>
-<td>Insert a linked clone of another Body</td>
+<td>Target Body (dropdown list)</td>
+<td>The Body to receive the features. Only Bodies in the same document that are not the source Body are listed.</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="additive">Additive features<a class="headerlink" href="#additive" title="Permanent link">&para;</a></h2>
-<p>Sketch-based tools that <strong>add</strong> material to the Body.</p>
+<h2 id="advanced-usage">Advanced usage<a class="headerlink" href="#advanced-usage" title="Permanent link">&para;</a></h2>
+<h3 id="dependency-resolution">Dependency resolution<a class="headerlink" href="#dependency-resolution" title="Permanent link">&para;</a></h3>
+<p>The command calls <code>PartDesignGui::collectMovableDependencies</code> to find all objects
+that the selected features depend on, then moves the entire set together. This
+means that if you select a Pad, its underlying Sketch is moved too (if the Sketch
+does not have other consumers that remain in the source Body).</p>
+<p>Before moving, each feature is checked with <code>PartDesignGui::isFeatureMovable</code>.
+If any selected feature has dependencies that remain in the source Body — for
+example, the sketch references a face of another feature that is staying behind
+— the move is blocked and a warning is shown.</p>
+<h3 id="moving-features-that-are-not-yet-in-a-body">Moving features that are not yet in a Body<a class="headerlink" href="#moving-features-that-are-not-yet-in-a-body" title="Permanent link">&para;</a></h3>
+<p>If a Part Design feature exists in the document but is not yet assigned to any
+Body, Move Object To… can still place it into a target Body. This is useful when
+features have been created or imported at document level without a Body context.</p>
+<h3 id="effect-on-the-source-bodys-tip">Effect on the source Body's Tip<a class="headerlink" href="#effect-on-the-source-bodys-tip" title="Permanent link">&para;</a></h3>
+<p>If the moved feature was the Tip of the source Body, the source Body's Tip is
+updated automatically to the preceding feature. The exact new Tip depends on the
+Body's internal order after the removal.</p>
+<hr />
+<h2 id="common-mistakes-and-pitfalls">Common mistakes and pitfalls<a class="headerlink" href="#common-mistakes-and-pitfalls" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Features cannot be moved — dependencies in the source body</p>
+<p><strong>Cause:</strong> At least one selected feature references geometry that belongs to
+a feature remaining in the source Body (e.g. a Pocket sketched on a face of
+a Pad that is not being moved).<br />
+<strong>Fix:</strong> Either include all dependent features in the selection, or
+restructure the sketch to reference a datum plane instead of a body face
+before moving.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Only features of a single source body can be moved</p>
+<p><strong>Cause:</strong> The selection includes features from more than one Body.<br />
+<strong>Fix:</strong> Make a separate Move Object To… operation for each source Body.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">There are no other bodies to move to</p>
+<p><strong>Cause:</strong> The document contains only one Body.<br />
+<strong>Fix:</strong> Create a second Body (Part Design → Body) before invoking Move
+Object To….</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Sketch plane references broken after the move</p>
+<p><strong>Cause:</strong> The sketch was attached to a face of the source Body, and that
+reference no longer exists in the target Body.<br />
+<strong>Fix:</strong> After the move, edit the affected sketch and reattach it to a datum
+plane or a face of the target Body.</p>
+</div>
+<hr />
+<h2 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">&para;</a></h2>
+<p>Move Object To… is implemented by calling <code>removeObjects</code> on the source Body and
+<code>addObjects</code> on the target Body. There is no dedicated Python function for the
+move operation — you call these Body methods directly.</p>
+<h3 id="minimal-example">Minimal example<a class="headerlink" href="#minimal-example" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">FreeCAD</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">App</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">doc</span> <span class="o">=</span> <span class="n">App</span><span class="o">.</span><span class="n">activeDocument</span><span class="p">()</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">source_body</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">getObject</span><span class="p">(</span><span class="s2">&quot;Body&quot;</span><span class="p">)</span>   <span class="c1"># replace with your source Body name</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">target_body</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">getObject</span><span class="p">(</span><span class="s2">&quot;Body001&quot;</span><span class="p">)</span>  <span class="c1"># replace with your target Body name</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Move a single feature</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">feature</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">getObject</span><span class="p">(</span><span class="s2">&quot;Pad&quot;</span><span class="p">)</span>  <span class="c1"># replace with your feature name</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">source_body</span><span class="o">.</span><span class="n">removeObjects</span><span class="p">([</span><span class="n">feature</span><span class="p">])</span>  <span class="c1"># TODO: verify method name is removeObjects</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">target_body</span><span class="o">.</span><span class="n">addObjects</span><span class="p">([</span><span class="n">feature</span><span class="p">])</span>     <span class="c1"># TODO: verify method name is addObjects</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">doc</span><span class="o">.</span><span class="n">recompute</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="body-methods">Body methods<a class="headerlink" href="#body-methods" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Tool</th>
+<th>Method</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="pad/">Pad</a></td>
-<td>Extrude a closed sketch perpendicular to its plane to create a solid</td>
+<td><code>removeObjects(features)</code></td>
+<td>Remove a list of feature objects from the Body's group. The features are not deleted from the document. <!-- TODO: verify exact signature --></td>
 </tr>
 <tr>
-<td><a href="revolution/">Revolution</a></td>
-<td>Revolve a sketch profile around an axis to create a solid of revolution</td>
-</tr>
-<tr>
-<td><a href="additive-loft/">Additive Loft</a></td>
-<td>Blend through two or more sketch profiles to create a smooth solid</td>
-</tr>
-<tr>
-<td><a href="additive-pipe/">Additive Pipe</a></td>
-<td>Sweep a sketch profile along a path curve</td>
-</tr>
-<tr>
-<td><a href="additive-helix/">Additive Helix</a></td>
-<td>Sweep a sketch profile along a helical path</td>
+<td><code>addObjects(features)</code></td>
+<td>Add a list of feature objects to the Body. They are inserted at the Body's current Tip position. <!-- TODO: verify exact signature --></td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="primitives-additive">Additive primitives<a class="headerlink" href="#primitives-additive" title="Permanent link">&para;</a></h2>
-<p>Insert parametric solid shapes without a sketch, adding material to the Body.</p>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="additive-box/">Additive Box</a></td>
-<td>Add a rectangular box</td>
-</tr>
-<tr>
-<td><a href="additive-cylinder/">Additive Cylinder</a></td>
-<td>Add a cylinder</td>
-</tr>
-<tr>
-<td><a href="additive-sphere/">Additive Sphere</a></td>
-<td>Add a sphere</td>
-</tr>
-<tr>
-<td><a href="additive-cone/">Additive Cone</a></td>
-<td>Add a cone or truncated cone</td>
-</tr>
-<tr>
-<td><a href="additive-ellipsoid/">Additive Ellipsoid</a></td>
-<td>Add an ellipsoid</td>
-</tr>
-<tr>
-<td><a href="additive-torus/">Additive Torus</a></td>
-<td>Add a torus (donut shape)</td>
-</tr>
-<tr>
-<td><a href="additive-prism/">Additive Prism</a></td>
-<td>Add a regular polygonal prism</td>
-</tr>
-<tr>
-<td><a href="additive-wedge/">Additive Wedge</a></td>
-<td>Add a wedge (parametric tapered box)</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="subtractive">Subtractive features<a class="headerlink" href="#subtractive" title="Permanent link">&para;</a></h2>
-<p>Sketch-based tools that <strong>remove</strong> material from the Body.</p>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="pocket/">Pocket</a></td>
-<td>Extrude a cut into the solid — the inverse of Pad</td>
-</tr>
-<tr>
-<td><a href="groove/">Groove</a></td>
-<td>Revolve a cut around an axis — the inverse of Revolution</td>
-</tr>
-<tr>
-<td><a href="hole/">Hole</a></td>
-<td>Create an engineered hole with optional thread, counterbore, or countersink</td>
-</tr>
-<tr>
-<td><a href="subtractive-loft/">Subtractive Loft</a></td>
-<td>Blend-cut through two or more sketch profiles</td>
-</tr>
-<tr>
-<td><a href="subtractive-pipe/">Subtractive Pipe</a></td>
-<td>Sweep a cut along a path curve</td>
-</tr>
-<tr>
-<td><a href="subtractive-helix/">Subtractive Helix</a></td>
-<td>Sweep a cut along a helical path</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="primitives-subtractive">Subtractive primitives<a class="headerlink" href="#primitives-subtractive" title="Permanent link">&para;</a></h2>
-<p>Insert parametric solid shapes that <strong>remove</strong> material from the Body.</p>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="subtractive-box/">Subtractive Box</a></td>
-<td>Remove a rectangular box</td>
-</tr>
-<tr>
-<td><a href="subtractive-cylinder/">Subtractive Cylinder</a></td>
-<td>Remove a cylinder</td>
-</tr>
-<tr>
-<td><a href="subtractive-sphere/">Subtractive Sphere</a></td>
-<td>Remove a sphere</td>
-</tr>
-<tr>
-<td><a href="subtractive-cone/">Subtractive Cone</a></td>
-<td>Remove a cone or truncated cone</td>
-</tr>
-<tr>
-<td><a href="subtractive-ellipsoid/">Subtractive Ellipsoid</a></td>
-<td>Remove an ellipsoid</td>
-</tr>
-<tr>
-<td><a href="subtractive-torus/">Subtractive Torus</a></td>
-<td>Remove a torus</td>
-</tr>
-<tr>
-<td><a href="subtractive-prism/">Subtractive Prism</a></td>
-<td>Remove a regular polygonal prism</td>
-</tr>
-<tr>
-<td><a href="subtractive-wedge/">Subtractive Wedge</a></td>
-<td>Remove a wedge</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="dressup">Dress-up features<a class="headerlink" href="#dressup" title="Permanent link">&para;</a></h2>
-<p>Apply finishing operations to edges and faces of an existing solid.</p>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="fillet/">Fillet</a></td>
-<td>Round selected edges with a constant or variable radius</td>
-</tr>
-<tr>
-<td><a href="chamfer/">Chamfer</a></td>
-<td>Bevel selected edges at a specified angle and distance</td>
-</tr>
-<tr>
-<td><a href="draft/">Draft</a></td>
-<td>Taper selected faces by a draft angle — useful for mould tooling</td>
-</tr>
-<tr>
-<td><a href="thickness.md">Thickness</a></td>
-<td>Hollow a solid to a uniform wall thickness by removing selected faces</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="transformations">Transformation features<a class="headerlink" href="#transformations" title="Permanent link">&para;</a></h2>
-<p>Repeat or mirror existing features without redrawing them.</p>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="mirrored/">Mirrored</a></td>
-<td>Mirror one or more features across a plane</td>
-</tr>
-<tr>
-<td><a href="linear-pattern/">Linear Pattern</a></td>
-<td>Repeat features in a straight line with a fixed spacing</td>
-</tr>
-<tr>
-<td><a href="polar-pattern/">Polar Pattern</a></td>
-<td>Repeat features in a circular array around an axis</td>
-</tr>
-<tr>
-<td><a href="multi-transform.md">Multi-Transform</a></td>
-<td>Combine multiple transformation types into a single compound pattern</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="boolean">Boolean operations<a class="headerlink" href="#boolean" title="Permanent link">&para;</a></h2>
-<p>Combine multiple Bodies using Boolean set operations.</p>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="boolean/">Boolean</a></td>
-<td>Union, subtract, or intersect two Bodies</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="specialised">Specialised tools<a class="headerlink" href="#specialised" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="involute-gear/">Involute Gear</a></td>
-<td>Generate a parametric involute gear profile sketch</td>
-</tr>
-<tr>
-<td><a href="sprocket.md">Sprocket</a></td>
-<td>Generate a parametric sprocket profile sketch</td>
-</tr>
-<tr>
-<td><a href="wizard-shaft.md">Shaft Wizard</a></td>
-<td>Interactive wizard for designing stepped shafts</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="tree">Tree management<a class="headerlink" href="#tree" title="Permanent link">&para;</a></h2>
-<p>UI operations for reorganising the feature tree. These are workflow tools, not
-modelling features; they do not change the final shape, only the tree structure.</p>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="move-tip/">Move Tip</a></td>
-<td>Set the active Tip to any feature in the tree</td>
-</tr>
-<tr>
-<td><a href="move-feature/">Move Feature</a></td>
-<td>Move a feature to a different Body</td>
-</tr>
-<tr>
-<td><a href="move-feature-in-tree/">Move Feature in Tree</a></td>
-<td>Reorder a feature within the same Body's tree</td>
-</tr>
-<tr>
-<td><a href="duplicate-selection.md">Duplicate Selection</a></td>
-<td>Duplicate the selected feature(s) within the Body</td>
-</tr>
-</tbody>
-</table>
+<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../move-feature-in-tree/">Move Feature After…</a> — reorder a feature within the same Body</li>
+<li><a href="../move-tip/">Set Tip</a> — change which feature is the active endpoint of a Body</li>
+<li><a href="duplicate-selection.md">Duplicate Object</a> — copy a feature rather than moving it</li>
+<li><a href="../concepts/body-and-origin.md">Body and Origin</a> — how features are organised within a Body</li>
+</ul>
 
 
 
@@ -1135,44 +1050,6 @@ modelling features; they do not change the final shape, only the tree structure.
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Part Design Workbench">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Part Design Workbench
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="additive-pipe/" class="md-footer__link md-footer__link--next" aria-label="Next: Additive Pipe">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Additive Pipe
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1203,10 +1080,10 @@ modelling features; they do not change the final shape, only the tree structure.
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

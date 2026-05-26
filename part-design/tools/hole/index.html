@@ -1,0 +1,1666 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="In-depth documentation for FreeCAD — covering Part Design, Sketcher, and Part workbenches. Accurate for FreeCAD 1.1.">
+      
+      
+        <meta name="author" content="Robert Massaioli">
+      
+      
+        <link rel="canonical" href="https://robertmassaioli.github.io/freecad-docs/part-design/tools/hole/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Hole - FreeCAD Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hole" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="FreeCAD Documentation" class="md-header__button md-logo" aria-label="FreeCAD Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FreeCAD Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hole
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/robertmassaioli/freecad-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    robertmassaioli/freecad-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part Design
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FreeCAD Documentation" class="md-nav__button md-logo" aria-label="FreeCAD Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FreeCAD Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/robertmassaioli/freecad-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    robertmassaioli/freecad-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part Design
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additive Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additive Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additive-pipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additive Pipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intuition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to use it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-not-to-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When NOT to use it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-step walkthrough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profile-and-geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profile and geometry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hole-cut-head-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hole cut / head dimensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drill-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drill point
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#depth-and-taper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Depth and taper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threading-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threading section
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-many-holes-in-one-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating many holes in one operation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modeled-threads-for-fea-and-presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modeled threads for FEA and presentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixing-head-types-with-standard-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mixing head types with standard sizes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tapered-holes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tapered holes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-and-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common mistakes and pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimal-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-an-m6-tapped-hole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting up an M6 tapped hole
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="hole">Hole<a class="headerlink" href="#hole" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>In one sentence:</strong> Cut a standards-aware cylindrical hole into a Body, with
+built-in support for threads, countersinks, counterbores, and drill-point
+geometry in one unified tool.</p>
+</blockquote>
+<hr />
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><strong>Workbench:</strong> Part Design · <strong>Menu:</strong> Part Design → Subtractive Features → Hole<br />
+<strong>Toolbar:</strong> Part Design Modeling Features · <strong>Shortcut:</strong> none</p>
+<p>Hole is Part Design's most feature-rich subtractive operation. Given a sketch
+containing one or more circles (or points), it drills matching holes into the
+Body — optionally with threads, a countersink or counterbore recess for a screw
+head, a drill-point cone at the bottom, or a taper along the wall. All thread
+geometry follows published fastener standards (ISO metric, UNC, UNF, UNEF, BSW,
+BSP, NPT, and others), so you never need to look up tap-drill diameters or
+counterbore dimensions manually.</p>
+<hr />
+<h2 id="intuition">Intuition<a class="headerlink" href="#intuition" title="Permanent link">&para;</a></h2>
+<p>Think of the Hole tool as a CNC drilling and tapping cycle packed into a single
+dialog. A machinist drilling a hole for an M6 socket-head cap screw must choose:
+the tap-drill diameter (5 mm), the counterbore diameter for the screw head, the
+counterbore depth, and the thread depth. The Hole tool automates all of those
+choices the moment you pick <code>ISOMetricProfile</code> and <code>M6x1.0</code> — the rest of the
+fields fill in with ISO-standard values that you can override.</p>
+<p>The sketch driving the hole carries the <em>position</em> of each hole centre. The
+Hole task panel carries every other dimension. One hole feature can produce
+dozens of identical holes simultaneously: FreeCAD finds every circle (or point)
+in the sketch and cuts a hole at each one.</p>
+<p>A subtlety that confuses new users: the <em>hole depth</em> and the <em>thread depth</em> are
+controlled separately. You can have a 20 mm deep hole with only 15 mm of thread,
+which is the normal engineering practice (partial-thread blind hole). The
+<code>Thread Depth Type</code> dropdown controls this relationship — setting it to <code>Hole
+Depth</code> makes the thread run the full depth; <code>Dimension</code> lets you set an
+independent thread depth; <code>Tapped (DIN76)</code> adds a DIN 76 thread run-out
+allowance automatically.</p>
+<hr />
+<h2 id="when-to-use-it">When to use it<a class="headerlink" href="#when-to-use-it" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You need a bolt or screw to thread into the part, and you want the correct
+  tap-drill diameter and thread class selected according to an industry standard.</li>
+<li>You are preparing a clearance hole for a fastener to pass through, and you
+  want a correctly sized counterbore or countersink for the screw head.</li>
+<li>You need several identical holes placed at multiple positions defined by a
+  sketch (one Hole feature can create all of them at once).</li>
+<li>You want the 3-D model to show an accurate helical thread form for technical
+  presentation or FEA (enable <code>Modeled thread</code>).</li>
+<li>You need a non-standard simple cylindrical blind or through hole of a given
+  diameter — the tool works without any thread standard selected.</li>
+</ul>
+<hr />
+<h2 id="when-not-to-use-it">When NOT to use it<a class="headerlink" href="#when-not-to-use-it" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>The opening is not a circular hole</strong> — use <a href="../pocket/">Pocket</a> for
+  rectangular, slotted, or other non-circular cutouts.</li>
+<li><strong>You need a rotationally tapered pipe thread (NPT or BSP taper)</strong> — the Hole
+  tool can size the hole for those standards, but does not generate a tapered
+  bore geometry; model the taper manually with <a href="../revolution/">Revolution</a> or a
+  tapered Pocket.</li>
+<li><strong>You need a partial-sphere or non-cylindrical recessed seat</strong> — use a
+  <a href="../pocket/">Pocket</a> with the appropriate sketch profile instead.</li>
+<li><strong>The hole axis is not perpendicular to a planar face</strong> — Hole always drills
+  perpendicular to the attachment plane of its sketch. For angled holes, tilt the
+  datum plane and attach the sketch to that.</li>
+</ul>
+<hr />
+<h2 id="step-by-step-walkthrough">Step-by-step walkthrough<a class="headerlink" href="#step-by-step-walkthrough" title="Permanent link">&para;</a></h2>
+<p><strong>Prerequisites:</strong> An active Body with at least one solid feature (e.g. a Pad or
+an Additive Box) and a face to drill into.</p>
+<ol>
+<li>
+<p><strong>Create the position sketch.</strong> Select a planar face of the Body, then open
+   <strong>Sketch → New Sketch</strong>. Draw one circle for each hole position. The circle's
+   radius is ignored by the Hole tool (the task panel controls diameter), but
+   placing a circle rather than a point allows the Hole tool to read the sketch
+   by default. Fully constrain all centres. Close the Sketcher.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you prefer to mark hole centres with sketch points instead of circles,
+set <strong>Base profile types</strong> to <code>Points, circles and arcs</code> or <code>Points</code> in
+the task panel after activating the Hole tool.</p>
+</div>
+</li>
+<li>
+<p><strong>Activate the Hole tool.</strong> Open <strong>Part Design → Subtractive Features → Hole</strong>,
+   or click the Hole icon in the toolbar. The <em>Hole Parameters</em> task panel opens.</p>
+</li>
+<li>
+<p><strong>Choose a thread standard.</strong> In the <strong>Standard</strong> dropdown, select the
+   fastener family: <code>None</code> for a plain dimensioned hole, or one of the thread
+   standards (e.g. <code>ISO metric regular</code>). When a standard is selected the
+   <strong>Size</strong> and <strong>Head type</strong> rows become active.</p>
+</li>
+<li>
+<p><strong>Select the size.</strong> Pick the nominal designation in the <strong>Size</strong> dropdown
+   (e.g. <code>M6x1.0</code>). FreeCAD sets the tap-drill diameter and thread pitch
+   automatically.</p>
+</li>
+<li>
+<p><strong>Set the head type.</strong> In <strong>Head type</strong> choose <code>None</code>, <code>Counterbore</code>,
+   <code>Countersink</code>, or <code>Counterdrill</code>. For a standard screw type (e.g. ISO 4762
+   socket-head cap screw) FreeCAD fills the counterbore or countersink dimensions
+   from the norm. Tick <strong>Custom head values</strong> to override those dimensions.</p>
+</li>
+<li>
+<p><strong>Set the depth type and depth.</strong> In <strong>Depth type</strong> choose <code>Dimension</code> for a
+   blind hole or <code>Through all</code> for a through-hole. If <code>Dimension</code> is selected,
+   enter the hole depth in the <strong>Depth</strong> field.</p>
+</li>
+<li>
+<p><strong>Configure the drill point.</strong> Tick <strong>Drill angle</strong> to add a conical drill-
+   point at the bottom (typical for twist-drilled blind holes). Enter the
+   included angle in <strong>Drill angle</strong> (118° is the standard for high-speed-steel
+   twist drills). Tick <strong>Include in depth</strong> if the drill-point cone should be
+   counted as part of the nominal hole depth.</p>
+</li>
+<li>
+<p><strong>Set the Threading section</strong> (visible when a thread standard is selected).</p>
+<p>a. In <strong>Hole type</strong>, choose <code>Clearance / Passthrough</code> for a non-threaded
+   clearance hole, <code>Tap drill (to be threaded)</code> for a tapped hole without
+   modelled thread geometry, or <code>Modeled thread</code> to generate a real 3-D helix.</p>
+<p>b. If threaded, choose <strong>Thread Depth Type</strong>: <code>Hole depth</code> (thread fills the
+   hole), <code>Dimension</code> (enter an explicit depth), or <code>Tapped (DIN76)</code> (DIN 76
+   runout allowance is added automatically).</p>
+<p>c. Select <strong>Class</strong> (tolerance class, e.g. <code>6H</code> for ISO metric).</p>
+<p>d. Select <strong>Direction</strong>: <code>Right hand</code> or <code>Left hand</code>.</p>
+<p>e. For modeled threads, optionally tick <strong>Custom Clearance</strong> and enter a
+   clearance offset to adjust thread fit for manufacturing tolerance.</p>
+</li>
+<li>
+<p><strong>Optionally enable Tapered.</strong> Tick <strong>Tapered</strong> and enter an angle in
+   <strong>Tapered angle</strong> to produce a conical hole wall. 90° means a straight
+   (non-tapered) hole, below 90° the hole narrows toward the bottom.</p>
+</li>
+<li>
+<p><strong>Click OK.</strong> FreeCAD cuts a hole at every circle (or point) in the sketch
+    and fuses the result into the Body. The model tree shows a single <code>Hole</code>
+    feature regardless of how many holes were created.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For a standard M6 tapped blind hole to accept a socket-head cap screw (ISO
+4762), select <code>ISO metric regular</code>, size <code>M6x1.0</code>, head type <code>Counterbore</code>,
+hole type <code>Tap drill (to be threaded)</code>, depth type <code>Dimension</code>, depth 15 mm,
+drill angle ticked at 118°. All counterbore dimensions are filled
+automatically from ISO 4762.</p>
+</div>
+<hr />
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<p>The task panel is organised into logical groups, documented below in the order
+they appear in the UI.</p>
+<h3 id="profile-and-geometry">Profile and geometry<a class="headerlink" href="#profile-and-geometry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base profile types</td>
+<td>Dropdown</td>
+<td><code>Circles and arcs</code></td>
+<td>Which sketch elements define hole centres. <code>Circles and arcs</code>: circles and arcs only. <code>Points, circles and arcs</code>: centres of all three. <code>Points</code>: sketch points only. Corresponds to <code>BaseProfileType</code> bitmask property.</td>
+</tr>
+<tr>
+<td>Standard</td>
+<td>Dropdown</td>
+<td><code>None</code></td>
+<td>Thread standard. <code>None</code>: plain dimensioned hole. Other values: <code>ISO metric regular</code> (ISOMetricProfile), <code>ISO metric fine</code> (ISOMetricFineProfile), <code>UTS coarse</code> (UNC), <code>UTS fine</code> (UNF), <code>UTS extra fine</code> (UNEF), <code>ANSI pipes</code> (NPT), <code>ISO/BSP pipes</code> (BSP), <code>BSW whitworth</code> (BSW), <code>BSF whitworth fine</code> (BSF), <code>ISO tyre valves</code> (ISOTyre).</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>Dropdown</td>
+<td><em>(first entry for selected standard)</em></td>
+<td>Nominal thread designation (e.g. <code>M6x1.0</code>, <code>#10</code>, <code>1/4</code>). Available options depend on the selected standard. Sets <code>ThreadSize</code>.</td>
+</tr>
+<tr>
+<td>Head type</td>
+<td>Dropdown</td>
+<td><code>None</code></td>
+<td>Cut type for the screw-head recess. <code>None</code>: plain hole, no recess. <code>Counterbore</code>: flat-bottomed cylindrical recess. <code>Countersink</code>: conical recess flush with the surface. <code>Counterdrill</code>: countersink with an additional flat cylindrical entry. Sets <code>HoleCutType</code>.</td>
+</tr>
+<tr>
+<td>Depth type</td>
+<td>Dropdown</td>
+<td><code>Dimension</code></td>
+<td>Controls how hole depth is determined. <code>Dimension</code>: use the explicit <strong>Depth</strong> value. <code>Through all</code>: hole penetrates the entire Body. Sets <code>DepthType</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hole-cut-head-dimensions">Hole cut / head dimensions<a class="headerlink" href="#hole-cut-head-dimensions" title="Permanent link">&para;</a></h3>
+<p>Visible when <strong>Head type</strong> is not <code>None</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Custom head values</td>
+<td>Checkbox</td>
+<td>off</td>
+<td>When ticked, enables manual editing of Head diameter and Head depth (and Countersink angle for countersink types). When unticked with a normed screw type selected, the fields show norm values and are read-only. Sets <code>HoleCutCustomValues</code>.</td>
+</tr>
+<tr>
+<td>Head diameter</td>
+<td>Length</td>
+<td><em>(from norm)</em></td>
+<td>Outer diameter of the counterbore or countersink. Must be larger than the hole diameter. Sets <code>HoleCutDiameter</code>.</td>
+</tr>
+<tr>
+<td>Head depth</td>
+<td>Length</td>
+<td><em>(from norm)</em></td>
+<td>For counterbore: depth of the flat-bottomed recess. For countersink: depth of the screw top below the surface. For counterdrill: depth of the cylindrical entry before the conical section. Sets <code>HoleCutDepth</code>.</td>
+</tr>
+<tr>
+<td>Countersink angle</td>
+<td>Angle</td>
+<td><code>90°</code></td>
+<td>Included angle of the countersink cone. Only active for <code>Countersink</code> and <code>Counterdrill</code> types. Sets <code>HoleCutCountersinkAngle</code>. Range: near 0° to near 180°.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drill-point">Drill point<a class="headerlink" href="#drill-point" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drill angle</td>
+<td>Checkbox</td>
+<td>off</td>
+<td>When ticked, adds a conical drill-point tip at the bottom of blind holes, as produced by a standard twist drill. Sets <code>DrillPoint</code> to <code>Angled</code>.</td>
+</tr>
+<tr>
+<td>Drill angle value</td>
+<td>Angle</td>
+<td><code>118°</code></td>
+<td>Included angle of the drill-point cone. 118° is standard for HSS twist drills; 135° is common for carbide. Sets <code>DrillPointAngle</code>. Active only when <code>Drill angle</code> is ticked.</td>
+</tr>
+<tr>
+<td>Include in depth</td>
+<td>Checkbox</td>
+<td>off</td>
+<td>When ticked, the drill-point cone geometry is included within the nominal hole depth (the full-diameter portion is shortened). When unticked, the depth value specifies the cylindrical portion and the cone adds extra depth beyond it. Sets <code>DrillForDepth</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="depth-and-taper">Depth and taper<a class="headerlink" href="#depth-and-taper" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Depth</td>
+<td>Length</td>
+<td><code>25 mm</code></td>
+<td>Hole depth when <strong>Depth type</strong> is <code>Dimension</code>. Not active for <code>Through all</code>. Sets <code>Depth</code>.</td>
+</tr>
+<tr>
+<td>Switch direction</td>
+<td>Checkbox</td>
+<td>off</td>
+<td>Reverses the drill direction (hole goes the opposite way through the solid). Sets <code>Reversed</code>.</td>
+</tr>
+<tr>
+<td>Tapered</td>
+<td>Checkbox</td>
+<td>off</td>
+<td>Enables a conical wall angle on the hole. Sets <code>Tapered</code>.</td>
+</tr>
+<tr>
+<td>Tapered angle</td>
+<td>Angle</td>
+<td><code>90°</code></td>
+<td>Half-included wall angle. <code>90°</code> = straight hole. Less than 90°: hole narrows toward the bottom (taper inward). Greater than 90°: hole widens toward the bottom (taper outward). Sets <code>TaperedAngle</code>. Active only when <code>Tapered</code> is ticked.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="threading-section">Threading section<a class="headerlink" href="#threading-section" title="Permanent link">&para;</a></h3>
+<p>Visible when <strong>Standard</strong> is not <code>None</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hole type</td>
+<td>Dropdown</td>
+<td><code>Clearance / Passthrough</code></td>
+<td><code>Clearance / Passthrough</code>: plain hole sized for the screw to pass through (uses <code>ThreadFit</code> clearance). <code>Tap drill (to be threaded)</code>: sized for tapping, no 3-D thread geometry. <code>Modeled thread</code>: generates a real helical thread form. Sets <code>Threaded</code> and <code>ModelThread</code>.</td>
+</tr>
+<tr>
+<td>Clearance</td>
+<td>Dropdown</td>
+<td><code>Medium</code> (ISO) / <code>Normal</code> (UTS)</td>
+<td>Clearance class for passthrough holes. ISO standards: <code>Fine</code>, <code>Medium</code>, <code>Coarse</code> (ISO 273). UTS standards: <code>Close</code>, <code>Normal</code>, <code>Loose</code> (ASME B18.2.8). Other: <code>Close</code>, <code>Normal</code>, <code>Wide</code>. Only visible when <code>Hole type</code> is <code>Clearance / Passthrough</code>. Sets <code>ThreadFit</code>.</td>
+</tr>
+<tr>
+<td>Update thread view</td>
+<td>Checkbox</td>
+<td>off</td>
+<td>When <code>Modeled thread</code> is active, recomputes the visible thread helix in real time as parameters change. Untick during editing to avoid slow recomputes.</td>
+</tr>
+<tr>
+<td>Class</td>
+<td>Dropdown</td>
+<td><em>(standard dependent)</em></td>
+<td>Thread tolerance class. ISO metric: <code>4G</code>, <code>4H</code>, <code>5G</code>, <code>5H</code>, <code>6G</code>, <code>6H</code>, <code>7G</code>, <code>7H</code>, <code>8G</code>, <code>8H</code>. UNC/UNF/UNEF: <code>1B</code>, <code>2B</code>, <code>3B</code>. BSW/BSF: <code>Medium</code>, <code>Normal</code>. Sets <code>ThreadClass</code>. Active only when threaded.</td>
+</tr>
+<tr>
+<td>Direction</td>
+<td>Radio</td>
+<td><code>Right hand</code></td>
+<td>Thread hand. <code>Right hand</code>: standard clockwise-tighten thread. <code>Left hand</code>: anti-clockwise. Sets <code>ThreadDirection</code>.</td>
+</tr>
+<tr>
+<td>Thread Depth Type</td>
+<td>Dropdown</td>
+<td><code>Hole depth</code></td>
+<td>How thread depth is calculated. <code>Hole depth</code>: thread extends the full hole depth. <code>Dimension</code>: use an explicit <code>Thread Depth</code> value. <code>Tapped (DIN76)</code>: adds DIN 76 thread run-out to the usable thread length. Sets <code>ThreadDepthType</code>.</td>
+</tr>
+<tr>
+<td>Thread Depth</td>
+<td>Length</td>
+<td><code>23.5 mm</code></td>
+<td>Explicit thread length. Only active when <code>Thread Depth Type</code> is <code>Dimension</code>. Sets <code>ThreadDepth</code>.</td>
+</tr>
+<tr>
+<td>Custom Clearance</td>
+<td>Checkbox + Length</td>
+<td>off / <code>0 mm</code></td>
+<td>When ticked, overrides the <code>ThreadClass</code> clearance with a manually entered value (can be negative to tighten fit). Only visible when <code>Modeled thread</code> is active. Sets <code>UseCustomThreadClearance</code> and <code>CustomThreadClearance</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="advanced-usage">Advanced usage<a class="headerlink" href="#advanced-usage" title="Permanent link">&para;</a></h2>
+<h3 id="creating-many-holes-in-one-operation">Creating many holes in one operation<a class="headerlink" href="#creating-many-holes-in-one-operation" title="Permanent link">&para;</a></h3>
+<p>Place all hole centre circles (or points) in a single sketch and run the Hole
+tool once. FreeCAD processes every circle or point in the profile and creates all
+holes simultaneously. This is significantly faster to model and easier to update
+parametrically than separate Pocket operations.</p>
+<p>For a bolt-circle pattern, use the Sketcher's circular-pattern constraint to
+place the centres, then apply Hole once. Changing the number of instances or the
+pitch-circle diameter updates all holes.</p>
+<h3 id="modeled-threads-for-fea-and-presentation">Modeled threads for FEA and presentation<a class="headerlink" href="#modeled-threads-for-fea-and-presentation" title="Permanent link">&para;</a></h3>
+<p>Enable <code>Modeled thread</code> when you need a real helical thread form in the geometry
+— for example, for FEA meshing or technical documentation renders. Note that
+computing the helical geometry is slow for deep holes; untick <strong>Update thread
+view</strong> while adjusting parameters and retick only to see the final result.</p>
+<p>The clearance between the modeled thread crest and the surrounding material can
+be adjusted per class (via <code>ThreadClass</code>) or overridden exactly with
+<code>CustomThreadClearance</code>. A value of <code>0 mm</code> gives nominal geometry; a small
+positive clearance simulates a real-world fit.</p>
+<h3 id="mixing-head-types-with-standard-sizes">Mixing head types with standard sizes<a class="headerlink" href="#mixing-head-types-with-standard-sizes" title="Permanent link">&para;</a></h3>
+<p>Selecting a screw standard automatically looks up the correct counterbore or
+countersink geometry for that size from the embedded ISO 4762 (socket-head cap
+screws) and ISO 10642 (flat-head screws) tables. If no norm entry exists for a
+given size, FreeCAD computes a geometric approximation and forces
+<code>Custom head values</code> to <code>true</code> so you can inspect and adjust the result.</p>
+<p>To use a non-standard head size (e.g. a flanged hex bolt that does not appear
+in the presets), select the nearest thread standard for the tap diameter, then
+tick <strong>Custom head values</strong> and enter the required head diameter and depth.</p>
+<h3 id="tapered-holes">Tapered holes<a class="headerlink" href="#tapered-holes" title="Permanent link">&para;</a></h3>
+<p>The <code>Tapered</code> option produces a conical bore wall, which is useful for press-fit
+pins, draft angles on moulded features, or matching a conical seat. The angle is
+defined relative to the bore axis: 90° gives a straight cylinder, less than 90°
+gives a truncated cone that narrows toward the bottom.</p>
+<p>Tapered holes can be combined with all other options (countersink, drill point,
+thread type) but the combination of a taper with <code>Modeled thread</code> is unusual and
+the resulting geometry should be checked carefully.</p>
+<hr />
+<h2 id="common-mistakes-and-pitfalls">Common mistakes and pitfalls<a class="headerlink" href="#common-mistakes-and-pitfalls" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Hole feature fails with 'No profile selected'</p>
+<p><strong>Cause:</strong> The sketch driving the Hole was not set as the <code>Profile</code> property,
+or the sketch contains no circles or points (and the default <code>Circles and arcs</code>
+profile mode found nothing to work with).<br />
+<strong>Fix:</strong> Select the Hole in the model tree and check that <code>Profile</code> points to
+the correct sketch. If the sketch uses only points, change <strong>Base profile
+types</strong> to <code>Points, circles and arcs</code> or <code>Points</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">All holes are drilled at the wrong depth or diameter</p>
+<p><strong>Cause:</strong> When <code>ThreadType</code> is not <code>None</code>, the <code>Diameter</code> field is driven by
+the selected thread size and is read-only. Setting it manually when the type
+is <code>None</code> and then switching to a standard silently overrides the value.<br />
+<strong>Fix:</strong> Set the thread standard first, then adjust size. If you need an
+exact non-standard diameter, keep <code>ThreadType</code> as <code>None</code> and enter the
+diameter directly.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Countersink/counterbore dimensions reset when size is changed</p>
+<p><strong>Cause:</strong> Changing <strong>Size</strong> resets <code>HoleCutCustomValues</code> to <code>false</code> and
+reloads the norm values from the embedded lookup table.<br />
+<strong>Fix:</strong> Make all custom head-dimension edits <em>after</em> locking in the size
+selection, then tick <strong>Custom head values</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Modeled thread is extremely slow to compute</p>
+<p><strong>Cause:</strong> Generating a real helical thread solid is OCCT-intensive and scales
+with thread depth. Long holes or very fine pitches can take tens of seconds.<br />
+<strong>Fix:</strong> Leave <strong>Update thread view</strong> unticked until you are satisfied with all
+other parameters, then tick it once to get the final geometry.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Hole does not appear even though the sketch is correct</p>
+<p><strong>Cause:</strong> The sketch is attached to a face but the hole direction points away
+from the solid (outside the material). This can happen if the sketch plane
+normal faces away from the Body.<br />
+<strong>Fix:</strong> Tick <strong>Switch direction</strong> in the task panel to reverse the drill
+direction, or flip the sketch's <code>MapReversed</code> property.</p>
+</div>
+<hr />
+<h2 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">&para;</a></h2>
+<h3 id="minimal-example">Minimal example<a class="headerlink" href="#minimal-example" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">FreeCAD</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">App</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Part</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">Sketcher</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># TODO: verify — tested against TestHole.py patterns in the FreeCAD source tree</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">doc</span> <span class="o">=</span> <span class="n">App</span><span class="o">.</span><span class="n">newDocument</span><span class="p">()</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Create a body and a base solid (10 × 10 × 10 mm box)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">body</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="s2">&quot;PartDesign::Body&quot;</span><span class="p">,</span> <span class="s2">&quot;Body&quot;</span><span class="p">)</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">box</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="s2">&quot;PartDesign::AdditiveBox&quot;</span><span class="p">,</span> <span class="s2">&quot;Box&quot;</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">box</span><span class="o">.</span><span class="n">Length</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">box</span><span class="o">.</span><span class="n">Width</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">box</span><span class="o">.</span><span class="n">Height</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">body</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">doc</span><span class="o">.</span><span class="n">recompute</span><span class="p">()</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># Sketch on the top face (XY plane, reversed so normal points down into the solid)</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">sketch</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="s2">&quot;Sketcher::SketchObject&quot;</span><span class="p">,</span> <span class="s2">&quot;HoleSketch&quot;</span><span class="p">)</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">sketch</span><span class="o">.</span><span class="n">AttachmentSupport</span> <span class="o">=</span> <span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">XY_Plane</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">])</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">sketch</span><span class="o">.</span><span class="n">MapMode</span> <span class="o">=</span> <span class="s2">&quot;FlatFace&quot;</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">sketch</span><span class="o">.</span><span class="n">MapReversed</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="n">body</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="n">sketch</span><span class="p">)</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="c1"># Add a circle at (-5, 5) — radius value is ignored by the Hole tool</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="n">sketch</span><span class="o">.</span><span class="n">addGeometry</span><span class="p">(</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    <span class="n">Part</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">App</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">App</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span> <span class="kc">False</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="p">)</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="n">doc</span><span class="o">.</span><span class="n">recompute</span><span class="p">()</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="c1"># Create the Hole feature</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="n">hole</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="s2">&quot;PartDesign::Hole&quot;</span><span class="p">,</span> <span class="s2">&quot;Hole&quot;</span><span class="p">)</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="n">hole</span><span class="o">.</span><span class="n">Profile</span> <span class="o">=</span> <span class="n">sketch</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="n">body</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="n">hole</span><span class="p">)</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="c1"># Plain 6 mm blind hole, 8 mm deep, flat drill point</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="n">hole</span><span class="o">.</span><span class="n">ThreadType</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c1"># None — no thread standard</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="n">hole</span><span class="o">.</span><span class="n">Diameter</span> <span class="o">=</span> <span class="mf">6.0</span>          <span class="c1"># mm</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="n">hole</span><span class="o">.</span><span class="n">DepthType</span> <span class="o">=</span> <span class="mi">0</span>           <span class="c1"># 0 = Dimension, 1 = ThroughAll</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="n">hole</span><span class="o">.</span><span class="n">Depth</span> <span class="o">=</span> <span class="mf">8.0</span>             <span class="c1"># mm</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="n">hole</span><span class="o">.</span><span class="n">HoleCutType</span> <span class="o">=</span> <span class="mi">0</span>         <span class="c1"># 0 = None, 1 = Counterbore, 2 = Countersink, 3 = Counterdrill</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="n">hole</span><span class="o">.</span><span class="n">DrillPoint</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c1"># 0 = Flat, 1 = Angled</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="n">hole</span><span class="o">.</span><span class="n">Tapered</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="n">doc</span><span class="o">.</span><span class="n">recompute</span><span class="p">()</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hole volume removed: </span><span class="si">{</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">hole</span><span class="o">.</span><span class="n">Shape</span><span class="o">.</span><span class="n">Volume</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> mm³&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="setting-up-an-m6-tapped-hole">Setting up an M6 tapped hole<a class="headerlink" href="#setting-up-an-m6-tapped-hole" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Continuing from the minimal example above (hole object already exists)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">hole</span><span class="o">.</span><span class="n">ThreadType</span> <span class="o">=</span> <span class="mi">1</span>          <span class="c1"># ISOMetricProfile</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">hole</span><span class="o">.</span><span class="n">ThreadSize</span> <span class="o">=</span> <span class="mi">14</span>         <span class="c1"># M6x1.0 — index in the ISOMetricProfile list</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">hole</span><span class="o">.</span><span class="n">Threaded</span> <span class="o">=</span> <span class="kc">True</span>         <span class="c1"># tap drill / threaded</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">hole</span><span class="o">.</span><span class="n">ModelThread</span> <span class="o">=</span> <span class="kc">False</span>     <span class="c1"># no helical geometry (faster)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">hole</span><span class="o">.</span><span class="n">ThreadClass</span> <span class="o">=</span> <span class="mi">5</span>         <span class="c1"># 6H  (index 5 in ThreadClass_ISOmetric_Enums)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">hole</span><span class="o">.</span><span class="n">ThreadDirection</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># Right hand</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">hole</span><span class="o">.</span><span class="n">HoleCutType</span> <span class="o">=</span> <span class="mi">1</span>         <span class="c1"># Counterbore</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">hole</span><span class="o">.</span><span class="n">DepthType</span> <span class="o">=</span> <span class="mi">0</span>           <span class="c1"># Dimension</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">hole</span><span class="o">.</span><span class="n">Depth</span> <span class="o">=</span> <span class="mf">15.0</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">hole</span><span class="o">.</span><span class="n">DrillPoint</span> <span class="o">=</span> <span class="mi">1</span>          <span class="c1"># Angled</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">hole</span><span class="o">.</span><span class="n">DrillPointAngle</span> <span class="o">=</span> <span class="mf">118.0</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">hole</span><span class="o">.</span><span class="n">DrillForDepth</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">hole</span><span class="o">.</span><span class="n">ThreadDepthType</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># Hole depth (thread fills full depth)</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="n">doc</span><span class="o">.</span><span class="n">recompute</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="feature-properties">Feature properties<a class="headerlink" href="#feature-properties" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Profile</code></td>
+<td><code>App::PropertyLinkSub</code></td>
+<td>—</td>
+<td>The driving sketch containing circles or points.</td>
+</tr>
+<tr>
+<td><code>BaseProfileType</code></td>
+<td><code>App::PropertyInteger</code></td>
+<td><code>6</code> (OnCirclesArcs)</td>
+<td>Bitmask: <code>1</code> = OnPoints, <code>2</code> = OnCircles, <code>4</code> = OnArcs.</td>
+</tr>
+<tr>
+<td><code>ThreadType</code></td>
+<td><code>App::PropertyEnumeration</code></td>
+<td><code>"None"</code></td>
+<td>Thread standard. Enum values: <code>"None"</code>, <code>"ISOMetricProfile"</code>, <code>"ISOMetricFineProfile"</code>, <code>"UNC"</code>, <code>"UNF"</code>, <code>"UNEF"</code>, <code>"NPT"</code>, <code>"BSP"</code>, <code>"BSW"</code>, <code>"BSF"</code>, <code>"ISOTyre"</code>.</td>
+</tr>
+<tr>
+<td><code>ThreadSize</code></td>
+<td><code>App::PropertyEnumeration</code></td>
+<td><code>"---"</code></td>
+<td>Nominal designation within the selected standard (e.g. <code>"M6x1.0"</code>). Enum list resets when <code>ThreadType</code> changes.</td>
+</tr>
+<tr>
+<td><code>Threaded</code></td>
+<td><code>App::PropertyBool</code></td>
+<td><code>False</code></td>
+<td><code>True</code> if the hole is tapped (sets diameter to tap-drill size).</td>
+</tr>
+<tr>
+<td><code>ModelThread</code></td>
+<td><code>App::PropertyBool</code></td>
+<td><code>False</code></td>
+<td><code>True</code> to generate a real helical thread solid.</td>
+</tr>
+<tr>
+<td><code>ThreadClass</code></td>
+<td><code>App::PropertyEnumeration</code></td>
+<td><code>"None"</code></td>
+<td>Tolerance class. Options depend on <code>ThreadType</code>.</td>
+</tr>
+<tr>
+<td><code>ThreadFit</code></td>
+<td><code>App::PropertyEnumeration</code></td>
+<td><code>"Medium"</code></td>
+<td>Clearance fit for passthrough holes. Options depend on <code>ThreadType</code>.</td>
+</tr>
+<tr>
+<td><code>ThreadDirection</code></td>
+<td><code>App::PropertyEnumeration</code></td>
+<td><code>"Right"</code></td>
+<td><code>"Right"</code> or <code>"Left"</code>.</td>
+</tr>
+<tr>
+<td><code>ThreadDepthType</code></td>
+<td><code>App::PropertyEnumeration</code></td>
+<td><code>"Hole Depth"</code></td>
+<td><code>"Hole Depth"</code>, <code>"Dimension"</code>, or <code>"Tapped (DIN76)"</code>.</td>
+</tr>
+<tr>
+<td><code>ThreadDepth</code></td>
+<td><code>App::PropertyLength</code></td>
+<td><code>23.5 mm</code></td>
+<td>Explicit thread depth used when <code>ThreadDepthType</code> is <code>"Dimension"</code>.</td>
+</tr>
+<tr>
+<td><code>ThreadPitch</code></td>
+<td><code>App::PropertyLength</code></td>
+<td><em>(from standard)</em></td>
+<td>Thread pitch; set automatically from the selected size.</td>
+</tr>
+<tr>
+<td><code>ThreadDiameter</code></td>
+<td><code>App::PropertyLength</code></td>
+<td><code>0 mm</code></td>
+<td>Read-only. Thread major diameter as derived from the selected standard and size.</td>
+</tr>
+<tr>
+<td><code>UseCustomThreadClearance</code></td>
+<td><code>App::PropertyBool</code></td>
+<td><code>False</code></td>
+<td>Override thread clearance with <code>CustomThreadClearance</code>.</td>
+</tr>
+<tr>
+<td><code>CustomThreadClearance</code></td>
+<td><code>App::PropertyLength</code></td>
+<td><code>0 mm</code></td>
+<td>Manual clearance offset. Active only when <code>UseCustomThreadClearance</code> is <code>True</code>.</td>
+</tr>
+<tr>
+<td><code>Diameter</code></td>
+<td><code>App::PropertyLength</code></td>
+<td><code>6 mm</code></td>
+<td>Hole diameter. Manually editable only when <code>ThreadType</code> is <code>"None"</code>; otherwise set by the standard.</td>
+</tr>
+<tr>
+<td><code>HoleCutType</code></td>
+<td><code>App::PropertyEnumeration</code></td>
+<td><code>"None"</code></td>
+<td><code>"None"</code>, <code>"Counterbore"</code>, <code>"Countersink"</code>, <code>"Counterdrill"</code>.</td>
+</tr>
+<tr>
+<td><code>HoleCutCustomValues</code></td>
+<td><code>App::PropertyBool</code></td>
+<td><code>False</code></td>
+<td>Enable manual override of head dimensions.</td>
+</tr>
+<tr>
+<td><code>HoleCutDiameter</code></td>
+<td><code>App::PropertyLength</code></td>
+<td><code>0 mm</code></td>
+<td>Outer diameter of the head recess.</td>
+</tr>
+<tr>
+<td><code>HoleCutDepth</code></td>
+<td><code>App::PropertyLength</code></td>
+<td><code>0 mm</code></td>
+<td>Depth of the head recess.</td>
+</tr>
+<tr>
+<td><code>HoleCutCountersinkAngle</code></td>
+<td><code>App::PropertyAngle</code></td>
+<td><code>90°</code></td>
+<td>Included angle of the countersink or counterdrill cone.</td>
+</tr>
+<tr>
+<td><code>DepthType</code></td>
+<td><code>App::PropertyEnumeration</code></td>
+<td><code>"Dimension"</code></td>
+<td><code>"Dimension"</code> or <code>"ThroughAll"</code>.</td>
+</tr>
+<tr>
+<td><code>Depth</code></td>
+<td><code>App::PropertyLength</code></td>
+<td><code>25 mm</code></td>
+<td>Hole depth when <code>DepthType</code> is <code>"Dimension"</code>.</td>
+</tr>
+<tr>
+<td><code>DrillPoint</code></td>
+<td><code>App::PropertyEnumeration</code></td>
+<td><code>"Angled"</code></td>
+<td><code>"Flat"</code> or <code>"Angled"</code>.</td>
+</tr>
+<tr>
+<td><code>DrillPointAngle</code></td>
+<td><code>App::PropertyAngle</code></td>
+<td><code>118°</code></td>
+<td>Included angle of the drill-point cone. Active when <code>DrillPoint</code> is <code>"Angled"</code>.</td>
+</tr>
+<tr>
+<td><code>DrillForDepth</code></td>
+<td><code>App::PropertyBool</code></td>
+<td><code>False</code></td>
+<td>Include the drill-point cone within the nominal <code>Depth</code>.</td>
+</tr>
+<tr>
+<td><code>Tapered</code></td>
+<td><code>App::PropertyBool</code></td>
+<td><code>False</code></td>
+<td>Enable a conical wall angle.</td>
+</tr>
+<tr>
+<td><code>TaperedAngle</code></td>
+<td><code>App::PropertyAngle</code></td>
+<td><code>90°</code></td>
+<td>Wall cone half-angle. <code>90°</code> = straight; <code>&lt; 90°</code> = narrows; <code>&gt; 90°</code> = widens.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../pocket/">Pocket</a> — general subtractive extrusion for non-circular cutouts</li>
+<li><a href="../revolution/">Revolution</a> — remove material by revolving a profile, useful for conical bores</li>
+<li><a href="../subtractive-pipe/">Subtractive Pipe</a> — remove material along a swept path</li>
+<li><a href="../pad/">Pad</a> — add material by extrusion (the additive counterpart to Pocket)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

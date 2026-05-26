@@ -1,0 +1,1390 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="In-depth documentation for FreeCAD — covering Part Design, Sketcher, and Part workbenches. Accurate for FreeCAD 1.1.">
+      
+      
+        <meta name="author" content="Robert Massaioli">
+      
+      
+        <link rel="canonical" href="https://robertmassaioli.github.io/freecad-docs/part-design/tools/datum-plane/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Datum Plane - FreeCAD Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#datum-plane" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="FreeCAD Documentation" class="md-header__button md-logo" aria-label="FreeCAD Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FreeCAD Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Datum Plane
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/robertmassaioli/freecad-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    robertmassaioli/freecad-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part Design
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FreeCAD Documentation" class="md-nav__button md-logo" aria-label="FreeCAD Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FreeCAD Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/robertmassaioli/freecad-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    robertmassaioli/freecad-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part Design
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additive Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additive Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additive-pipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additive Pipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intuition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to use it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-not-to-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When NOT to use it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-step walkthrough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attachment-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attachment mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attachment-offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attachment Offset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-size-size-group-output-properties-not-editable-by-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual size (Size group — output properties, not editable by default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stacking-datum-planes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stacking datum planes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attaching-sketches-to-a-datum-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attaching sketches to a Datum Plane
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-datum-plane-as-a-mirror-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using a Datum Plane as a mirror plane
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-and-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common mistakes and pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimal-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="datum-plane">Datum Plane<a class="headerlink" href="#datum-plane" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>In one sentence:</strong> Create a parametric reference plane inside a Body that
+sketches and features can attach to.</p>
+</blockquote>
+<hr />
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><strong>Workbench:</strong> Part Design · <strong>Menu:</strong> none (toolbar only) <!-- TODO: verify — no explicit Part Design menu entry found in Workbench.cpp --><br />
+<strong>Toolbar:</strong> Part Design Helper Features → Create Datum (dropdown) · <strong>Shortcut:</strong> none</p>
+<p>A Datum Plane is an infinite, flat reference surface that lives inside a Part
+Design Body. It is not a solid feature — it adds no material and removes none.
+Its sole purpose is to give you a custom plane to sketch on, to mirror features
+across, or to use as a reference for attachments, when the Body's built-in XY,
+XZ, and YZ planes are not in the right position or orientation.</p>
+<hr />
+<h2 id="intuition">Intuition<a class="headerlink" href="#intuition" title="Permanent link">&para;</a></h2>
+<p>Think of a Datum Plane as a transparent piece of glass you can slide and tilt
+anywhere inside your model. Once placed, it behaves exactly like one of the
+Body's built-in origin planes: you can open a new sketch on it, attach another
+datum to it, or reference it in a pattern or mirror operation.</p>
+<p>The glass itself is infinite in extent — the small rectangle you see in the
+viewport is just a visual handle. What matters is the plane's <em>position</em> and
+<em>normal direction</em>, both of which are controlled by the references (support
+geometry) you choose.</p>
+<p>The positioning system is called <em>attachment</em>. You pick between one and four
+pieces of reference geometry (faces, edges, vertices, or other datums), choose
+an <em>attachment mode</em> that describes how the plane should relate to that geometry,
+and optionally add an <em>attachment offset</em> to nudge the result without breaking
+the parametric link.</p>
+<hr />
+<h2 id="when-to-use-it">When to use it<a class="headerlink" href="#when-to-use-it" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You need to sketch on a face that is not perpendicular to any of the three
+  origin planes (for example, an angled boss on an inclined face).</li>
+<li>You want to place a mirror plane at the midpoint of your solid, offset from
+  the origin.</li>
+<li>You need a plane that tracks a face of your model so that downstream features
+  stay in the right place as the model changes.</li>
+<li>You are building a family of parts and need a plane whose position is driven
+  by a named parameter (use <strong>Attachment Offset</strong> or attach to a sketch point
+  that is itself driven by a formula).</li>
+<li>You want to create a symmetric feature without sketching directly on the solid.</li>
+</ul>
+<hr />
+<h2 id="when-not-to-use-it">When NOT to use it<a class="headerlink" href="#when-not-to-use-it" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>You only need to reorient an existing sketch</strong> — use
+  <a href="../../sketcher/tools/map-sketch.md">Sketch → Map Sketch to Face</a> instead;
+  it repositions the sketch without creating a persistent datum object.</li>
+<li><strong>The plane is one of XY, XZ, or YZ</strong> — use the Body's built-in origin planes
+  directly; they are always available and require no extra steps.</li>
+<li><strong>You need a reference axis, not a plane</strong> — use
+  <a href="../datum-line/">Datum Line</a> instead.</li>
+<li><strong>You need a reference point</strong> — use <a href="datum-point.md">Datum Point</a> instead.</li>
+</ul>
+<hr />
+<h2 id="step-by-step-walkthrough">Step-by-step walkthrough<a class="headerlink" href="#step-by-step-walkthrough" title="Permanent link">&para;</a></h2>
+<p><strong>Prerequisites:</strong> An active Body must exist in the document.</p>
+<ol>
+<li>
+<p><strong>Activate the Body</strong> by double-clicking it in the model tree (it should
+   appear bold).</p>
+</li>
+<li>
+<p><strong>Launch the command.</strong> In the <em>Part Design Helper Features</em> toolbar, click
+   the <strong>Create Datum</strong> dropdown and choose <strong>Datum Plane</strong>. The task panel
+   opens immediately.</p>
+</li>
+<li>
+<p><strong>Select references.</strong> Click the <strong>Reference 1</strong> button in the task panel so
+   it turns blue, then click a face, edge, vertex, or existing datum in the
+   viewport or model tree. The reference name appears in the text field.
+   Repeat for up to three additional references if needed. The mode list updates
+   automatically to show only the attachment modes that are valid for the
+   references you have chosen.</p>
+<div class="admonition warning">
+<p class="admonition-title">No active Body</p>
+<p>If no Body is active, the command will show an error. Activate a Body
+before inserting any datum object.</p>
+</div>
+</li>
+<li>
+<p><strong>Choose an attachment mode.</strong> In the <em>Attachment mode</em> list, click the mode
+   that places the plane where you want it. FreeCAD highlights the best-matching
+   mode for your reference set automatically — you can leave the suggestion or
+   pick a different one.</p>
+</li>
+<li>
+<p><strong>Fine-tune with Attachment Offset.</strong> Under <em>Attachment Offset in its Local
+   Coordinate System</em>, enter translation (X/Y/Z) and rotation (around X/Y/Z)
+   values to shift or tilt the plane away from the raw attachment result without
+   losing the parametric link.</p>
+</li>
+<li>
+<p><strong>Flip if needed.</strong> Check <strong>Flip sides</strong> to reverse the plane's normal
+   direction (and mirror the offset).</p>
+</li>
+<li>
+<p><strong>Click OK.</strong> The Datum Plane appears in the model tree inside the Body. It
+   displays as a small, semi-transparent rectangle in the viewport. You can now
+   click it in the tree and open a new sketch on it.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Select a face on the solid <em>before</em> launching the command. FreeCAD
+pre-fills Reference 1 with that face and immediately suggests a valid mode,
+saving a click.</p>
+</div>
+<hr />
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<p>All controls are in the shared <em>Attachment</em> task panel.</p>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reference 1</td>
+<td>Object / sub-element link</td>
+<td>—</td>
+<td>First piece of support geometry. Can be a face, edge, vertex, sketch, datum, or the Body's origin planes.</td>
+</tr>
+<tr>
+<td>Reference 2</td>
+<td>Object / sub-element link</td>
+<td>—</td>
+<td>Optional second reference, required by some attachment modes.</td>
+</tr>
+<tr>
+<td>Reference 3</td>
+<td>Object / sub-element link</td>
+<td>—</td>
+<td>Optional third reference.</td>
+</tr>
+<tr>
+<td>Reference 4</td>
+<td>Object / sub-element link</td>
+<td>—</td>
+<td>Optional fourth reference.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="attachment-mode">Attachment mode<a class="headerlink" href="#attachment-mode" title="Permanent link">&para;</a></h3>
+<p>The list shows only the modes that are valid for the currently selected
+references. The most useful modes for a Datum Plane are:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>References needed</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Deactivated</strong></td>
+<td>—</td>
+<td>Plane is not repositioned; stays where it was last placed.</td>
+</tr>
+<tr>
+<td><strong>Object XY / XZ / YZ</strong></td>
+<td>Any object with a placement</td>
+<td>Aligns the plane to one of the reference object's own base planes.</td>
+</tr>
+<tr>
+<td><strong>Flat Face</strong></td>
+<td>1 flat face</td>
+<td>Aligns the plane to coincide with the selected flat face.</td>
+</tr>
+<tr>
+<td><strong>Tangent Plane</strong></td>
+<td>1 curved face + 1 vertex</td>
+<td>Places the plane tangent to the face at the vertex.</td>
+</tr>
+<tr>
+<td><strong>Normal to Edge</strong></td>
+<td>1 edge</td>
+<td>Places the plane perpendicular to the edge.</td>
+</tr>
+<tr>
+<td><strong>Three Points Plane</strong></td>
+<td>3 vertices</td>
+<td>Fits the plane through three chosen points.</td>
+</tr>
+<tr>
+<td><strong>Three Points Normal</strong></td>
+<td>3 vertices</td>
+<td>As above but normal faces away from the points.</td>
+</tr>
+<tr>
+<td><strong>Parallel Plane</strong></td>
+<td>1 face + 1 vertex</td>
+<td>Plane parallel to the face, passing through the vertex.</td>
+</tr>
+<tr>
+<td><strong>Frenet NB / TN / TB</strong></td>
+<td>1 curve</td>
+<td>Orients the plane using the Frenet–Serret frame of the curve.</td>
+</tr>
+<tr>
+<td><strong>Concentric</strong></td>
+<td>1 circle/arc</td>
+<td>Plane through the circle's centre, normal to its axis.</td>
+</tr>
+<tr>
+<td><strong>Inertial CS</strong></td>
+<td>1–4 any shapes</td>
+<td>Aligns the plane using the principal inertia axes of the selected geometry.</td>
+</tr>
+<tr>
+<td><strong>OZX / OZY / OXY / OXZ / OYZ / OYX</strong></td>
+<td>1 vertex + 1–2 edges/vertices</td>
+<td>Origin-at-vertex, axes defined by the remaining references.</td>
+</tr>
+<tr>
+<td><strong>Folding</strong></td>
+<td>4 lines</td>
+<td>Derives a crease plane from four coplanar lines.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="attachment-offset">Attachment Offset<a class="headerlink" href="#attachment-offset" title="Permanent link">&para;</a></h3>
+<p>Applied after the attachment mode positions the plane.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In X-direction</td>
+<td>Length</td>
+<td>0 mm</td>
+<td>Translate the plane along its local X axis.</td>
+</tr>
+<tr>
+<td>In Y-direction</td>
+<td>Length</td>
+<td>0 mm</td>
+<td>Translate the plane along its local Y axis.</td>
+</tr>
+<tr>
+<td>In Z-direction</td>
+<td>Length</td>
+<td>0 mm</td>
+<td>Translate the plane along its normal (local Z).</td>
+</tr>
+<tr>
+<td>Around X-axis</td>
+<td>Angle</td>
+<td>0°</td>
+<td>Rotate around the local X axis. Range −360° to 360°.</td>
+</tr>
+<tr>
+<td>Around Y-axis</td>
+<td>Angle</td>
+<td>0°</td>
+<td>Rotate around the local Y axis. Range −360° to 360°.</td>
+</tr>
+<tr>
+<td>Around Z-axis</td>
+<td>Angle</td>
+<td>0°</td>
+<td>Rotate around the local Z axis. Range −360° to 360°.</td>
+</tr>
+<tr>
+<td>Flip sides</td>
+<td>Bool</td>
+<td>Off</td>
+<td>Reverses the plane normal and offsets.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="visual-size-size-group-output-properties-not-editable-by-default">Visual size (Size group — output properties, not editable by default)<a class="headerlink" href="#visual-size-size-group-output-properties-not-editable-by-default" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ResizeMode</td>
+<td>Enum</td>
+<td><code>Automatic</code></td>
+<td><code>Automatic</code>: the viewport rectangle scales with the model. <code>Manual</code>: Length and Width become editable.</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>Length</td>
+<td>20 mm</td>
+<td>Visual length of the rectangle (output only when <code>Automatic</code>).</td>
+</tr>
+<tr>
+<td>Width</td>
+<td>Length</td>
+<td>20 mm</td>
+<td>Visual width of the rectangle (output only when <code>Automatic</code>).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="advanced-usage">Advanced usage<a class="headerlink" href="#advanced-usage" title="Permanent link">&para;</a></h2>
+<h3 id="stacking-datum-planes">Stacking datum planes<a class="headerlink" href="#stacking-datum-planes" title="Permanent link">&para;</a></h3>
+<p>A Datum Plane can reference another Datum Plane as its support. This lets you
+build chains: one plane is defined relative to a face, a second is offset from
+the first, a third is angled relative to the second. When the base face moves,
+all downstream planes update automatically.</p>
+<h3 id="attaching-sketches-to-a-datum-plane">Attaching sketches to a Datum Plane<a class="headerlink" href="#attaching-sketches-to-a-datum-plane" title="Permanent link">&para;</a></h3>
+<p>After creating a Datum Plane, right-click it in the model tree and choose
+<strong>New Sketch</strong> — or create a new sketch and use <strong>Sketch → Map Sketch to Face</strong>
+and click the datum plane. Either way, the sketch will be locked to the plane
+and will follow it if the plane's attachment updates.</p>
+<h3 id="using-a-datum-plane-as-a-mirror-plane">Using a Datum Plane as a mirror plane<a class="headerlink" href="#using-a-datum-plane-as-a-mirror-plane" title="Permanent link">&para;</a></h3>
+<p><strong>Part Design → Transformation Features → Mirrored</strong> accepts a Datum Plane as
+its mirror object. This lets you mirror patterns around a plane that tracks your
+geometry rather than a fixed origin plane.</p>
+<hr />
+<h2 id="common-mistakes-and-pitfalls">Common mistakes and pitfalls<a class="headerlink" href="#common-mistakes-and-pitfalls" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">No attachment mode compatible with the selected references</p>
+<p><strong>Cause:</strong> The references you selected do not satisfy any known attachment
+mode (e.g. three parallel edges — not enough constraints to define a unique
+plane).<br />
+<strong>Fix:</strong> Change or add references until at least one mode appears highlighted
+in the list. The status label at the top of the task panel indicates what the
+current selection can produce.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Datum Plane disappears or turns orange after model changes</p>
+<p><strong>Cause:</strong> One of the references (a face, edge, or vertex) was deleted or
+renamed by a topological change upstream. The attachment engine can no longer
+resolve the placement.<br />
+<strong>Fix:</strong> Open the Datum Plane's task panel and re-select the missing
+reference.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Sketch drifts after editing the Datum Plane's attachment</p>
+<p><strong>Cause:</strong> The sketch was created before the Datum Plane was repositioned.
+The sketch's attachment stores the Datum Plane object but not an updated
+transform.<br />
+<strong>Fix:</strong> Re-map the sketch: right-click it → <strong>Attach Sketch</strong> → click the
+Datum Plane again.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">OK is clicked but the mode is Deactivated</p>
+<p><strong>Cause:</strong> FreeCAD warned that no mode fits the references, and you chose to
+continue. The plane will not update as the model changes.<br />
+<strong>Fix:</strong> Re-open the task panel and select references that enable at least
+one attachment mode.</p>
+</div>
+<hr />
+<h2 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">&para;</a></h2>
+<h3 id="minimal-example">Minimal example<a class="headerlink" href="#minimal-example" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">FreeCAD</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">App</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">PartDesign</span>  <span class="c1"># noqa: F401 — registers PartDesign types</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">doc</span> <span class="o">=</span> <span class="n">App</span><span class="o">.</span><span class="n">newDocument</span><span class="p">()</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Create a Body</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">body</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="s2">&quot;PartDesign::Body&quot;</span><span class="p">,</span> <span class="s2">&quot;Body&quot;</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Create a Datum Plane attached to the Body&#39;s XY origin plane</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">plane</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="s2">&quot;PartDesign::Plane&quot;</span><span class="p">,</span> <span class="s2">&quot;DatumPlane&quot;</span><span class="p">)</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">body</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="n">plane</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">plane</span><span class="o">.</span><span class="n">AttachmentSupport</span> <span class="o">=</span> <span class="p">[(</span><span class="n">doc</span><span class="o">.</span><span class="n">XY_Plane</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span>  <span class="c1"># Body origin XY plane</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">plane</span><span class="o">.</span><span class="n">MapMode</span> <span class="o">=</span> <span class="s2">&quot;FlatFace&quot;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">doc</span><span class="o">.</span><span class="n">recompute</span><span class="p">()</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">plane</span><span class="o">.</span><span class="n">Placement</span><span class="p">)</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Expected: Placement [Pos=(0,0,0), Yaw-Pitch-Roll=(0,0,0)]</span>
+</span></code></pre></div>
+<p>To offset the plane 10 mm in its normal direction:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">FreeCAD</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">App</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">plane</span><span class="o">.</span><span class="n">AttachmentOffset</span> <span class="o">=</span> <span class="n">App</span><span class="o">.</span><span class="n">Placement</span><span class="p">(</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">App</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>   <span class="c1"># 10 mm along Z (the plane&#39;s normal)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">App</span><span class="o">.</span><span class="n">Rotation</span><span class="p">()</span>          <span class="c1"># no rotation</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">doc</span><span class="o">.</span><span class="n">recompute</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="key-properties">Key properties<a class="headerlink" href="#key-properties" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AttachmentSupport</code></td>
+<td><code>App::PropertyLinkSubList</code></td>
+<td>List of (object, sub-element) pairs used as attachment references.</td>
+</tr>
+<tr>
+<td><code>MapMode</code></td>
+<td><code>App::PropertyEnumeration</code></td>
+<td>Active attachment mode string, e.g. <code>"FlatFace"</code>, <code>"ObjectXY"</code>. <code>"Deactivated"</code> means no attachment.</td>
+</tr>
+<tr>
+<td><code>MapReversed</code></td>
+<td><code>App::PropertyBool</code></td>
+<td>When <code>True</code>, the plane normal is flipped and the X axis is mirrored.</td>
+</tr>
+<tr>
+<td><code>AttachmentOffset</code></td>
+<td><code>App::PropertyPlacement</code></td>
+<td>Additional placement applied on top of the attachment result.</td>
+</tr>
+<tr>
+<td><code>MapPathParameter</code></td>
+<td><code>App::PropertyFloat</code></td>
+<td>Parameter <code>[0, 1]</code> along a curve for the <code>NormalToEdge</code> mode.</td>
+</tr>
+<tr>
+<td><code>ResizeMode</code></td>
+<td><code>App::PropertyEnumeration</code></td>
+<td><code>"Automatic"</code> or <code>"Manual"</code> (visual size only; does not affect geometry).</td>
+</tr>
+<tr>
+<td><code>Length</code></td>
+<td><code>App::PropertyLength</code></td>
+<td>Visual rectangle length in mm. Read-only when <code>ResizeMode</code> is <code>"Automatic"</code>. Default <code>20</code>.</td>
+</tr>
+<tr>
+<td><code>Width</code></td>
+<td><code>App::PropertyLength</code></td>
+<td>Visual rectangle width in mm. Read-only when <code>ResizeMode</code> is <code>"Automatic"</code>. Default <code>20</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../datum-line/">Datum Line</a> — reference axis, same attachment system</li>
+<li><a href="datum-point.md">Datum Point</a> — reference point, same attachment system</li>
+<li><a href="coordinate-system.md">Local Coordinate System</a> — reference frame with all three axes</li>
+<li><a href="../additive-pipe/">Additive Pipe</a> — sweep along a path; datum planes are often used as section planes</li>
+<li><a href="../concepts/body-and-origin.md">Body and Origin</a> — the built-in XY, XZ, YZ planes</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

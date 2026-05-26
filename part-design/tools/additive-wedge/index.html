@@ -1,0 +1,1261 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="In-depth documentation for FreeCAD — covering Part Design, Sketcher, and Part workbenches. Accurate for FreeCAD 1.1.">
+      
+      
+        <meta name="author" content="Robert Massaioli">
+      
+      
+        <link rel="canonical" href="https://robertmassaioli.github.io/freecad-docs/part-design/tools/additive-wedge/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Additive Wedge - FreeCAD Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#additive-wedge" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="FreeCAD Documentation" class="md-header__button md-logo" aria-label="FreeCAD Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FreeCAD Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Additive Wedge
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/robertmassaioli/freecad-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    robertmassaioli/freecad-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part Design
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FreeCAD Documentation" class="md-nav__button md-logo" aria-label="FreeCAD Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FreeCAD Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/robertmassaioli/freecad-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    robertmassaioli/freecad-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part Design
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additive Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additive Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additive-pipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additive Pipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intuition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to use it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-not-to-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When NOT to use it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-step walkthrough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-rectangular-pyramid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a rectangular pyramid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-offset-ramp-door-stop-wedge-shim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating an offset ramp (door stop / wedge shim)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asymmetric-taper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asymmetric taper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#negative-coordinates-are-allowed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Negative coordinates are allowed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-and-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common mistakes and pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimal-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-simple-ramp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a simple ramp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resulting-feature-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resulting feature properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="additive-wedge">Additive Wedge<a class="headerlink" href="#additive-wedge" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>In one sentence:</strong> Add a solid wedge — a box whose top face is independently
+sized and offset from its bottom face — directly into a Part Design Body, fusing
+it with any existing material.</p>
+</blockquote>
+<hr />
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><strong>Workbench:</strong> Part Design · <strong>Menu:</strong> Part Design → Additive Primitives → Additive Wedge<br />
+<strong>Toolbar:</strong> Part Design Modeling Primitives · <strong>Shortcut:</strong> none</p>
+<p>Additive Wedge inserts a parametric wedge solid into the active Body and fuses it
+with the existing shape. A wedge is defined by two rectangular faces — one at the
+bottom (Y = Ymin) and one at the top (Y = Ymax) — each described by its own X and
+Z extents. Because the top face can be independently sized and horizontally offset
+from the bottom face, you can create classic tapered wedges, ramps, pyramids with
+rectangular bases, and any general linear solid that transitions between two
+rectangles. No sketch is required.</p>
+<hr />
+<h2 id="intuition">Intuition<a class="headerlink" href="#intuition" title="Permanent link">&para;</a></h2>
+<p>Think of a wedge as a box that you can squash, tilt, or taper. The bottom face
+sits in the XZ-plane at height Y = Ymin. It spans from <code>Xmin</code> to <code>Xmax</code> along X,
+and from <code>Zmin</code> to <code>Zmax</code> along Z. The top face sits at Y = Ymax. It has its own
+independent extents: <code>X2min</code> to <code>X2max</code> along X, and <code>Z2min</code> to <code>Z2max</code> along Z.</p>
+<p>Connecting these two rectangles with straight lines gives you the wedge solid.
+If the top face is the same size and position as the bottom face you get a
+rectangular box. If the top face is smaller and centred you get a truncated
+pyramid. If the top face is zero-sized (X2min = X2max and Z2min = Z2max at the
+same value) you get a full pyramid that comes to an edge or a point at the top.</p>
+<p>Because the top face can be offset horizontally — not just scaled — you can
+produce ramp shapes where the top face is the same size as the bottom but slid
+along X or Z. This gives a true wedge/ramp, useful for support brackets, cam
+shapes, and tapered spacers.</p>
+<p>The ten parameters fully describe the geometry; there is no redundancy. All
+coordinates are in the local coordinate system of the Body origin.</p>
+<hr />
+<h2 id="when-to-use-it">When to use it<a class="headerlink" href="#when-to-use-it" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You need a simple ramp, wedge, or shim — a shape that is thick on one side and
+  thin on the other.</li>
+<li>You are modelling a door stop, tapered cleat, bracket gusset, or any part with
+  a linearly varying profile.</li>
+<li>You need a pyramid or truncated pyramid (frustum with a rectangular base) as a
+  design element or stand-alone solid.</li>
+<li>You want to block in a draft-angle tapered boss without constructing a lofted
+  sketch, and the cross-section transitions between two rectangles.</li>
+</ul>
+<hr />
+<h2 id="when-not-to-use-it">When NOT to use it<a class="headerlink" href="#when-not-to-use-it" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>The cross-section is not a rectangle at both ends</strong> — use
+  <a href="../additive-loft/">Additive Loft</a> with custom profile sketches for arbitrary
+  transitions.</li>
+<li><strong>You need a wedge-shaped cut rather than added material</strong> — use
+  <a href="../subtractive-wedge/">Subtractive Wedge</a>, which has identical parameters but
+  removes material.</li>
+<li><strong>The taper is conical or elliptical</strong> — use <a href="../additive-cone/">Additive Cone</a>
+  or <a href="../additive-ellipsoid/">Additive Ellipsoid</a> for rounded shapes.</li>
+<li><strong>The dimensions are driven by relations to other geometry</strong> — if you need a
+  wedge whose dimensions are derived from existing faces or edges, a lofted profile
+  sketch with constraints will be more maintainable.</li>
+</ul>
+<hr />
+<h2 id="step-by-step-walkthrough">Step-by-step walkthrough<a class="headerlink" href="#step-by-step-walkthrough" title="Permanent link">&para;</a></h2>
+<p><strong>Prerequisites:</strong> An active Part Design Body in the document. The wedge can be
+the very first feature (no existing solid required).</p>
+<ol>
+<li>
+<p>Open or create a document and ensure a Body is active. FreeCAD will offer to
+   create one automatically if none exists.</p>
+</li>
+<li>
+<p>Activate <strong>Part Design → Additive Primitives → Additive Wedge</strong> from the menu,
+   or click its icon in the Part Design Modeling Primitives toolbar (expand the
+   drop-down if needed).</p>
+</li>
+<li>
+<p>The task panel opens. Understand the coordinate layout before entering values:</p>
+</li>
+<li><strong>Bottom face</strong> (at Y = Ymin): spans <code>Xmin</code> → <code>Xmax</code> in X and <code>Zmin</code> → <code>Zmax</code> in Z.</li>
+<li>
+<p><strong>Top face</strong> (at Y = Ymax): spans <code>X2min</code> → <code>X2max</code> in X and <code>Z2min</code> → <code>Z2max</code> in Z.</p>
+</li>
+<li>
+<p>Set the <strong>bottom face</strong> extents: enter values for <code>Xmin</code>, <code>Xmax</code>, <code>Zmin</code>,
+   and <code>Zmax</code>. For a bottom face that starts at the origin with dimensions
+   10 × 10 mm, use Xmin=0, Xmax=10, Zmin=0, Zmax=10.</p>
+</li>
+<li>
+<p>Set the <strong>height</strong>: enter <code>Ymin</code> (typically 0) and <code>Ymax</code> (the height of the
+   wedge, e.g. 10).</p>
+</li>
+<li>
+<p>Set the <strong>top face</strong> extents: enter <code>X2min</code>, <code>X2max</code>, <code>Z2min</code>, and <code>Z2max</code>.
+   For a simple tapered ramp, set these to the same X range but shift them along
+   Z: e.g. X2min=2, X2max=8, Z2min=2, Z2max=8 produces a centred truncated
+   pyramid.</p>
+</li>
+<li>
+<p>Click <strong>OK</strong>. The wedge is fused into the Body and appears in the model tree
+   as <strong>Wedge</strong>.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To create a classic right-angled ramp (thick at one end, pointed at the other),
+set the top face to a zero-width edge: X2min = X2max (e.g., both = 5 for the
+midpoint). The wedge will have a sharp ridge at the top instead of a flat face.</p>
+</div>
+<hr />
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<p>All ten parameters are <code>App::PropertyDistance</code> values in mm.</p>
+<p>The bottom face is at Y = Ymin. The top face is at Y = Ymax.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Xmin</td>
+<td>Distance (mm)</td>
+<td>0.0</td>
+<td>Minimum X coordinate of the <strong>bottom</strong> face.</td>
+</tr>
+<tr>
+<td>Ymin</td>
+<td>Distance (mm)</td>
+<td>0.0</td>
+<td>Y coordinate of the bottom face (the base height).</td>
+</tr>
+<tr>
+<td>Zmin</td>
+<td>Distance (mm)</td>
+<td>0.0</td>
+<td>Minimum Z coordinate of the <strong>bottom</strong> face.</td>
+</tr>
+<tr>
+<td>X2min</td>
+<td>Distance (mm)</td>
+<td>2.0</td>
+<td>Minimum X coordinate of the <strong>top</strong> face. Can be offset from Xmin.</td>
+</tr>
+<tr>
+<td>Z2min</td>
+<td>Distance (mm)</td>
+<td>2.0</td>
+<td>Minimum Z coordinate of the <strong>top</strong> face. Can be offset from Zmin.</td>
+</tr>
+<tr>
+<td>Xmax</td>
+<td>Distance (mm)</td>
+<td>10.0</td>
+<td>Maximum X coordinate of the <strong>bottom</strong> face. Must satisfy Xmax &gt; Xmin.</td>
+</tr>
+<tr>
+<td>Ymax</td>
+<td>Distance (mm)</td>
+<td>10.0</td>
+<td>Y coordinate of the top face (the top height). Must satisfy Ymax &gt; Ymin.</td>
+</tr>
+<tr>
+<td>Zmax</td>
+<td>Distance (mm)</td>
+<td>10.0</td>
+<td>Maximum Z coordinate of the <strong>bottom</strong> face. Must satisfy Zmax &gt; Zmin.</td>
+</tr>
+<tr>
+<td>X2max</td>
+<td>Distance (mm)</td>
+<td>8.0</td>
+<td>Maximum X coordinate of the <strong>top</strong> face. X2max ≥ X2min required (can equal X2min for a ridge).</td>
+</tr>
+<tr>
+<td>Z2max</td>
+<td>Distance (mm)</td>
+<td>8.0</td>
+<td>Maximum Z coordinate of the <strong>top</strong> face. Z2max ≥ Z2min required.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Validity constraints enforced by FreeCAD:</strong></p>
+<ul>
+<li><code>Xmax − Xmin &gt; 0</code> (bottom face has positive X width)</li>
+<li><code>Ymax − Ymin &gt; 0</code> (wedge has positive height)</li>
+<li><code>Zmax − Zmin &gt; 0</code> (bottom face has positive Z depth)</li>
+<li><code>X2max − X2min ≥ 0</code> (top face X span can be zero — a ridge — but not negative)</li>
+<li><code>Z2max − Z2min ≥ 0</code> (top face Z span can be zero but not negative)</li>
+</ul>
+<hr />
+<h2 id="advanced-usage">Advanced usage<a class="headerlink" href="#advanced-usage" title="Permanent link">&para;</a></h2>
+<h3 id="creating-a-rectangular-pyramid">Creating a rectangular pyramid<a class="headerlink" href="#creating-a-rectangular-pyramid" title="Permanent link">&para;</a></h3>
+<p>Set the top face to a degenerate point or zero-size rectangle:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>X2min = X2max = (Xmin + Xmax) / 2
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Z2min = Z2max = (Zmin + Zmax) / 2
+</span></code></pre></div>
+This produces a four-sided pyramid with a rectangular base. For a perfect square
+pyramid, ensure the bottom face is a square (Xmax − Xmin = Zmax − Zmin) and place
+the apex at the centre.</p>
+<h3 id="creating-an-offset-ramp-door-stop-wedge-shim">Creating an offset ramp (door stop / wedge shim)<a class="headerlink" href="#creating-an-offset-ramp-door-stop-wedge-shim" title="Permanent link">&para;</a></h3>
+<p>A true ramp with the top face shifted along Z:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Xmin=0, Xmax=10, Zmin=0, Zmax=10, Ymin=0, Ymax=10
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>X2min=0, X2max=10, Z2min=5, Z2max=10
+</span></code></pre></div>
+Here the bottom face is a 10×10 square and the top face is a 10×5 rectangle
+shifted to the far Z end, producing a ramp that is flat on one side and sloped on
+the other.</p>
+<h3 id="asymmetric-taper">Asymmetric taper<a class="headerlink" href="#asymmetric-taper" title="Permanent link">&para;</a></h3>
+<p>Both the X and Z dimensions of the top face can be independently offset and sized,
+allowing a trapezoid frustum where each pair of opposite faces has a different taper
+angle. This level of control is unique to the Wedge — no other primitive exposes
+this many independent face coordinates.</p>
+<h3 id="negative-coordinates-are-allowed">Negative coordinates are allowed<a class="headerlink" href="#negative-coordinates-are-allowed" title="Permanent link">&para;</a></h3>
+<p>All ten parameters accept negative values. Setting Xmin &lt; 0 and Xmax &gt; 0 places
+the bottom face straddling the Y-axis, which is useful when you want the wedge
+centred on a symmetry plane.</p>
+<hr />
+<h2 id="common-mistakes-and-pitfalls">Common mistakes and pitfalls<a class="headerlink" href="#common-mistakes-and-pitfalls" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Error: delta x of wedge too small</p>
+<p><strong>Cause:</strong> <code>Xmax − Xmin</code> is zero or negative — the bottom face has no width.<br />
+<strong>Fix:</strong> Ensure <code>Xmax &gt; Xmin</code>. The same logic applies to Y (Ymax &gt; Ymin) and
+Z (Zmax &gt; Zmin).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Error: delta x2 of wedge is negative</p>
+<p><strong>Cause:</strong> <code>X2max &lt; X2min</code> — the top face X range is inverted.<br />
+<strong>Fix:</strong> Ensure <code>X2max ≥ X2min</code> and <code>Z2max ≥ Z2min</code>. A value of zero is
+allowed (produces a top edge or point); negative values are not.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Wedge looks like a box — the taper has no visible effect</p>
+<p><strong>Cause:</strong> The top face (X2 and Z2) extents happen to match the bottom face
+extents exactly.<br />
+<strong>Fix:</strong> Change X2min, X2max, Z2min, or Z2max to values different from their
+bottom-face counterparts to introduce the taper.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Unexpected shape after changing only one parameter</p>
+<p><strong>Cause:</strong> Because all ten parameters interact to define both face rectangles
+and the height, changing one (for example, Xmax) without adjusting the top
+face (X2max) may produce an asymmetric shape unintentionally.<br />
+<strong>Fix:</strong> Think in terms of "what should the bottom face look like" and "what
+should the top face look like" and set all four bounds for each face
+independently.</p>
+</div>
+<hr />
+<h2 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">&para;</a></h2>
+<h3 id="minimal-example">Minimal example<a class="headerlink" href="#minimal-example" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">FreeCAD</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">App</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">PartDesign</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">doc</span> <span class="o">=</span> <span class="n">App</span><span class="o">.</span><span class="n">newDocument</span><span class="p">()</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">body</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="s2">&quot;PartDesign::Body&quot;</span><span class="p">,</span> <span class="s2">&quot;Body&quot;</span><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">wedge</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="s2">&quot;PartDesign::AdditiveWedge&quot;</span><span class="p">,</span> <span class="s2">&quot;Wedge&quot;</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">body</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="n">wedge</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># Default wedge: bottom 10×10, top 6×6 (offset 2 on each side), height 10</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># Xmin=0, Ymin=0, Zmin=0, X2min=2, Z2min=2</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># Xmax=10, Ymax=10, Zmax=10, X2max=8, Z2max=8</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">doc</span><span class="o">.</span><span class="n">recompute</span><span class="p">()</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Volume: </span><span class="si">{</span><span class="n">wedge</span><span class="o">.</span><span class="n">Shape</span><span class="o">.</span><span class="n">Volume</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> mm³&quot;</span><span class="p">)</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c1"># TODO: verify computed volume</span>
+</span></code></pre></div>
+<h3 id="creating-a-simple-ramp">Creating a simple ramp<a class="headerlink" href="#creating-a-simple-ramp" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">wedge</span><span class="o">.</span><span class="n">Xmin</span>  <span class="o">=</span> <span class="mf">0.0</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">wedge</span><span class="o">.</span><span class="n">Xmax</span>  <span class="o">=</span> <span class="mf">20.0</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">wedge</span><span class="o">.</span><span class="n">Ymin</span>  <span class="o">=</span> <span class="mf">0.0</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">wedge</span><span class="o">.</span><span class="n">Ymax</span>  <span class="o">=</span> <span class="mf">5.0</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">wedge</span><span class="o">.</span><span class="n">Zmin</span>  <span class="o">=</span> <span class="mf">0.0</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">wedge</span><span class="o">.</span><span class="n">Zmax</span>  <span class="o">=</span> <span class="mf">10.0</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Top face: same X width, shifted to far Z edge (a ramp rising from Zmin to Zmax)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">wedge</span><span class="o">.</span><span class="n">X2min</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">wedge</span><span class="o">.</span><span class="n">X2max</span> <span class="o">=</span> <span class="mf">20.0</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">wedge</span><span class="o">.</span><span class="n">Z2min</span> <span class="o">=</span> <span class="mf">10.0</span>   <span class="c1"># top face collapses to a line at Zmax</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">wedge</span><span class="o">.</span><span class="n">Z2max</span> <span class="o">=</span> <span class="mf">10.0</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">doc</span><span class="o">.</span><span class="n">recompute</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="resulting-feature-properties">Resulting feature properties<a class="headerlink" href="#resulting-feature-properties" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Xmin</code></td>
+<td><code>App::PropertyDistance</code></td>
+<td>Minimum X of bottom face, mm.</td>
+</tr>
+<tr>
+<td><code>Ymin</code></td>
+<td><code>App::PropertyDistance</code></td>
+<td>Y coordinate of bottom face (base level), mm.</td>
+</tr>
+<tr>
+<td><code>Zmin</code></td>
+<td><code>App::PropertyDistance</code></td>
+<td>Minimum Z of bottom face, mm.</td>
+</tr>
+<tr>
+<td><code>X2min</code></td>
+<td><code>App::PropertyDistance</code></td>
+<td>Minimum X of top face, mm.</td>
+</tr>
+<tr>
+<td><code>Z2min</code></td>
+<td><code>App::PropertyDistance</code></td>
+<td>Minimum Z of top face, mm.</td>
+</tr>
+<tr>
+<td><code>Xmax</code></td>
+<td><code>App::PropertyDistance</code></td>
+<td>Maximum X of bottom face, mm.</td>
+</tr>
+<tr>
+<td><code>Ymax</code></td>
+<td><code>App::PropertyDistance</code></td>
+<td>Y coordinate of top face (wedge height), mm.</td>
+</tr>
+<tr>
+<td><code>Zmax</code></td>
+<td><code>App::PropertyDistance</code></td>
+<td>Maximum Z of bottom face, mm.</td>
+</tr>
+<tr>
+<td><code>X2max</code></td>
+<td><code>App::PropertyDistance</code></td>
+<td>Maximum X of top face, mm.</td>
+</tr>
+<tr>
+<td><code>Z2max</code></td>
+<td><code>App::PropertyDistance</code></td>
+<td>Maximum Z of top face, mm.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../subtractive-wedge/">Subtractive Wedge</a> — same parameters, cuts a wedge-shaped cavity</li>
+<li><a href="../additive-box/">Additive Box</a> — simpler rectangular box (uniform top and bottom face)</li>
+<li><a href="../additive-loft/">Additive Loft</a> — blend between arbitrary sketch profiles for non-rectangular transitions</li>
+<li><a href="../additive-prism/">Additive Prism</a> — regular-polygon column primitive</li>
+<li><a href="../pad/">Pad</a> — extrude any sketch profile for full shape control</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
