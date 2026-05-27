@@ -359,6 +359,6 @@ at the other end to fully constrain it.
 
 - [Assembly Setup](create-assembly.md) — insert parts and ground one before adding joints
 - [Toggle Grounded](grounded.md) — fix the reference part
-- Joints — Geometric — distance, parallel, perpendicular, angle constraints
-- Joints — Coupled Motion — rack-and-pinion, screw, gears, belt
-- Solve Assembly — run the solver after adding joints
+- [Joints — Geometric](joints-geometric.md) — distance, parallel, perpendicular, angle constraints
+- [Joints — Coupled Motion](joints-coupled.md) — rack-and-pinion, screw, gears, belt
+- [Solve Assembly](solve.md) — run the solver after adding joints

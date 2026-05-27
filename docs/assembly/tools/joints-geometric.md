@@ -277,6 +277,6 @@ doc.recompute()
 ## See also
 
 - [Joints — Kinematic](joints-kinematic.md) — Fixed, Revolute, Cylindrical, Slider, Ball
-- Joints — Coupled Motion — rack-and-pinion, screw, gears, belt
-- Solve Assembly — run the solver after adding joints
+- [Joints — Coupled Motion](joints-coupled.md) — rack-and-pinion, screw, gears, belt
+- [Solve Assembly](solve.md) — run the solver after adding joints
 - [Toggle Grounded](grounded.md) — fix the reference part first

@@ -11,7 +11,7 @@ Complete index of all Assembly workbench tools.
 | [New Assembly](create-assembly.md#new-assembly) | `A` | Create a new assembly container |
 | [Insert Component](create-assembly.md#insert-component) | — | Insert an existing part or sub-assembly as a link |
 | [New Part](create-assembly.md#new-part) | — | Create a new empty part inside the assembly |
-| Solve Assembly | — | Run the constraint solver to position all parts |
+| [Solve Assembly](solve.md) | — | Run the constraint solver to position all parts |
 
 ---
 
@@ -67,7 +67,7 @@ These joints link the motion of two independently-jointed parts.
 
 | Tool | Description |
 |------|-------------|
-| Exploded View | Create an exploded-view animation of the assembly |
+| [Exploded View](exploded-view.md) | Create an exploded-view animation of the assembly |
 | Simulation | Drive joints through a range of motion and record the animation |
 | Bill of Materials | Generate a parts list table |
 | Export ASMT | Export the assembly to an ASMT file for external solvers |

@@ -318,3 +318,5 @@ nav:
       - Joints — Kinematic: assembly/tools/joints-kinematic.md
       - Joints — Geometric: assembly/tools/joints-geometric.md
       - Joints — Coupled Motion: assembly/tools/joints-coupled.md
+      - Solve Assembly: assembly/tools/solve.md
+      - Exploded View: assembly/tools/exploded-view.md
