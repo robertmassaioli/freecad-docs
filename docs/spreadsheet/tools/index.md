@@ -21,7 +21,7 @@ Complete index of all Spreadsheet workbench tools and features.
 | [Merge Cells](merge-split.md#merge-cells) | Combine selected cells into one spanning cell |
 | [Split Cell](merge-split.md#split-cell) | Un-merge a previously merged cell |
 | [Set Alias](aliases.md) | Assign a human-readable name to a cell for use in expressions |
-| Bind Sheet | Synchronise a range of cells to a range in another spreadsheet |
+| [Bind Sheet](bind-sheet.md) | Synchronise a range of cells to a range in another spreadsheet |
 
 ---
 

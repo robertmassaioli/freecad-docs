@@ -308,3 +308,4 @@ nav:
       - Import / Export: spreadsheet/tools/import-export.md
       - Merge / Split Cells: spreadsheet/tools/merge-split.md
       - Cell Formatting: spreadsheet/tools/cell-formatting.md
+      - Bind Sheet: spreadsheet/tools/bind-sheet.md
