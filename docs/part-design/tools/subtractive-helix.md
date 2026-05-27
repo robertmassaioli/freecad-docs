@@ -122,6 +122,17 @@ panel), so the sketch plane determines the starting orientation.
 | Outside | Checkbox | Off | **Subtractive Helix only.** When on, the Boolean operation is *intersection* (Common) rather than *cut*, keeping only the portion of the Body that overlaps the helical solid. |
 | Tolerance | Float | 0.1 | Fusion tolerance used when merging the helical solid. Increase if the result does not merge cleanly with the Body. |
 
+**Input modes:**
+
+| Mode | Primary inputs | Derived |
+|------|---------------|---------|
+| **pitch-height-angle** | Pitch, Height, Cone Angle | Turns, Growth |
+| **pitch-turns-angle** | Pitch, Turns, Cone Angle | Height, Growth |
+| **height-turns-angle** | Height, Turns, Cone Angle | Pitch, Growth |
+| **height-turns-growth** | Height, Turns, Growth | Pitch, Cone Angle |
+
+--8<-- "part-design/helix-mode.md"
+
 ---
 
 ## Advanced usage

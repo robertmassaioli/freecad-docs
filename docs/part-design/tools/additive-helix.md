@@ -136,6 +136,8 @@ sketches produce self-intersecting geometry).
 | **Height-Turns-Angle** | Height, Turns, Cone angle | Pitch, Radial growth |
 | **Height-Turns-Growth** | Height, Turns, Radial growth | Pitch, Cone angle |
 
+--8<-- "part-design/helix-mode.md"
+
 !!! note
     The `Outside` (Remove outside of profile) property is present in the source
     code but is hidden for Additive Helix — it only applies to Subtractive Helix,

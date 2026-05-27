@@ -165,8 +165,100 @@ they appear in the UI.
 | Base profile types | Dropdown | `Circles and arcs` | Which sketch elements define hole centres. `Circles and arcs`: circles and arcs only. `Points, circles and arcs`: centres of all three. `Points`: sketch points only. Corresponds to `BaseProfileType` bitmask property. |
 | Standard | Dropdown | `None` | Thread standard. `None`: plain dimensioned hole. Other values: `ISO metric regular` (ISOMetricProfile), `ISO metric fine` (ISOMetricFineProfile), `UTS coarse` (UNC), `UTS fine` (UNF), `UTS extra fine` (UNEF), `ANSI pipes` (NPT), `ISO/BSP pipes` (BSP), `BSW whitworth` (BSW), `BSF whitworth fine` (BSF), `ISO tyre valves` (ISOTyre). |
 | Size | Dropdown | *(first entry for selected standard)* | Nominal thread designation (e.g. `M6x1.0`, `#10`, `1/4`). Available options depend on the selected standard. Sets `ThreadSize`. |
-| Head type | Dropdown | `None` | Cut type for the screw-head recess. `None`: plain hole, no recess. `Counterbore`: flat-bottomed cylindrical recess. `Countersink`: conical recess flush with the surface. `Counterdrill`: countersink with an additional flat cylindrical entry. Sets `HoleCutType`. |
+| Head type | Dropdown | `None` | Cut type for the screw-head recess: `None` / `Counterbore` / `Countersink` / `Counterdrill`. See deep dive below. |
 | Depth type | Dropdown | `Dimension` | Controls how hole depth is determined. `Dimension`: use the explicit **Depth** value. `Through all`: hole penetrates the entire Body. Sets `DepthType`. |
+
+### Head type in depth
+
+The Head type dropdown determines whether the surface has a recessed seat for
+the fastener head, and what shape that seat is. Choosing the wrong type means
+the fastener either won't sit flush or the modelled geometry won't match
+manufacturing.
+
+#### None (default)
+
+A plain cylindrical hole with no enlargement at the entry. The fastener's head
+sits on top of the surface.
+
+**Use this mode when:**
+- Standard hex bolts, nuts, or washers bear on the surface (no recess needed)
+- Locating pins, dowels, or through-holes where head geometry is not relevant
+- The screw head protrudes above the surface and that is acceptable
+
+**Watch out for:** Nothing — None is the correct choice for most through-holes.
+Choose a recess type only when the fastener head must sit flush or below the
+surface.
+
+#### Counterbore
+
+A flat-bottomed cylindrical recess is cut at the entry. The screw head (socket
+cap, button head, or any flat-topped head) drops into the cylinder and its top
+face sits at or below the surrounding surface.
+
+**Use this mode when:**
+- Socket head cap screws or button head screws must be flush or recessed below
+  the surface (common in machine design and enclosures)
+- A bearing face of specific depth and diameter is required for a fastener or
+  insert
+
+Sub-parameters unlocked:
+
+| Sub-parameter | Notes |
+|---------------|-------|
+| Head diameter | Outer diameter of the cylindrical recess. Must be larger than the hole bore diameter. |
+| Head depth | Depth of the flat-bottomed recess (how far down the head sits). |
+| Custom head values | Tick to override standard-derived dimensions. Leave off to use ISO/ANSI values. |
+
+**Watch out for:** When Standard is set to a normed value, head dimensions are
+read from the standard and the fields are read-only. Tick **Custom head values**
+only if the standard dimensions don't match your fastener.
+
+#### Countersink
+
+A conical recess is cut at the entry. Flat-head or oval-head screws seat in the
+cone so their top face is flush with the surrounding surface.
+
+**Use this mode when:**
+- Flat-head machine screws must sit flush with the surface (panel hardware,
+  sheet-metal assemblies, cosmetic fastening)
+- The screw standard specifies a conical seat (most metric flat-head screws use
+  a 90° included angle; many imperial flat-head screws use 82°)
+
+Sub-parameters unlocked:
+
+| Sub-parameter | Notes |
+|---------------|-------|
+| Head diameter | Outer diameter of the cone at the surface. |
+| Head depth | Distance from the surface to the cone apex (or to the bore entry). |
+| Countersink angle | Included angle of the cone. Must match the screw head angle exactly. |
+| Custom head values | Tick to override standard-derived dimensions. |
+
+**Watch out for:** The countersink angle must match the screw head angle. A
+90° hole with an 82° screw (or vice versa) makes contact only at the cone edge
+or the cone tip — not on the full bearing face. Always confirm the angle from
+the fastener's data sheet.
+
+#### Counterdrill
+
+A short cylindrical entry is combined with a conical countersink below it.
+Some ISO standards (e.g. DIN 74) specify this two-step entry geometry.
+
+**Use this mode when:**
+- A specific drawing standard explicitly calls for a counterdrill profile
+- Machining practice requires a cylindrical pilot before the conical face begins
+
+Sub-parameters unlocked:
+
+| Sub-parameter | Notes |
+|---------------|-------|
+| Head diameter | Outer diameter of the cylindrical pilot. |
+| Head depth | Depth of the cylindrical pilot portion (above where the cone begins). |
+| Countersink angle | Included angle of the cone below the cylindrical pilot. |
+| Custom head values | Tick to override standard-derived dimensions. |
+
+**Watch out for:** Counterdrill is uncommon in general design work. Choose it
+only if a specific standard or machining procedure requires this geometry —
+for everything else use Counterbore or Countersink.
 
 ### Hole cut / head dimensions
 
@@ -202,14 +294,152 @@ Visible when **Standard** is not `None`.
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| Hole type | Dropdown | `Clearance / Passthrough` | `Clearance / Passthrough`: plain hole sized for the screw to pass through (uses `ThreadFit` clearance). `Tap drill (to be threaded)`: sized for tapping, no 3-D thread geometry. `Modeled thread`: generates a real helical thread form. Sets `Threaded` and `ModelThread`. |
-| Clearance | Dropdown | `Medium` (ISO) / `Normal` (UTS) | Clearance class for passthrough holes. ISO standards: `Fine`, `Medium`, `Coarse` (ISO 273). UTS standards: `Close`, `Normal`, `Loose` (ASME B18.2.8). Other: `Close`, `Normal`, `Wide`. Only visible when `Hole type` is `Clearance / Passthrough`. Sets `ThreadFit`. |
-| Update thread view | Checkbox | off | When `Modeled thread` is active, recomputes the visible thread helix in real time as parameters change. Untick during editing to avoid slow recomputes. |
-| Class | Dropdown | *(standard dependent)* | Thread tolerance class. ISO metric: `4G`, `4H`, `5G`, `5H`, `6G`, `6H`, `7G`, `7H`, `8G`, `8H`. UNC/UNF/UNEF: `1B`, `2B`, `3B`. BSW/BSF: `Medium`, `Normal`. Sets `ThreadClass`. Active only when threaded. |
-| Direction | Radio | `Right hand` | Thread hand. `Right hand`: standard clockwise-tighten thread. `Left hand`: anti-clockwise. Sets `ThreadDirection`. |
-| Thread Depth Type | Dropdown | `Hole depth` | How thread depth is calculated. `Hole depth`: thread extends the full hole depth. `Dimension`: use an explicit `Thread Depth` value. `Tapped (DIN76)`: adds DIN 76 thread run-out to the usable thread length. Sets `ThreadDepthType`. |
-| Thread Depth | Length | `23.5 mm` | Explicit thread length. Only active when `Thread Depth Type` is `Dimension`. Sets `ThreadDepth`. |
-| Custom Clearance | Checkbox + Length | off / `0 mm` | When ticked, overrides the `ThreadClass` clearance with a manually entered value (can be negative to tighten fit). Only visible when `Modeled thread` is active. Sets `UseCustomThreadClearance` and `CustomThreadClearance`. |
+| Hole type | Dropdown | `Clearance / Passthrough` | The fundamental purpose of the hole relative to threading. See deep dive below. |
+| Clearance | Dropdown | `Medium` (ISO) / `Normal` (UTS) | Clearance class for passthrough holes. ISO: `Fine`, `Medium`, `Coarse` (ISO 273). UTS: `Close`, `Normal`, `Loose` (ASME B18.2.8). Active only when Hole type is `Clearance / Passthrough`. |
+| Update thread view | Checkbox | off | When `Modeled thread` is active, recomputes the thread helix in real time. Untick during editing to avoid slow recomputes. |
+| Class | Dropdown | *(standard dependent)* | Thread tolerance class. ISO metric: `6H` common. UNC/UNF: `2B` common. Active when threaded. |
+| Direction | Radio | `Right hand` | Thread hand: `Right hand` (standard) or `Left hand`. |
+| Thread Depth Type | Dropdown | `Hole depth` | How thread depth is calculated. See deep dive below. |
+| Thread Depth | Length | `23.5 mm` | Explicit thread length. Active only when `Thread Depth Type` is `Dimension`. |
+| Custom Clearance | Checkbox + Length | off / `0 mm` | Override `ThreadClass` clearance manually. Active only when `Modeled thread` is selected. |
+
+### Hole type in depth
+
+The Hole type dropdown — visible only when **Standard** is set to anything other
+than `None` — is the single most consequential threading decision. It controls
+whether the hole is a clearance fit, a tap-drill pilot, or a fully modelled
+helical thread.
+
+#### Clearance / Passthrough (default)
+
+The bore diameter is set to let the screw shank pass through freely, with no
+thread. The diameter is determined by the **Clearance** class from the selected
+standard. A nut or threaded receiver on the other side provides the clamping
+force.
+
+Intuition: the bolt drops through the first part like a key through a keyhole —
+the hole in this part is just a passage. The thread engagement is elsewhere.
+
+**Use this mode when:**
+- A bolt passes *through* one part and threads into a nut or a tapped hole in
+  another part (the standard bolted joint)
+- A flange, bracket, or cover plate that is clamped but not threaded
+
+Sub-parameters unlocked:
+
+| Sub-parameter | Notes |
+|---------------|-------|
+| Clearance | `Fine` = snug fit (positional accuracy). `Medium` = normal assembly. `Coarse` = easy assembly with potential misalignment. |
+
+**Watch out for:** Clearance class affects the bore diameter. Fine is smaller
+(tighter fit for location), Coarse is larger (easier assembly). For parts that
+need to be positionally accurate, use Fine; for ordinary bolted connections,
+Medium is sufficient.
+
+#### Tap drill (to be threaded)
+
+The bore diameter is set to the tap-drill size for the selected thread standard —
+the size you would drill before cutting the thread with a tap. No 3-D thread
+geometry appears in the model. **This is the correct choice for the vast majority
+of tapped holes in production designs.**
+
+Intuition: the number you see is what you tell the machinist to drill before
+tapping. FreeCAD looks it up from the thread standard for you.
+
+**Use this mode when:**
+- The hole will be tapped in manufacturing (CNC or hand tap)
+- Thread geometry in the model is not needed for visual clarity or FEA
+- Working with any standard thread: ISO metric, UNC/UNF, BSW, pipe
+
+Sub-parameters unlocked:
+
+| Sub-parameter | Notes |
+|---------------|-------|
+| Class | Thread tolerance class (fit). `6H` is the standard ISO metric class for general engineering; `4H` is tight, `7H` is loose. |
+| Thread Depth Type | See Thread Depth Type deep dive below. |
+
+**Watch out for:** The diameter shown is the *tap drill* diameter — not the
+thread nominal diameter and not the minor diameter. This is the correct value
+to put on a manufacturing drawing. Do not use the nominal diameter as the drill
+size or the thread will cut air.
+
+#### Modeled thread
+
+A real 3-D helical thread form is swept into the hole, producing full visible
+thread geometry in the model. This is generated by sweeping the thread profile
+along a helix of the correct pitch.
+
+Intuition: you can see individual thread turns, zoom in and count them, and the
+geometry is accurate to the selected thread standard.
+
+**Use this mode when:**
+- Technical illustrations or exploded views must show the thread clearly
+- FEA analysis needs to model actual thread contact and stress concentration
+- Exporting to downstream software (e.g. rendering tools) that expects
+  real thread geometry
+
+Sub-parameters unlocked:
+
+| Sub-parameter | Notes |
+|---------------|-------|
+| Update thread view | Leave **off** during parameter editing to avoid recomputing after every keystroke. Tick to update the view for a final check. |
+| Custom Clearance | Fine-tune the effective fit of the modelled thread with a positive (looser) or negative (tighter) offset. |
+
+**Watch out for:** Modelled thread is very slow for fine threads in deep holes
+(many hundreds of helical faces). For a 1.0 mm pitch thread 30 mm deep, expect
+30 full turns and significant recompute time. Use Tap drill for production
+documentation and switch to Modeled thread only when the geometry is genuinely
+needed.
+
+### Thread Depth Type in depth
+
+Thread Depth Type is only visible when Hole type is `Tap drill` or
+`Modeled thread`. It controls how far down the hole the thread extends.
+
+#### Hole depth (default)
+
+The thread extends through the entire hole depth. Thread depth equals hole
+depth.
+
+**Use this mode when:**
+- The full hole is tapped (the most common case for short blind holes)
+- Simplicity is preferred over specifying an explicit thread engagement length
+
+**Watch out for:** For deep holes with only a few turns of engagement needed,
+threading the full depth wastes machining time and adds geometric complexity in
+Modeled thread mode. Use Dimension to limit it.
+
+#### Dimension
+
+An explicit thread depth is entered, independent of the hole depth. The thread
+ends at that depth; the remaining hole below is unthreaded (clearance bore or
+chip relief space).
+
+**Use this mode when:**
+- Only a defined engagement length is needed — typically 1.0 to 1.5 × nominal
+  diameter for standard steel-into-steel joints
+- The hole is deliberately deeper than the thread (chip relief for a tap, or
+  a bottoming tap requires clearance)
+- Thread depth is a specified dimension on an engineering drawing
+
+**Watch out for:** Thread Depth must not exceed Hole Depth — FreeCAD will error
+if you try to thread deeper than the hole.
+
+#### Tapped (DIN 76)
+
+Thread depth is calculated per DIN 76, which adds a thread run-out zone
+(incomplete thread turns at the bottom of the blind hole, as produced by a
+standard taper tap). The usable thread engagement length is the value you enter;
+the total hole depth must accommodate the run-out in addition.
+
+**Use this mode when:**
+- The drawing must conform to DIN 76 (common in German and European manufacturing)
+- The hole geometry must explicitly represent the run-out zone for clearance of
+  the male thread's chamfered end
+
+**Watch out for:** The *physical hole* is deeper than the Thread Depth value by
+the DIN 76 run-out amount. This extra depth must be available — verify the
+feature does not break through a thin wall.
 
 ---
 
