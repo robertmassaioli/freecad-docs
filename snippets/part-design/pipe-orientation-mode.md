@@ -6,103 +6,117 @@ the orientation mode tells it *which way to face* at each point along the journe
 
 #### Standard (default)
 
-FreeCAD minimises the total rotation of the profile as it travels the spine. The
-algorithm uses the Darboux frame with minimum-rotation transport. Think of sliding
-a coin along a curved rail while keeping the coin's face as stable as possible —
-it tilts to follow the rail's slope but does not spin unnecessarily.
+**Intuition:** Like threading a needle onto a curved wire and letting it find its
+own least-twisted resting orientation — the profile tilts to follow the path but
+never spins more than necessary.
+
+Technically, FreeCAD uses the Darboux frame with minimum-rotation transport
+(sometimes called "parallel transport"). The total accumulated twist from start
+to end is minimised.
 
 **Use this mode when:**
 - You want the most natural result with no explicit configuration
 - The spine is a flat 2-D curve (Standard and Frenet give identical results for
-  planar spines)
-- No twist or roll is required in the swept solid
+  planar paths)
+- No deliberate twist or roll is needed in the swept solid
 
 **Watch out for:** On highly curved 3-D spines, Standard can still accumulate a
-small twist. If you see an unexpected rotation in the solid, try Frenet or
-Auxiliary to diagnose whether the path curvature is the cause.
+visible twist. If the finished solid looks rotated at one end, try Frenet or
+Auxiliary to diagnose whether the path curvature is causing it.
 
 #### Fixed
 
-The profile keeps its original world-space orientation throughout the entire
-sweep. It does not tilt, rotate, or twist at any point — like pushing a square
-stamp along a curved groove while your hand stays completely level: the face of
-the stamp is always parallel to its starting plane.
+**Intuition:** Like carrying a tray of drinks level through a winding corridor —
+the profile keeps its original world-space orientation no matter how the path
+turns and dips.
+
+The profile's X, Y, Z axes in world space are frozen at their initial values
+and never rotate throughout the sweep. The cross-section always faces the same
+compass direction.
 
 **Use this mode when:**
 - The profile must maintain an absolute world orientation regardless of the path
-  (e.g. a sign bracket that must always face the same compass direction)
-- The spine is a 3-D curve but the cross-section must not rotate in world space
-- You intentionally want the ends of the sweep *not* to be perpendicular to the
+  (e.g. a sign bracket that must always face front, or a slide channel that must
+  stay horizontal)
+- You intentionally want the ends of the sweep to *not* be perpendicular to the
   path
 
-**Watch out for:** On curved spines, a Fixed-orientation profile quickly produces
-twisted, self-intersecting geometry because the profile face is no longer tangent
-to the path. Fixed is practical only when the path has minimal curvature or the
-profile is very small relative to the bend radius.
+**Watch out for:** On curved paths, a profile that cannot tilt to stay tangent
+to the path will quickly twist and self-intersect. Fixed is practical only for
+paths with minimal curvature, or when the profile is small enough that the
+mismatch does not cause self-intersection.
 
 #### Frenet
 
-Uses the classical Frenet–Serret frame from differential geometry. The profile's
-normal tracks the path's curvature vector (the principal normal). Think of a
-roller-coaster car whose "up" direction always points toward the centre of the
-current curve.
+**Intuition:** Like a roller-coaster car whose "up" arrow always points toward
+the inside of the current curve — the profile tips inward on bends, following
+the local curvature of the path.
+
+Technically this uses the classical Frenet–Serret frame: the profile normal
+follows the principal curvature normal of the path. On a tightly curved section
+the profile leans steeply; on a nearly-straight section the lean is almost zero.
 
 **Use this mode when:**
-- You want the profile normal to follow the curvature rather than minimise
+- You want the profile normal to track the path curvature rather than minimise
   overall rotation
-- Working with a mathematically defined curve and Frenet-frame behaviour is
-  specifically required
-- Standard produces unexpected results and you want a different algorithm to
-  compare against
+- A mathematically defined curve requires Frenet-frame behaviour specifically
+- Standard produces unexpected rotation and you need a different algorithm to
+  compare
 
-**Watch out for:** On nearly-straight sections of the path (very low curvature),
-the Frenet normal is mathematically undefined and can flip 180° — producing a
-sudden twist in the solid. This is the classical Frenet "flip" problem. Avoid
-Frenet for spines that include straight or near-straight segments.
+**Watch out for:** On nearly-straight sections (very low curvature), the Frenet
+normal is mathematically undefined and can abruptly flip 180° — the classical
+Frenet "flip" problem, which produces a sudden twist in the solid. Avoid Frenet
+for any spine that includes straight or near-straight segments.
 
 #### Auxiliary
 
-A second "guide spine" sketch is provided. The profile's roll angle at each
-point is controlled by the angular relationship between the primary and auxiliary
-spines, giving explicit control over twist. Think of a DNA double helix — you
-draw both strands and let FreeCAD work out the rotation.
+**Intuition:** Like tracing both strands of a twisted rope to define its twist —
+you draw a second guide spine alongside the main path, and FreeCAD reads the
+angular relationship between them to determine exactly how much the profile
+should roll at every point.
+
+This mode gives you the most control: any twist behaviour you can express as a
+second curve can be encoded.
 
 **Use this mode when:**
 - You need a deliberately twisted sweep (propeller blade, twisted square column,
-  helical channel)
+  helical channel with a specific roll profile)
 - Standard and Frenet both produce unwanted rotation and manual control is needed
-- The twist must match another piece of geometry (the auxiliary spine encodes it)
+- The twist must geometrically match another piece of the design
 
 Sub-parameters active in Auxiliary mode:
 
 | Sub-parameter | Type | Default | Description |
 |---------------|------|---------|-------------|
 | Auxiliary spine | Object link + edge list | — | The guide path that drives roll. Should span the full length of the primary spine. |
-| Curvilinear equivalence | Checkbox | On | When on, points are distributed by arc length on each spine (natural spacing). When off, parallel projection is used — can produce bunching on unequal-length spines. |
+| Curvilinear equivalence | Checkbox | On | On: distribute orientation points by arc length (natural, recommended). Off: parallel projection — can produce bunching on spines of unequal length. |
 
-**Watch out for:** Both spines must span the same range — the auxiliary spine
-must start and end at the same locations as the primary spine. Mismatched lengths
-prevent the orientation mapping from being computed.
+**Watch out for:** The auxiliary spine must span the same range as the primary
+spine. Mismatched start/end points prevent the orientation mapping from being
+computed and produce an error.
 
 #### Binormal
 
-The profile's out-of-plane axis (binormal) is locked to a fixed world-space
-vector you specify. Like extruding a shape while always keeping it "pointing
-toward north" regardless of how the path curves.
+**Intuition:** Like a satellite dish on a moving arm — no matter which way the
+arm points, the dish always faces a fixed direction you specify (north, vertical,
+toward a wall).
+
+You provide an X/Y/Z vector; the profile's out-of-plane axis (the binormal) is
+locked parallel to that vector throughout the entire sweep.
 
 **Use this mode when:**
-- The profile must maintain a fixed facing direction throughout (not just stay
-  upright, but face a specific world direction)
-- Sweeping along a 3-D path where one face of the profile must consistently point
-  toward a wall, datum, or reference
+- One face of the profile must consistently point toward a fixed world direction
+  (not just stay upright, but face a specific direction)
+- Sweeping along a 3-D path where a functional face must always point toward a
+  mating surface or datum plane
 
 Sub-parameters active in Binormal mode:
 
 | Sub-parameter | Type | Default | Description |
 |---------------|------|---------|-------------|
-| X / Y / Z | Float | 0.0 | The components of the fixed binormal vector. FreeCAD normalises it automatically. All three values being zero is invalid. |
+| X / Y / Z | Float | 0.0 | Components of the fixed binormal vector. FreeCAD normalises it; all three being zero is invalid. |
 
-**Watch out for:** A zero binormal vector (0, 0, 0) causes a failure at
-recompute. Also, if the path tangent becomes parallel to the binormal vector at
-any point along the spine, the orientation is geometrically undefined there and
-the sweep fails.
+**Watch out for:** A zero binormal vector (0, 0, 0) causes a recompute failure.
+Also, if the path tangent becomes exactly parallel to the binormal vector at any
+point along the spine, the orientation is geometrically undefined there and the
+sweep will fail.
