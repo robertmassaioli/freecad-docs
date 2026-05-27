@@ -115,7 +115,8 @@ markdown_extensions:
   - pymdownx.keys                # ++ctrl+s++ keyboard key rendering
   - pymdownx.mark                # ==highlighted text==
   - pymdownx.smartsymbols        # (c) → © etc.
-  - pymdownx.snippets            # --8<-- file includes
+  - pymdownx.snippets:           # --8<-- file includes
+      base_path: ['snippets/']   # shared reusable content lives here (not in docs/)
   - pymdownx.superfences:        # fenced code blocks inside admonitions, etc.
       custom_fences:
         - name: mermaid

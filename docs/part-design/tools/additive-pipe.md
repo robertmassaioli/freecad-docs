@@ -124,7 +124,7 @@ The task panel is divided into three sections.
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | Profile | Object link | — | The sketch (or face/wire sub-element) whose outline is swept. Must be a closed profile for an additive solid. |
-| Corner transition | Dropdown | Transformed | How the sweep behaves at kinks in the spine. `Transformed`: profile is sheared to fit. `Right corner`: sharp mitre join. `Round corner`: rounded fillet at the corner. |
+| Corner transition | Dropdown | Transformed | How the sweep behaves at kinks in the spine: `Transformed` (shear), `Right corner` (mitre), `Round corner` (fillet). See deep dive below. |
 | Path to Sweep Along | Object link + edge list | — | The spine object (typically a sketch) or a list of individual edges that form the path. Edges must form one connected, non-branching wire. |
 | Add edge / Remove edge | Buttons | — | Toggle selection mode to add or remove individual edges from the edge list when you want a partial path from an existing shape. |
 
@@ -134,20 +134,14 @@ Controls how the profile is rotated as it travels along the path.
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| Orientation mode | Dropdown | Standard | See mode descriptions below. |
-| Curvilinear equivalence | Checkbox | On | (Auxiliary mode only) Compute orientation by placing equidistant points on both spines, giving a more natural twist distribution. Uncheck to use parallel projection instead. |
-| Auxiliary spine | Object link + edge list | — | (Auxiliary mode only) A secondary path that drives the profile's roll angle along the primary spine. |
-| X / Y / Z | Float | 0.0 | (Binormal mode only) The components of the fixed binormal vector used to compute the profile's normal at each point. |
+| Orientation mode | Dropdown | Standard | How the profile rotates as it travels the path: Standard / Fixed / Frenet / Auxiliary / Binormal. See deep dive below. |
+| Curvilinear equivalence | Checkbox | On | (Auxiliary mode only) Distribute orientation points by arc length rather than parallel projection. |
+| Auxiliary spine | Object link + edge list | — | (Auxiliary mode only) A secondary path that drives the profile's roll angle. |
+| X / Y / Z | Float | 0.0 | (Binormal mode only) The fixed binormal vector components. |
 
-**Orientation modes:**
+--8<-- "part-design/pipe-orientation-mode.md"
 
-| Mode | Behaviour |
-|------|-----------|
-| **Standard** | FreeCAD chooses the orientation automatically using the Darboux frame (minimum rotation). Best default for most paths. |
-| **Fixed** | The profile's orientation in world space stays exactly as it was when drawn. Useful for profiles that must stay upright (e.g. a square channel that must never rotate). |
-| **Frenet** | Uses the Frenet–Serret frame: the profile normal follows the path curvature. Can produce unexpected flips on low-curvature sections. |
-| **Auxiliary** | Uses a second spine sketch to drive the roll of the profile. Most complex but most controllable option for twisted sweeps. |
-| **Binormal** | The profile's out-of-plane axis is kept parallel to the specified fixed vector. Useful when the profile must face a fixed direction throughout. |
+--8<-- "part-design/pipe-corner-transition.md"
 
 ### Section Transformation
 
@@ -155,9 +149,11 @@ Controls whether the profile changes shape along the path.
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| Transform mode | Dropdown | Constant | `Constant`: the profile shape is identical at every point. `Multisection`: the profile morphs between a list of intermediate section sketches placed along the path. |
-| Add Section / Remove Section | Buttons | — | (Multisection only) Pick additional profile sketches positioned at intermediate points on the spine. |
-| Section list | Ordered list | — | (Multisection only) The intermediate sections in path order. Can be reordered by drag-and-drop. All intermediate sections must have the same number of closed wires as the start profile; only the final section may be a single point. |
+| Transform mode | Dropdown | Constant | `Constant`: identical profile at every point. `Multisection`: profile morphs through intermediate section sketches. See deep dive below. |
+| Add Section / Remove Section | Buttons | — | (Multisection only) Pick additional profile sketches. |
+| Section list | Ordered list | — | (Multisection only) Intermediate sections in path order, top = spine start. Reorder by drag-and-drop. |
+
+--8<-- "part-design/pipe-transform-mode.md"
 
 ---
 

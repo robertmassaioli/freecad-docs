@@ -121,14 +121,89 @@ one.
 |------|-----------|
 | **Angle** | Revolves by the specified `Angle`. The most common mode. |
 | **To last** | Revolves until it meets the last face of the Body in that direction. |
-| **To first** | Revolves until it meets the first face. Not yet implemented — this option is disabled in the UI. |
+| **To first** | Not yet implemented — disabled in the UI. |
 | **Up to face** | Revolves until it meets the selected face. |
-| **Two angles** | Revolves `Angle` in the forward direction and `2nd angle` in the reverse direction, extending the solid on both sides asymmetrically. |
+| **Two angles** | Revolves `Angle` forward and `2nd angle` in reverse, producing an asymmetric solid. |
+
+### Type in depth
+
+The Type dropdown determines when the swept solid terminates angularly.
+
+#### Angle (default)
+
+You specify the exact sweep in degrees. The solid grows from 0° to that angle
+around the axis. Think of a pie slice — you choose how big a slice.
+
+**Use this mode when:**
+- You know the angular extent (360° for a full solid of revolution, 90° for a
+  quarter-round, 45° for a wedge, etc.)
+- You want to use **Symmetric to plane** to centre the arc about the sketch
+- Fine angular control is needed (e.g. a 270° sweep for a recessed shelf)
+
+**Watch out for:** At exactly 360° the solid is closed with no seam face. At
+359.9° there is a thin seam face. If you get unexpected extra faces on your
+model, check whether you intended exactly 360°.
+
+#### Two angles
+
+Revolves by one angle in the forward direction *and* a separate second angle in
+the reverse direction from the sketch plane. The total solid spans both arcs.
+
+**Use this mode when:**
+- You need a wedge or arc that spans the sketch plane asymmetrically (e.g. 270°
+  forward and 90° backward)
+- The solid must extend in both directions without two separate Revolution
+  features
+
+**Watch out for:** The two angles may not sum to more than 360° — OCCT cannot
+build a solid that overlaps itself. Also, "forward" is defined by the axis and
+sketch orientation; use the live preview to confirm which direction is Side 1.
+
+#### To last
+
+The revolution sweeps until it meets the geometrically farthest face of the
+Body along the rotation arc.
+
+**Use this mode when:**
+- The Body already has geometry and you want the revolution to fill the remaining
+  angular space up to the last wall
+- The final angular extent is defined by existing geometry rather than a number
+
+**Watch out for:** "Last" means the farthest face the swept volume can reach
+within the Body. In complex models with internal pockets or features this can be
+an unexpected face. Prefer Up to face when you need to target a specific surface.
+
+#### To first
+
+Intended to stop at the first face encountered along the rotation arc. **Not
+implemented in FreeCAD 1.1** — the dropdown entry is disabled and cannot be
+selected in the UI.
+
+**Use this mode when:** Not available. Use **Up to face** as the alternative and
+manually select the desired stopping face.
+
+**Watch out for:** Attempting to set this via the Python API (`Type = "UpToFirst"`)
+raises a recompute error: *"Revolve up to first is not yet supported"*.
+
+#### Up to face
+
+The revolution terminates at a specific face you select. The swept solid conforms
+to that face's shape.
+
+**Use this mode when:**
+- The revolution must stop at a conical, spherical, or otherwise non-flat
+  termination face
+- The endpoint must track a named face parametrically as the model changes
+
+**Watch out for:** The selected face must actually be intersected by the swept
+volume. A face that lies entirely outside the swept arc, or is parallel to the
+rotation axis and never crossed, will cause a "Feature could not be computed"
+error.
 
 !!! warning "To first is disabled"
-    The "To first" mode appears in the dropdown but is currently disabled and
-    cannot be selected. Attempting to use it via the Python API returns an error:
-    *"Revolve up to first is not yet supported"*.
+    The **To first** mode appears in the dropdown but is currently disabled and
+    cannot be selected in the UI. Attempting to set it via the Python API returns:
+    *"Revolve up to first is not yet supported"*. Use **Up to face** instead.
 
 ---
 

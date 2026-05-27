@@ -131,6 +131,52 @@ a *Reversed* checkbox.
 |-----------|------|---------|-------------|
 | Mode | Dropdown | `One side` | Controls how the two directions of the pocket are treated. `One side`: single depth in one direction. `Two sides`: independent Type and Length for each direction. `Symmetric`: one Length applied equally on both sides of the sketch plane. |
 
+### Mode in depth
+
+Mode is the first decision to make — it determines how many active "sides" the
+pocket has before you configure any depths.
+
+#### One side (default)
+
+The pocket cuts from the sketch plane in a single direction only. The vast
+majority of pockets use One side.
+
+**Use this mode when:**
+- Cutting a standard slot, blind hole, or recess in one direction
+- Only Side 1 depth and Type settings are needed
+
+**Watch out for:** Nothing unusual — One side is correct for almost all pockets.
+Switch to Two sides or Symmetric only when you genuinely need both directions.
+
+#### Two sides
+
+Each side of the sketch plane gets its own independent Type and Length. The
+pocket can cut deeper on one side than the other, or use different stop modes
+on each side.
+
+**Use this mode when:**
+- The pocket must extend different distances in each direction from the sketch
+  (e.g. a slot centred on a mid-plane feature but asymmetric)
+- One side is Through all while the other has a fixed dimension
+- Avoiding two separate Pocket features by capturing both directions in one
+
+**Watch out for:** FreeCAD defines Side 1 as the direction of the sketch normal.
+Side 2 is the opposite direction. Verify which is which using the live preview
+before committing.
+
+#### Symmetric
+
+A single Length value is applied equally on both sides of the sketch plane.
+Equivalent to Two sides with both lengths set to L/2 and both Types set to
+Dimension — but entered as a single value.
+
+**Use this mode when:**
+- The pocket must be exactly centred on a mid-plane or parting line
+- Avoiding the arithmetic of calculating half-depths manually
+
+**Watch out for:** Symmetric locks both sides to Dimension type. If you need one
+side to stop at a face or cut Through all, switch to Two sides instead.
+
 ### Side 1 (and Side 2 when Mode is Two sides)
 
 | Parameter | Type | Default | Description |
@@ -146,10 +192,80 @@ a *Reversed* checkbox.
 | Type | UI label | Behaviour |
 |------|----------|-----------|
 | `Length` | Dimension | Cut a fixed depth given by the Length field. |
-| `ThroughAll` | Through all | Cut through the entire remaining solid in that direction. No Length input required. Robust to model changes. |
+| `ThroughAll` | Through all | Cut through the entire remaining solid. No Length input required. |
 | `UpToFirst` | To first | Stop at the first face the cut encounters along its direction. |
-| `UpToFace` | Up to face | Stop exactly at a selected face of the model. Offset to face can adjust the final position. |
-| `UpToShape` | Up to shape | Stop at one or more selected faces or an entire shape. More flexible than Up to face when the target is not a single planar face. |
+| `UpToFace` | Up to face | Stop exactly at a selected face; floor follows that face's shape. |
+| `UpToShape` | Up to shape | Stop at one or more selected faces or an entire shape. |
+
+### Type in depth
+
+The Type dropdown determines *when* the cut stops on each side.
+
+#### Dimension (default)
+
+You specify the exact cut depth numerically. Think of drilling to a precise depth
+marked on a ruler.
+
+**Use this mode when:**
+- The depth is a fixed design requirement
+- You want a taper angle on the cut walls (only available with Dimension)
+- The cut depth is an independent parameter, not derived from other features
+
+**Watch out for:** A Dimension pocket deeper than the solid finds no material to
+remove and fails. The solid must be at least as thick as the requested depth in
+the cut direction.
+
+#### Through all
+
+The cut goes through all remaining material in the extrusion direction —
+regardless of how thick the solid is. If the solid grows or shrinks, the cut
+adapts automatically.
+
+**Use this mode when:**
+- Cutting a hole or slot that must pass completely through the part
+- The solid thickness is parametrically driven and you do not want to track it
+- Making through-features that should always penetrate the full wall
+
+**Watch out for:** "All" means the entire solid in that direction, following the
+cut direction vector. If a custom direction is set at an angle, the cut still
+goes all the way through — just at that angle.
+
+#### To first
+
+The cut stops at the first face it encounters in the cut direction.
+
+**Use this mode when:**
+- Cutting to an existing inner wall or shelf within the solid
+- The stopping face is the nearest obstruction in the cut direction
+
+**Watch out for:** If there is no face between the sketch and the solid's outer
+boundary, To first behaves unpredictably. Always confirm which face is "first"
+in the live preview.
+
+#### Up to face
+
+You select a specific face; the cut floor follows that face's shape exactly,
+even if it is curved or angled.
+
+**Use this mode when:**
+- The pocket floor must conform to a curved or angled mating surface
+- The floor depth must track a named face as the model changes parametrically
+
+**Watch out for:** The selected face must be reachable — it must intersect the
+cut volume along the cut direction. A face parallel to the cut direction is never
+intersected and will cause a failure.
+
+#### Up to shape
+
+Like Up to face but accepts multiple individual faces or an entire solid as the
+boundary. The floor of the cut follows the nearest point of any selected surface.
+
+**Use this mode when:**
+- The floor boundary spans more than one face
+- Cutting to the outer hull of an imported STEP or solid
+
+**Watch out for:** Selecting too many faces can produce ambiguous floor geometry.
+Pick only the surfaces that form the intended floor boundary.
 
 !!! note "Deprecated type"
     A sixth internal enum value `TwoLengths` exists in the file format for

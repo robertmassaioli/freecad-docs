@@ -135,19 +135,144 @@ These controls appear for each active side.
 | Type (UI label) | Internal value | Description |
 |-----------------|---------------|-------------|
 | **Dimension** | `Length` | Extrude by a fixed distance set in the Length field. |
-| **To last** | `UpToLast` | Extrude until the last face of the Body that the extrusion axis intersects. The pad grows to fill all remaining material in that direction. |
+| **To last** | `UpToLast` | Extrude until the last face of the Body that the extrusion axis intersects. |
 | **To first** | `UpToFirst` | Extrude until the nearest face of the Body that the extrusion axis intersects. |
-| **Up to face** | `UpToFace` | Extrude until a specific face selected from the model. The pad stops at that face, following its shape even if it is curved. |
-| **Up to shape** | `UpToShape` | Extrude until one or more faces of a selected shape or solid. Allows selecting multiple faces as the termination boundary. |
+| **Up to face** | `UpToFace` | Extrude until a specific selected face, following its shape. |
+| **Up to shape** | `UpToShape` | Extrude until one or more selected faces or an entire solid. |
+
+### Type in depth
+
+The Type dropdown determines *when* the extrusion stops. Dimension gives you an
+explicit number; the other four modes let the Body's existing geometry decide the
+termination point.
+
+#### Dimension (default)
+
+You specify the exact height as a length value. Think of pressing a stamp
+down by precisely 10 mm — the depth is fully under your control.
+
+**Use this mode when:**
+- You know the exact depth from a drawing or design intent
+- You want a taper angle on the extruded walls (only available in Dimension mode)
+- The pad height is an independent design variable, not derived from other geometry
+
+**Watch out for:** If the base solid is later redesigned and its thickness changes,
+Dimension does not auto-adapt — you must update the length manually.
+
+#### To last
+
+The pad grows until it hits the geometrically last face of the Body in the
+extrusion direction. Think of filling a box right to the brim: however tall the
+box is, the pad always reaches the top.
+
+**Use this mode when:**
+- A boss or rib should always span the full depth of the solid, even as that
+  depth changes parametrically
+- You want the pad to self-adjust when the base part is redesigned
+
+**Watch out for:** "Last" means the farthest face the extrusion axis crosses in
+the Body. In a model with internal voids or disconnected regions the result can
+be surprising — use Up to face if you need to pick a specific face.
+
+#### To first
+
+The pad stops at the first face it encounters in the extrusion direction.
+Like filling a box only up to an inner shelf — it stops the moment it hits
+something.
+
+**Use this mode when:**
+- You need the pad to stop at the nearest internal boundary
+- A wall or floor already exists at the correct depth and you want the pad to
+  end flush with it
+
+**Watch out for:** "First" is evaluated across the entire Body, not just the
+nearest visible face in the viewport. Use Up to face if you need to target a
+specific face rather than whichever happens to be closest.
+
+#### Up to face
+
+You select a specific named face; the pad grows exactly to that face and
+follows its shape, even if the face is curved or angled. Like pressing clay
+against a mould — the top surface of the pad adopts the mould's shape.
+
+**Use this mode when:**
+- The termination surface is curved or angled (not flat and perpendicular)
+- You need the pad top to track a named face parametrically as the model changes
+- Multiple faces exist along the extrusion axis and you must pick exactly one
+
+**Watch out for:** The selected face must actually intersect the extrusion
+volume. If the face never crosses the pad's path — e.g. it is parallel to the
+extrusion direction — FreeCAD will report "Feature could not be computed".
+
+#### Up to shape
+
+Like Up to face but you can select multiple individual faces or an entire solid
+as the boundary. The pad stops at the nearest point of any selected surface.
+
+**Use this mode when:**
+- The termination boundary spans more than one face
+- Stopping at the outer hull of an imported STEP body
+- Combining with a negative **Offset to face** to recess the pad slightly inside
+  the boundary
+
+**Watch out for:** Over-selecting faces can produce ambiguous results. Start with
+the minimum set that completely covers the intended stopping boundary.
 
 ### Reversed and Direction
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | Reversed | Checkbox | Off | Flips the extrusion direction. For *One side* mode this pushes the pad to the opposite side of the sketch plane. Has no effect in *Symmetric* mode. |
-| Direction/edge | Dropdown | Sketch normal | Sets the extrusion axis. `Sketch normal`: uses the sketch plane's perpendicular. `Select reference…`: pick an edge or axis from the model tree to use as the direction. `Custom direction`: activates the X/Y/Z vector fields. |
-| Length along sketch normal | Checkbox | On | When using a custom direction, controls whether the Length value measures distance along the *sketch normal* or along the *custom direction vector*. Uncheck to measure along the custom vector instead. |
-| X / Y / Z | Float | (0, 0, 1) | Components of the custom direction vector. Active only when Direction/edge is set to *Custom direction*. |
+| Direction/edge | Dropdown | Sketch normal | Sets the extrusion axis. `Sketch normal`: uses the sketch plane's perpendicular. `Select reference…`: pick an edge or axis from the model tree. `Custom direction`: activates the X/Y/Z vector fields. |
+| Length along sketch normal | Checkbox | On | When using a custom direction, controls whether the Length value measures along the *sketch normal* or along the *custom direction vector*. |
+| X / Y / Z | Float | (0, 0, 1) | Components of the custom direction vector. Active only when Direction/edge is *Custom direction*. |
+
+### Direction/edge in depth
+
+By default, Pad extrudes perpendicular to the sketch plane. The Direction/edge
+dropdown lets you override that axis to extrude at any angle.
+
+#### Sketch normal (default)
+
+Extrudes straight out of the sketch plane — perpendicular to the surface the
+sketch is drawn on. Think of pressing a stamp directly away from the paper.
+
+**Use this mode when:**
+- A boss, plate, or rib should grow perpendicularly out of its sketch (the
+  overwhelming majority of pads)
+- You want the simplest, most predictable behaviour
+
+**Watch out for:** Nothing — this is the safe default. Only change if you
+genuinely need an oblique extrusion.
+
+#### Select reference
+
+You pick an existing straight edge, datum line, or origin axis from the model and
+use its direction as the extrusion axis.
+
+**Use this mode when:**
+- The pad must run parallel to an existing model edge (e.g. a diagonal rib that
+  follows the slope of a nearby face)
+- You set up a datum line specifically to define a reusable direction
+
+**Watch out for:** If the referenced edge is deleted or renamed in a later edit,
+the Pad fails. A dedicated Datum Line is more robust than picking a raw model edge.
+
+#### Custom direction
+
+You enter X/Y/Z components to define an arbitrary extrusion vector that is
+independent of any model geometry.
+
+**Use this mode when:**
+- The extrusion angle is defined analytically (e.g. exactly 30° from vertical)
+- No existing edge in the model has the correct orientation
+- The direction must not change if other geometry is later redesigned
+
+**Watch out for:** The **Length along sketch normal** checkbox controls what
+"Length" measures. Checked: length is the perpendicular height (constant wall
+thickness regardless of angle — usually what you want). Unchecked: length is
+measured along the custom vector (the pad grows that many mm in the vector's
+direction, so the perpendicular height varies with the angle).
 
 ---
 

@@ -134,17 +134,87 @@ constrained.
 
 | Type | UI label | Behaviour |
 |------|----------|-----------|
-| `Angle` | Angle | Revolve by the angle entered in the *Angle* field. Supports *Symmetric to plane* and *Reversed*. |
-| `ThroughAll` | Through all | Revolve a full 360°, cutting through the entire solid. Equivalent to entering 360° manually, but more explicit in intent. Supports *Symmetric to plane*. |
-| `UpToFirst` | To first | Revolve until the swept volume first intersects an existing face. **Not yet implemented** — selecting this type produces an error at recompute time. |
-| `UpToFace` | Up to face | Revolve until the swept volume reaches a selected face. The *Face* button and text field become active to select the target. Supports *Reversed*. |
-| `TwoAngles` | Two angles | Revolve by *Angle* in one direction and *2nd angle* in the other direction from the sketch plane. Supports *Reversed*. |
+| `Angle` | Angle | Cut by the angle entered in the *Angle* field. |
+| `ThroughAll` | Through all | Cut a full 360°, removing material all the way around. |
+| `UpToFirst` | To first | Not yet implemented — causes an error at recompute time. |
+| `UpToFace` | Up to face | Cut until the swept volume reaches a selected face. |
+| `TwoAngles` | Two angles | Cut by *Angle* in one direction and *2nd angle* in the other. |
+
+### Type in depth
+
+The Type dropdown determines when the swept cut terminates angularly.
+
+#### Angle (default)
+
+You specify the exact sweep in degrees. The cut removes material from 0° to that
+angle around the axis. Like cutting a pie-slice-shaped notch out of a solid.
+
+**Use this mode when:**
+- Cutting a defined arc (e.g. a 60° relief groove in a shaft collar)
+- You want **Symmetric to plane** to centre the cut about the sketch plane
+- The angular extent of the groove is a known design value
+
+**Watch out for:** A 360° Angle cut removes material all the way around the axis —
+that is a complete circumferential groove, which may or may not be the intent. If
+you want a full wrap, Through all is more explicit.
+
+#### Through all
+
+Cuts a full 360° around the axis, removing material all the way around regardless
+of the angular thickness of the solid. More explicit in intent than entering 360°
+in Angle mode.
+
+**Use this mode when:**
+- Creating a full circumferential groove (e.g. an O-ring groove, a snap ring
+  channel, or a locking groove on a shaft)
+- The angular extent of the solid is parametrically variable and you want the
+  cut to always complete the full wrap
+
+**Watch out for:** Through all is exactly 360° — no more, no less. It is not
+"Through to the other side"; it is a complete revolution. For a partial cut,
+use Angle mode.
+
+#### To first
+
+Intended to stop at the first face the swept cut encounters. **Not implemented
+in FreeCAD 1.1** — selecting it causes a recompute error.
+
+**Use this mode when:** Not available. Use **Up to face** instead and select the
+desired stopping face manually.
+
+**Watch out for:** Setting `Type = "UpToFirst"` via the Python API raises:
+*"Groove up to first is not yet supported"*.
+
+#### Up to face
+
+The cut terminates at a specific face you select. The floor of the groove
+follows that face's shape.
+
+**Use this mode when:**
+- The groove must stop flush against a mating surface (e.g. cutting to a
+  conical shoulder on a stepped shaft)
+- The groove depth must track a named face parametrically
+
+**Watch out for:** The target face must be intersected by the swept cut volume.
+A face parallel to the rotation axis (one that the sweeping arc never crosses)
+will cause a failure.
+
+#### Two angles
+
+Cuts across the sketch plane — Angle degrees in one direction and 2nd angle
+degrees in the opposite direction. Total cut spans Angle + 2nd angle.
+
+**Use this mode when:**
+- Cutting a slot that straddles a reference plane asymmetrically (e.g. a keyway
+  that is not centred on the sketch)
+- Creating a groove that extends different distances on each side of a mid-plane
+
+**Watch out for:** If Angle + 2nd angle exceeds 360°, OCCT cannot build the cut.
+Also confirm which direction is "forward" using the live preview before committing.
 
 !!! warning "To first is not yet implemented"
-    Selecting **To first** (Type = `UpToFirst`) will cause the Groove feature to
-    fail with the message "Groove up to first is not yet supported" when the
-    document recomputes. Use **Up to face** as an alternative and select the
-    relevant stopping face manually.
+    Selecting **To first** (Type = `UpToFirst`) causes Groove to fail with:
+    *"Groove up to first is not yet supported"*. Use **Up to face** instead.
 
 ### Angle controls
 
