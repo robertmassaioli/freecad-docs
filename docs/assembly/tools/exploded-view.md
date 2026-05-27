@@ -151,5 +151,5 @@ exploded_views = [obj for obj in asm.OutList
 ## See also
 
 - [Solve Assembly](solve.md) — solve the assembly before creating an exploded view
-- Simulation — drive joint motion rather than creating fixed exploded steps
-- Bill of Materials — generate a parts list to accompany the exploded view
+- [Simulation](simulation.md) — drive joint motion rather than creating fixed exploded steps
+- [Bill of Materials](bom.md) — generate a parts list to accompany the exploded view

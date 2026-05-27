@@ -178,4 +178,4 @@ for offset_mm in range(0, 50, 5):
 - [Toggle Grounded](grounded.md) — every assembly needs a grounded part before solving
 - [Joints — Kinematic](joints-kinematic.md) — the joints the solver processes
 - [Joints — Geometric](joints-geometric.md) — geometric constraints processed by the solver
-- Simulation — drive joints through a range and record the motion
+- [Simulation](simulation.md) — drive joints through a range and record the motion

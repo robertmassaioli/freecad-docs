@@ -320,3 +320,5 @@ nav:
       - Joints — Coupled Motion: assembly/tools/joints-coupled.md
       - Solve Assembly: assembly/tools/solve.md
       - Exploded View: assembly/tools/exploded-view.md
+      - Simulation: assembly/tools/simulation.md
+      - Bill of Materials: assembly/tools/bom.md

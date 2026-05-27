@@ -68,6 +68,6 @@ These joints link the motion of two independently-jointed parts.
 | Tool | Description |
 |------|-------------|
 | [Exploded View](exploded-view.md) | Create an exploded-view animation of the assembly |
-| Simulation | Drive joints through a range of motion and record the animation |
-| Bill of Materials | Generate a parts list table |
-| Export ASMT | Export the assembly to an ASMT file for external solvers |
+| [Simulation](simulation.md) | Drive joints through a range of motion and record the animation |
+| [Bill of Materials](bom.md) | Generate a parts list table |
+| [Export ASMT](bom.md#export-asmt) | Export the assembly to an ASMT file for external solvers |

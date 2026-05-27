@@ -312,4 +312,4 @@ doc.recompute()
 - [Joints — Kinematic](joints-kinematic.md) — the underlying joints that coupled joints build on
 - [Joints — Geometric](joints-geometric.md) — distance, parallel, perpendicular, angle
 - [Solve Assembly](solve.md) — run the solver
-- Simulation — drive a joint through a range of motion to animate the mechanism
+- [Simulation](simulation.md) — drive a joint through a range of motion to animate the mechanism
