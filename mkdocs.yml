@@ -309,3 +309,8 @@ nav:
       - Merge / Split Cells: spreadsheet/tools/merge-split.md
       - Cell Formatting: spreadsheet/tools/cell-formatting.md
       - Bind Sheet: spreadsheet/tools/bind-sheet.md
+  - Assembly:
+    - assembly/index.md
+    - Tools:
+      - assembly/tools/index.md
+      - Assembly Setup: assembly/tools/create-assembly.md
