@@ -43,18 +43,6 @@ For each entry below:
 
 ---
 
-## Sketcher workbench pages (not yet written)
-
-### `datum-plane.md` — Map Sketch to Face reference
-
-| Field | Value |
-|-------|-------|
-| **Source file** | `docs/part-design/tools/datum-plane.md` |
-| **Section** | "When NOT to use it" |
-| **Current text** | `Sketch → Map Sketch to Face (Sketcher workbench) instead;` |
-| **Restore as** | `[Sketch → Map Sketch to Face](../../sketcher/tools/map-sketch.md) instead;` |
-| **Target page** | `docs/sketcher/tools/map-sketch.md` (not yet written) |
-
 ---
 
 ## Part Design concept pages (not yet written)

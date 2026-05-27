@@ -199,8 +199,57 @@ nav:
         - Move Feature: part-design/tools/move-feature.md
         - Move Feature in Tree: part-design/tools/move-feature-in-tree.md
         - Duplicate Selection: part-design/tools/duplicate-selection.md
+  - Sketcher:
+    - sketcher/index.md
+    - Tools:
+      - sketcher/tools/index.md
+      - Sketch Lifecycle:
+        - New Sketch / Edit / Leave: sketcher/tools/new-sketch.md
+        - Map Sketch to Face: sketcher/tools/map-sketch.md
+        - Validate Sketch: sketcher/tools/validate-sketch.md
+        - Mirror Sketch: sketcher/tools/mirror-sketch.md
+        - Merge Sketches: sketcher/tools/merge-sketches.md
+        - View Tools: sketcher/tools/view-sketch.md
+      - Geometry:
+        - Point: sketcher/tools/create-point.md
+        - Line / Polyline: sketcher/tools/create-line.md
+        - Arc: sketcher/tools/create-arc.md
+        - Circle / Ellipse: sketcher/tools/create-circle.md
+        - Rectangle: sketcher/tools/create-rectangle.md
+        - Regular Polygon: sketcher/tools/create-regular-polygon.md
+        - Slot: sketcher/tools/create-slot.md
+        - Fillet / Chamfer: sketcher/tools/create-fillet.md
+        - B-Spline: sketcher/tools/create-bspline.md
+      - Editing:
+        - Trim / Split / Extend: sketcher/tools/trim-split-extend.md
+        - External Geometry: sketcher/tools/external-geometry.md
+      - Geometric Constraints:
+        - Coincident: sketcher/tools/constraint-coincident.md
+        - Horizontal / Vertical: sketcher/tools/constraint-horizontal-vertical.md
+        - Parallel: sketcher/tools/constraint-parallel.md
+        - Perpendicular: sketcher/tools/constraint-perpendicular.md
+        - Tangent: sketcher/tools/constraint-tangent.md
+        - Equal: sketcher/tools/constraint-equal.md
+        - Symmetric: sketcher/tools/constraint-symmetric.md
+        - Block: sketcher/tools/constraint-block.md
+        - Point on Object: sketcher/tools/constraint-point-on-object.md
+        - Lock Position: sketcher/tools/constraint-lock.md
+      - Dimensional Constraints:
+        - Dimension: sketcher/tools/dimension.md
+        - Distance: sketcher/tools/constraint-distance.md
+        - Radius / Diameter: sketcher/tools/constraint-radius-diameter.md
+        - Angle: sketcher/tools/constraint-angle.md
+        - Toggle Driving / Active: sketcher/tools/toggle-constraint.md
+        - Snell's Law: sketcher/tools/constraint-snells-law.md
+      - Transform Tools:
+        - Offset: sketcher/tools/offset.md
+        - Move / Array Transform: sketcher/tools/translate.md
+        - Rotate / Polar Transform: sketcher/tools/rotate.md
+        - Scale: sketcher/tools/scale.md
+        - Mirror: sketcher/tools/symmetry.md
+        - Copy / Clone / Move: sketcher/tools/copy-clone-move.md
+      - Analysis:
+        - Sketch Analysis: sketcher/tools/sketch-analysis.md
   # Uncomment as these sections are written:
-  # - Sketcher:
-  #   - sketcher/index.md
   # - Part:
   #   - part/index.md

@@ -56,7 +56,7 @@ the parametric link.
 ## When NOT to use it
 
 - **You only need to reorient an existing sketch** — use
-  Sketch → Map Sketch to Face (Sketcher workbench) instead;
+  [Sketch → Map Sketch to Face](../../sketcher/tools/map-sketch.md) instead;
   it repositions the sketch without creating a persistent datum object.
 - **The plane is one of XY, XZ, or YZ** — use the Body's built-in origin planes
   directly; they are always available and require no extra steps.
