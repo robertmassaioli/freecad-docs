@@ -20,7 +20,7 @@ Complete index of all Spreadsheet workbench tools and features.
 |------|-------------|
 | Merge Cells | Combine selected cells into one spanning cell |
 | Split Cell | Un-merge a previously merged cell |
-| Set Alias | Assign a human-readable name to a cell for use in expressions |
+| [Set Alias](aliases.md) | Assign a human-readable name to a cell for use in expressions |
 | Bind Sheet | Synchronise a range of cells to a range in another spreadsheet |
 
 ---
@@ -42,6 +42,6 @@ Complete index of all Spreadsheet workbench tools and features.
 
 | Page | Description |
 |------|-------------|
-| Formulas and Expressions | Formula syntax, functions, operators, and the expression engine |
-| Aliases | Naming cells for readable cross-workbench references |
-| Model Integration | Driving model dimensions from a spreadsheet and reading model properties |
+| [Formulas and Expressions](formulas-and-expressions.md) | Formula syntax, functions, operators, and the expression engine |
+| [Aliases](aliases.md) | Naming cells for readable cross-workbench references |
+| [Model Integration](model-integration.md) | Driving model dimensions from a spreadsheet and reading model properties |

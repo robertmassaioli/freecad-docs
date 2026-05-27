@@ -302,3 +302,6 @@ nav:
     - Tools:
       - spreadsheet/tools/index.md
       - Create Spreadsheet: spreadsheet/tools/create-spreadsheet.md
+      - Formulas and Expressions: spreadsheet/tools/formulas-and-expressions.md
+      - Aliases: spreadsheet/tools/aliases.md
+      - Model Integration: spreadsheet/tools/model-integration.md

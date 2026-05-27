@@ -60,7 +60,8 @@ A cell can contain:
 The `=` prefix activates FreeCAD's expression engine. Formulas can reference
 other cells, use mathematical functions, and reference properties of any
 FreeCAD object in the document. See
-Formulas and Expressions for the full reference.
+[Formulas and Expressions](tools/formulas-and-expressions.md) for the full
+reference.
 
 ### Aliases
 
@@ -69,7 +70,7 @@ assigned in addition to its grid address (`C4`). Other tools reference the
 alias rather than the address: `Spreadsheet.WallThickness` is far more
 readable than `Spreadsheet.C4` and does not break when rows are inserted.
 
-See Aliases for details.
+See [Aliases](tools/aliases.md) for details.
 
 ### Bidirectional linking
 
