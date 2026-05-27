@@ -24,6 +24,29 @@ to see what you are doing while editing.
 
 ---
 
+## Intuition
+
+These tools exist because sketching in 3-D space has a visibility problem: the
+solid your sketch is attached to can block the sketch edges, the camera angle
+can make the sketch look like an ellipse instead of a circle, and freehand
+cursor placement is imprecise without grid guidance.
+
+None of these tools touch geometry or constraints. They are pure view aids:
+
+- **View Sketch** snaps you back to the face-on camera angle whenever you
+  accidentally orbit the model and lose the 2-D perspective.
+- **View Section** clips away the solid above the sketch plane so thick faces
+  cannot hide what you are drawing.
+- **Grid / Snap** bring drafting-table precision — snap points align to a
+  configurable pitch so short distances are easy to enter without typing.
+- **Rendering Order** resolves z-fighting when sketch lines sit exactly on a
+  solid face and flicker between foreground and background.
+
+Think of this group as your sketch workspace setup: configure it once at the
+start of a sketching session and forget about it.
+
+---
+
 ## View Sketch
 
 **Menu:** Sketch → View Sketch

@@ -25,6 +25,29 @@ multiple output shapes. They are implemented as Python commands in
 
 ---
 
+## Intuition
+
+Standard Boolean Cut and Fuse always produce *one* result shape, discarding
+the pieces that are "removed". The Split tools are different: they **preserve
+every fragment** — nothing is discarded.
+
+Think of cutting a pizza: Cut gives you one slice and throws away the rest;
+Slice gives you *all* the slices, keeping the topology of every piece. This
+makes the Split tools essential for:
+
+- **FEA / CFD meshing** — adjacent parts need conforming meshes (shared nodes
+  at boundaries); Boolean Fragments splits all parts at their mutual boundaries
+  so the mesh can be generated conformally.
+- **Spatial analysis** — understanding exactly which regions two designs overlap
+  (XOR) or how a complex body decomposes when cut by multiple planes.
+- **Manufacturing planning** — slicing a solid into layers or halves for
+  toolpath generation or mould split-line analysis.
+
+The four tools differ in how many inputs they accept and whether the output
+fragments become separate model-tree objects or stay bundled in a compound.
+
+---
+
 ## Boolean Fragments
 
 **Menu:** Part → Split → Boolean Fragments  

@@ -23,6 +23,30 @@ and Part Design workbenches.
 
 ---
 
+## Intuition
+
+FreeCAD has two fundamentally different geometric representations: **meshes**
+(a cloud of triangles, used by STL files and the Mesh workbench) and **B-rep
+shapes** (precise boundary-representation solids used by Part, Part Design,
+and OCCT). These two worlds don't mix: you cannot Boolean-cut a mesh with a
+B-rep sphere, and you cannot extrude a mesh face.
+
+These four tools bridge that gap and fix two related surface-orientation
+problems:
+
+1. **Shape from Mesh → Convert to Solid** is the standard STL repair pipeline:
+   turn the triangle soup into a B-rep shell, then close the shell into a
+   proper solid that Part tools can work with.
+2. **Points from Shape** goes the other direction — extracting discrete vertex
+   coordinates from B-rep geometry when you need a point cloud.
+3. **Reverse Shapes** fixes inside-out normals — a common artefact of mesh
+   conversion and some STEP imports — without touching the geometry itself.
+
+Think of these tools as the "customs checkpoint" between the mesh world and
+the solid world: shapes pass through here on the way in and out.
+
+---
+
 ## Shape from Mesh
 
 **Menu:** Part → Shape from Mesh  

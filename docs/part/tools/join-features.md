@@ -25,6 +25,29 @@ they maintain connectivity through that space.
 
 ---
 
+## Intuition
+
+Standard Boolean Fuse and Cut treat every solid as a completely filled volume.
+That assumption breaks down for **hollow** objects — pipes, housings, and
+thin-walled enclosures — because their defining feature is the *emptiness
+inside* the wall, not just the wall itself.
+
+If you Part Fuse two intersecting pipes, FreeCAD merges them into one solid but
+fills the interior with material at the junction, destroying the flow path.
+The Join tools understand the hollow character of walled solids and preserve it:
+
+- **Connect** knows that the interior of both pipes is meant to be one
+  continuous space; it opens the shared wall to connect them.
+- **Embed** knows that one solid is being inserted *through* another's wall,
+  not *into* its volume; it creates the opening without flooding the cavity.
+- **Cutout** removes only the wall material at the penetration point, leaving
+  the interior cavity intact.
+
+Use these tools whenever you are building anything that is hollow: pipe runs,
+electronic enclosures, sheet-metal boxes, or pressurised vessels.
+
+---
+
 ## Connect Shapes
 
 **Menu:** Part → Join → Connect  

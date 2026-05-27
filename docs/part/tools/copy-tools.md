@@ -22,6 +22,27 @@ modifying the original.
 
 ---
 
+## Intuition
+
+Every tool in this group creates a new Part shape derived from an existing one,
+leaving the original unchanged. The key question is *how much* of the
+parametric history to preserve:
+
+- **Simple Copy** breaks the link entirely — a frozen snapshot that never
+  changes again, useful as a stable base when you need to branch the design
+  or lock in a state for export.
+- **Transformed Copy** bakes the current Placement into the geometry so the
+  shape "owns" its position in world space rather than relying on a matrix.
+- **Shape Element Copy** extracts a single topological element (one face, one
+  edge, one vertex) as its own standalone feature — useful when you need just
+  a face to project onto, or an edge to use as a sweep spine.
+- **Refine Shape** is the odd one out: it does not copy the shape for
+  versioning purposes but cleans up its topology — merging co-planar faces
+  and removing seam edges left over from Boolean operations. Run it before
+  Fillet or Chamfer to avoid failures on spurious edges.
+
+---
+
 ## Simple Copy
 
 **Menu:** Part → Create a Copy → Simple Copy  
