@@ -297,3 +297,8 @@ nav:
         - Defeaturing: part/tools/defeaturing.md
         - Persistent Section Cut: part/tools/section-cut.md
         - Appearance per Face: part/tools/appearance-per-face.md
+  - Spreadsheet:
+    - spreadsheet/index.md
+    - Tools:
+      - spreadsheet/tools/index.md
+      - Create Spreadsheet: spreadsheet/tools/create-spreadsheet.md
