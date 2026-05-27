@@ -59,6 +59,34 @@ The parameters table and Python API section must be exhaustive — they are the
 reference a user reaches for when they already understand the concept and just
 need a fact. All possible values, default values, and constraints must be listed.
 
+### 2.5 Complex options deserve their own deep dive
+
+Some parameters are themselves mini-systems: a single dropdown with five
+choices where each choice changes what the tool does, how it computes its
+result, and what the resulting geometry looks like. A one-line description in
+the reference table is not enough for these.
+
+**A parameter is "complex" if any of the following are true:**
+- It has three or more mutually exclusive modes, each with qualitatively
+  different behaviour (not just a numeric range).
+- Choosing a mode unlocks additional sub-parameters that only apply to that
+  mode.
+- A user cannot predict the visual result from the mode name alone — they need
+  an analogy or example.
+- Getting the wrong mode is a common mistake that produces hard-to-diagnose
+  geometry errors.
+
+**Examples of complex parameters:**
+- Additive Pipe → Orientation Mode (Standard / Fixed / Frenet / Auxiliary / Binormal)
+- Pocket → Type (Dimension / Through All / To First / Up to Face / Up to Shape)
+- Hole → Thread Type combined with Thread Size and Class dropdowns
+- Pad → Symmetric to Plane combined with the two direction lengths
+
+When a parameter is complex, it must have both a summary row in the reference
+table *and* a dedicated deep-dive sub-section within the Parameters section.
+The deep dive follows the same progressive-complexity rule: start with the
+intuition for each mode, then give the technical detail.
+
 ---
 
 ## 3. The template
@@ -178,12 +206,65 @@ writing real pages.
      - Type: the kind of input (length, angle, integer, toggle, dropdown, …)
      - Default: the factory default value
      - Description: what it does; include valid range or allowed values
+     
+     If the tool groups its parameters into named sections in the task panel,
+     use ### sub-headings that match the UI group names exactly.
+     
+     For any parameter that qualifies as "complex" (see §2.5), add a
+     "### <Parameter Name> deep dive" sub-section immediately after its
+     reference table. See the deep-dive format below.
 -->
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | <Label> | <Type> | <Default> | <What it controls. Valid range or options if applicable.> |
 | … | … | … | … |
+
+<!-- ─── COMPLEX OPTION DEEP DIVE (include only for complex parameters) ──────
+
+### <Parameter Name> in depth
+
+<!-- One or two sentences explaining *why* this parameter exists and why it
+     has multiple modes rather than a single algorithm. What problem does each
+     mode solve that the others cannot? -->
+
+<Why does this parameter have multiple modes? 1–3 sentences.>
+
+<!-- Then one sub-section per mode (use #### level headings). Each mode block
+     must contain:
+     1. One-sentence intuition (analogy preferred)
+     2. When to use this mode (1–3 bullets)
+     3. What can go wrong / known limitations
+     4. Any sub-parameters that only appear when this mode is active
+-->
+
+#### <Mode Name 1> (default)
+
+<One-sentence intuition for this mode. Analogy welcome.>
+
+**Use this mode when:**
+- <Situation 1>
+- <Situation 2>
+
+**Watch out for:** <one short sentence about the most common failure mode.>
+
+#### <Mode Name 2>
+
+<One-sentence intuition for this mode.>
+
+**Use this mode when:**
+- <Situation>
+
+**Watch out for:** <known limitation.>
+
+<!-- Sub-parameters that only appear in this mode: -->
+
+| Sub-parameter | Type | Default | Description |
+|---------------|------|---------|-------------|
+| <Label> | <Type> | <Default> | <Description.> |
+
+<!-- Continue for all modes … -->
+────────────────────────────────────────────────────────────────────────── -->
 
 
 ## Advanced usage
@@ -280,6 +361,7 @@ doc = App.activeDocument()
 | When NOT to use | Yes | Saves the user from going down the wrong path |
 | Step-by-step walkthrough | Yes | Task-oriented learning; drives first use |
 | Parameters | Yes | Reference; must exist even if all defaults are fine |
+| Parameters → deep dive | Conditional | Required for every parameter that qualifies as "complex" (§2.5) |
 | Advanced usage | No | Only when there is genuinely non-obvious depth |
 | Common mistakes | Yes | Reduces support burden; surfaces hard-won knowledge |
 | Python API | Yes | Every tool must be scriptable; scripters deserve docs too |
@@ -298,6 +380,7 @@ doc = App.activeDocument()
 | When NOT to use | 2–5 bullets |
 | Walkthrough | 4–10 numbered steps |
 | Parameters | One row per UI control |
+| Parameters → deep dive | One #### sub-section per mode; 50–150 words per mode |
 | Advanced usage | 0–400 words |
 | Common mistakes | 2–5 `!!! warning` blocks |
 | Python API | 1 runnable example + signature table |
@@ -340,6 +423,10 @@ Before merging any tool page, verify:
 - [ ] The Intuition section contains no step-by-step instructions (those belong
       in the walkthrough)
 - [ ] Every parameter in the FreeCAD task panel appears in the Parameters table
+- [ ] Any parameter with 3+ qualitatively different modes has a deep-dive
+      sub-section (§2.5) with one `####` heading per mode
+- [ ] Each mode's deep-dive contains: one-sentence intuition, "use when" bullets,
+      and at least one gotcha or limitation
 - [ ] At least one `!!! warning` block exists in Common mistakes
 - [ ] The Python example has been tested or is marked `# TODO: verify`
 - [ ] All internal links resolve
