@@ -202,4 +202,4 @@ doc.recompute()
 - [Move Feature After…](move-feature-in-tree.md) — reorder a feature within the same Body
 - [Set Tip](move-tip.md) — change which feature is the active endpoint of a Body
 - [Duplicate Object](duplicate-selection.md) — copy a feature rather than moving it
-- [Body and Origin](../concepts/body-and-origin.md) — how features are organised within a Body
+- [Body](body.md) — how features are organised within a Body

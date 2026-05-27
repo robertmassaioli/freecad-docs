@@ -79,7 +79,7 @@ The **Angle** parameter trims the cone around its axis: at 360° you get a compl
 !!! note "Equal radii"
     When Radius1 equals Radius2 (within floating-point precision), FreeCAD automatically builds a cylinder instead of a cone. This is handled transparently in the source — no error is raised.
 
-The task panel also exposes the **Attachment** section (inherited from `Part::AttachExtension`), which controls the position and orientation of the cone's axis. See the [Attachment](../concepts/attachment.md) documentation for the full list of modes. <!-- TODO: verify link -->
+The task panel also exposes the **Attachment** section (inherited from `Part::AttachExtension`), which controls the position and orientation of the cone's axis. See the [Datum Plane](datum-plane.md) documentation for the full list of modes. <!-- TODO: verify link -->
 
 ---
 

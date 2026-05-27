@@ -56,7 +56,7 @@ the parametric link.
 ## When NOT to use it
 
 - **You only need to reorient an existing sketch** — use
-  [Sketch → Map Sketch to Face](../../sketcher/tools/map-sketch.md) instead;
+  Sketch → Map Sketch to Face (Sketcher workbench) instead;
   it repositions the sketch without creating a persistent datum object.
 - **The plane is one of XY, XZ, or YZ** — use the Body's built-in origin planes
   directly; they are always available and require no extra steps.
@@ -283,4 +283,4 @@ doc.recompute()
 - [Datum Point](datum-point.md) — reference point, same attachment system
 - [Local Coordinate System](coordinate-system.md) — reference frame with all three axes
 - [Additive Pipe](additive-pipe.md) — sweep along a path; datum planes are often used as section planes
-- [Body and Origin](../concepts/body-and-origin.md) — the built-in XY, XZ, YZ planes
+- [Body](body.md) — the built-in XY, XZ, YZ planes

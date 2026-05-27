@@ -136,8 +136,68 @@ nav:
     - part-design/index.md
     - Tools:
       - part-design/tools/index.md
+      - Structure & Setup:
+        - Body: part-design/tools/body.md
+        - New Sketch: part-design/tools/new-sketch.md
+        - Datum Plane: part-design/tools/datum-plane.md
+        - Datum Line: part-design/tools/datum-line.md
+        - Datum Point: part-design/tools/datum-point.md
+        - Coordinate System: part-design/tools/coordinate-system.md
+        - Shape Binder: part-design/tools/shape-binder.md
+        - Sub-Shape Binder: part-design/tools/sub-shape-binder.md
+        - Clone: part-design/tools/clone.md
       - Additive Features:
+        - Pad: part-design/tools/pad.md
+        - Revolution: part-design/tools/revolution.md
+        - Additive Loft: part-design/tools/additive-loft.md
         - Additive Pipe: part-design/tools/additive-pipe.md
+        - Additive Helix: part-design/tools/additive-helix.md
+      - Additive Primitives:
+        - Additive Box: part-design/tools/additive-box.md
+        - Additive Cylinder: part-design/tools/additive-cylinder.md
+        - Additive Sphere: part-design/tools/additive-sphere.md
+        - Additive Cone: part-design/tools/additive-cone.md
+        - Additive Ellipsoid: part-design/tools/additive-ellipsoid.md
+        - Additive Torus: part-design/tools/additive-torus.md
+        - Additive Prism: part-design/tools/additive-prism.md
+        - Additive Wedge: part-design/tools/additive-wedge.md
+      - Subtractive Features:
+        - Pocket: part-design/tools/pocket.md
+        - Groove: part-design/tools/groove.md
+        - Hole: part-design/tools/hole.md
+        - Subtractive Loft: part-design/tools/subtractive-loft.md
+        - Subtractive Pipe: part-design/tools/subtractive-pipe.md
+        - Subtractive Helix: part-design/tools/subtractive-helix.md
+      - Subtractive Primitives:
+        - Subtractive Box: part-design/tools/subtractive-box.md
+        - Subtractive Cylinder: part-design/tools/subtractive-cylinder.md
+        - Subtractive Sphere: part-design/tools/subtractive-sphere.md
+        - Subtractive Cone: part-design/tools/subtractive-cone.md
+        - Subtractive Ellipsoid: part-design/tools/subtractive-ellipsoid.md
+        - Subtractive Torus: part-design/tools/subtractive-torus.md
+        - Subtractive Prism: part-design/tools/subtractive-prism.md
+        - Subtractive Wedge: part-design/tools/subtractive-wedge.md
+      - Dress-up:
+        - Fillet: part-design/tools/fillet.md
+        - Chamfer: part-design/tools/chamfer.md
+        - Draft: part-design/tools/draft.md
+        - Thickness: part-design/tools/thickness.md
+      - Transformations:
+        - Mirrored: part-design/tools/mirrored.md
+        - Linear Pattern: part-design/tools/linear-pattern.md
+        - Polar Pattern: part-design/tools/polar-pattern.md
+        - Multi-Transform: part-design/tools/multi-transform.md
+      - Boolean Operations:
+        - Boolean: part-design/tools/boolean.md
+      - Specialised Tools:
+        - Involute Gear: part-design/tools/involute-gear.md
+        - Sprocket: part-design/tools/sprocket.md
+        - Shaft Wizard: part-design/tools/wizard-shaft.md
+      - Tree Management:
+        - Move Tip: part-design/tools/move-tip.md
+        - Move Feature: part-design/tools/move-feature.md
+        - Move Feature in Tree: part-design/tools/move-feature-in-tree.md
+        - Duplicate Selection: part-design/tools/duplicate-selection.md
   # Uncomment as these sections are written:
   # - Sketcher:
   #   - sketcher/index.md

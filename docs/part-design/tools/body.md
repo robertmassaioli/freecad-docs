@@ -291,7 +291,7 @@ visible = body.VisibleFeature  # TODO: verify attribute name; source: BodyPyImp.
 - [Part Design index](../index.md) — overview of the Part Design workflow
 - [Pad](pad.md) — the most common first feature to add inside a Body
 - [New Sketch](new-sketch.md) — create the sketch that a Pad or Pocket uses <!-- TODO: verify link -->
-- [Set Tip](set-tip.md) — move the active Tip to inspect or insert at an intermediate step <!-- TODO: verify link -->
+- [Move Tip](move-tip.md) — move the active Tip to inspect or insert at an intermediate step
 - [Boolean](boolean.md) — combine two or more Bodies into a single solid
-- [Sub-Shape Binder](sub-shape-binder.md) — reference geometry from another Body <!-- TODO: verify link -->
-- [Move Object To](move-object-to.md) — reassign a feature from one Body to another <!-- TODO: verify link -->
+- [Sub-Shape Binder](sub-shape-binder.md) — reference geometry from another Body
+- [Move Feature](move-feature.md) — reassign a feature from one Body to another
