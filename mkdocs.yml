@@ -314,3 +314,5 @@ nav:
     - Tools:
       - assembly/tools/index.md
       - Assembly Setup: assembly/tools/create-assembly.md
+      - Toggle Grounded: assembly/tools/grounded.md
+      - Joints — Kinematic: assembly/tools/joints-kinematic.md

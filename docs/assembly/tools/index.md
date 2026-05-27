@@ -19,7 +19,7 @@ Complete index of all Assembly workbench tools.
 
 | Tool | Shortcut | Description |
 |------|----------|-------------|
-| Toggle Grounded | `G` | Fix / unfix a part's position as the assembly reference |
+| [Toggle Grounded](grounded.md) | `G` | Fix / unfix a part's position as the assembly reference |
 
 ---
 
@@ -29,11 +29,11 @@ These joints define how parts move relative to each other.
 
 | Joint | Shortcut | DOF | Description |
 |-------|----------|-----|-------------|
-| Fixed | `F` | 0 | Lock two parts completely |
-| Revolute | `R` | 1 (rotation) | Allow rotation around a single axis |
-| Cylindrical | `C` | 2 (rot + trans) | Allow rotation and translation along a single axis |
-| Slider | `S` | 1 (translation) | Allow linear movement along a single axis only |
-| Ball | `B` | 3 (rotation) | Allow free rotation about a single point |
+| [Fixed](joints-kinematic.md#fixed-joint) | `F` | 0 | Lock two parts completely |
+| [Revolute](joints-kinematic.md#revolute-joint) | `R` | 1 (rotation) | Allow rotation around a single axis |
+| [Cylindrical](joints-kinematic.md#cylindrical-joint) | `C` | 2 (rot + trans) | Allow rotation and translation along a single axis |
+| [Slider](joints-kinematic.md#slider-joint) | `S` | 1 (translation) | Allow linear movement along a single axis only |
+| [Ball](joints-kinematic.md#ball-joint) | `B` | 3 (rotation) | Allow free rotation about a single point |
 
 ---
 

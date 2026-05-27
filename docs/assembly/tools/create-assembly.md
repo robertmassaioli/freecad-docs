@@ -193,6 +193,6 @@ in-context (seeing the other assembly parts while modelling).
 
 ## See also
 
-- Grounded — fix the reference part in space before adding joints
-- Joints — Kinematic — constrain part motion
+- [Grounded](grounded.md) — fix the reference part in space before adding joints
+- [Joints — Kinematic](joints-kinematic.md) — constrain part motion
 - Solve Assembly — run the solver after adding joints
