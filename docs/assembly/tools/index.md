@@ -43,10 +43,10 @@ These joints constrain orientation and distance without specifying a single moti
 
 | Joint | Shortcut | Description |
 |-------|----------|-------------|
-| Distance | `D` | Maintain a fixed distance or separation |
-| Parallel | `N` | Make two axes parallel |
-| Perpendicular | `M` | Make two axes perpendicular |
-| Angle | `X` | Fix the angle between two axes |
+| [Distance](joints-geometric.md#distance-joint) | `D` | Maintain a fixed distance or separation |
+| [Parallel](joints-geometric.md#parallel-joint) | `N` | Make two axes parallel |
+| [Perpendicular](joints-geometric.md#perpendicular-joint) | `M` | Make two axes perpendicular |
+| [Angle](joints-geometric.md#angle-joint) | `X` | Fix the angle between two axes |
 
 ---
 
@@ -56,10 +56,10 @@ These joints link the motion of two independently-jointed parts.
 
 | Joint | Shortcut | Description |
 |-------|----------|-------------|
-| Rack and Pinion | `Q` | Link a slider to a revolute (rack-and-pinion mechanism) |
-| Screw | `W` | Link a slider to a revolute (lead-screw mechanism) |
-| Gears | `T` | Link two revolutes with inverse rotation |
-| Belt | `L` | Link two revolutes with same rotation direction |
+| [Rack and Pinion](joints-coupled.md#rack-and-pinion-joint) | `Q` | Link a slider to a revolute (rack-and-pinion mechanism) |
+| [Screw](joints-coupled.md#screw-joint) | `W` | Link a slider to a revolute (lead-screw mechanism) |
+| [Gears](joints-coupled.md#gears-joint) | `T` | Link two revolutes with inverse rotation |
+| [Belt](joints-coupled.md#belt-joint) | `L` | Link two revolutes with same rotation direction |
 
 ---
 

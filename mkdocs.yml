@@ -316,3 +316,5 @@ nav:
       - Assembly Setup: assembly/tools/create-assembly.md
       - Toggle Grounded: assembly/tools/grounded.md
       - Joints — Kinematic: assembly/tools/joints-kinematic.md
+      - Joints — Geometric: assembly/tools/joints-geometric.md
+      - Joints — Coupled Motion: assembly/tools/joints-coupled.md
