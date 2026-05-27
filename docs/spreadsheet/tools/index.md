@@ -9,8 +9,8 @@ Complete index of all Spreadsheet workbench tools and features.
 | Tool | Description |
 |------|-------------|
 | [Create Spreadsheet](create-spreadsheet.md) | Add a new spreadsheet object to the document |
-| Import | Load a CSV file into a new spreadsheet |
-| Export | Save the current spreadsheet as a CSV file |
+| [Import](import-export.md#import) | Load a CSV file into a new spreadsheet |
+| [Export](import-export.md#export) | Save the current spreadsheet as a CSV file |
 
 ---
 
@@ -18,8 +18,8 @@ Complete index of all Spreadsheet workbench tools and features.
 
 | Tool | Description |
 |------|-------------|
-| Merge Cells | Combine selected cells into one spanning cell |
-| Split Cell | Un-merge a previously merged cell |
+| [Merge Cells](merge-split.md#merge-cells) | Combine selected cells into one spanning cell |
+| [Split Cell](merge-split.md#split-cell) | Un-merge a previously merged cell |
 | [Set Alias](aliases.md) | Assign a human-readable name to a cell for use in expressions |
 | Bind Sheet | Synchronise a range of cells to a range in another spreadsheet |
 
@@ -29,12 +29,12 @@ Complete index of all Spreadsheet workbench tools and features.
 
 | Tool | Description |
 |------|-------------|
-| Align Left / Center / Right | Horizontal text alignment within the cell |
-| Align Top / VCenter / Bottom | Vertical text alignment within the cell |
-| Bold | Toggle bold text |
-| Italic | Toggle italic text |
-| Underline | Toggle underlined text |
-| Foreground / Background Colour | Set text or cell background colour |
+| [Align Left / Center / Right](cell-formatting.md#horizontal-alignment) | Horizontal text alignment within the cell |
+| [Align Top / VCenter / Bottom](cell-formatting.md#vertical-alignment) | Vertical text alignment within the cell |
+| [Bold](cell-formatting.md#text-style) | Toggle bold text |
+| [Italic](cell-formatting.md#text-style) | Toggle italic text |
+| [Underline](cell-formatting.md#text-style) | Toggle underlined text |
+| [Foreground / Background Colour](cell-formatting.md#colour) | Set text or cell background colour |
 
 ---
 

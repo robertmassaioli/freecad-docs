@@ -147,4 +147,4 @@ print(sheet.get("B4"))          # 250.0
 - [Formulas and Expressions](formulas-and-expressions.md) — formula syntax reference
 - [Aliases](aliases.md) — naming cells for external references
 - [Model Integration](model-integration.md) — linking spreadsheet values to model dimensions
-- Import / Export — load an existing CSV instead of starting empty
+- [Import / Export](import-export.md) — load an existing CSV instead of starting empty

@@ -305,3 +305,6 @@ nav:
       - Formulas and Expressions: spreadsheet/tools/formulas-and-expressions.md
       - Aliases: spreadsheet/tools/aliases.md
       - Model Integration: spreadsheet/tools/model-integration.md
+      - Import / Export: spreadsheet/tools/import-export.md
+      - Merge / Split Cells: spreadsheet/tools/merge-split.md
+      - Cell Formatting: spreadsheet/tools/cell-formatting.md
