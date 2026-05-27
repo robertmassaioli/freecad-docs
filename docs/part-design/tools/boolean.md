@@ -69,7 +69,7 @@ result updates automatically.
   Part workbench Boolean tools (Part → Boolean) instead, which accept arbitrary
   shapes.
 - **You want to create a compound of non-intersecting solids** — use
-  Part → Make Compound (Part workbench) instead.
+  [Part → Make Compound](../../part/tools/compound.md#make-compound) instead.
 
 ---
 
@@ -221,7 +221,7 @@ doc.recompute()
 
 - [Pad](pad.md) — additive extrusion within a single Body
 - [Pocket](pocket.md) — subtractive extrusion within a single Body
-- Part Boolean (Part workbench) — Part workbench equivalent that
+- [Part Boolean](../../part/tools/boolean.md) — Part workbench equivalent that
   operates on arbitrary shapes rather than Bodies
 - [Body](body.md) — the Part Design container that Boolean
   operates on

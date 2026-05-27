@@ -19,30 +19,6 @@ For each entry below:
 
 ---
 
-## Part workbench pages (not yet written)
-
-### `boolean.md` — Make Compound reference
-
-| Field | Value |
-|-------|-------|
-| **Source file** | `docs/part-design/tools/boolean.md` |
-| **Section** | "When NOT to use it" |
-| **Current text** | `Part → Make Compound (Part workbench) instead.` |
-| **Restore as** | `[Part → Make Compound](../../part/tools/make-compound.md) instead.` |
-| **Target page** | `docs/part/tools/make-compound.md` (not yet written) |
-
-### `boolean.md` — Part Boolean reference
-
-| Field | Value |
-|-------|-------|
-| **Source file** | `docs/part-design/tools/boolean.md` |
-| **Section** | "See also" |
-| **Current text** | `Part Boolean (Part workbench) — Part workbench equivalent that operates on arbitrary shapes rather than Bodies` |
-| **Restore as** | `[Part Boolean](../../part/tools/boolean.md) — Part workbench equivalent that operates on arbitrary shapes rather than Bodies` |
-| **Target page** | `docs/part/tools/boolean.md` (not yet written) |
-
----
-
 ## Part Design concept pages (not yet written)
 
 These pages were referenced by multiple tool pages but were never created.
@@ -95,21 +71,3 @@ additive-torus, additive-prism, additive-wedge, subtractive-ellipsoid,
 subtractive-torus, subtractive-prism, subtractive-wedge). Check those files
 for `<!-- TODO: verify link -->` comments pointing to attachment.md and
 restore them at the same time.
-
----
-
-## Sketcher pages — forward references to Part workbench (not yet written)
-
-The following Sketcher tool pages reference Part workbench concepts in plain text
-(no hyperlink). When the Part workbench documentation is written, restore these
-as proper links.
-
-### `external-geometry.md` — Part workbench Offset 3D Surface
-
-| Field | Value |
-|-------|-------|
-| **Source file** | `docs/sketcher/tools/external-geometry.md` |
-| **Section** | "When NOT to use it" |
-| **Current text** | `Part workbench Offset 3D Surface operation` |
-| **Restore as** | `[Part Offset 3D Surface](../../part/tools/offset-3d-surface.md)` |
-| **Target page** | `docs/part/tools/offset-3d-surface.md` (not yet written) |

@@ -250,6 +250,50 @@ nav:
         - Copy / Clone / Move: sketcher/tools/copy-clone-move.md
       - Analysis:
         - Sketch Analysis: sketcher/tools/sketch-analysis.md
-  # Uncomment as these sections are written:
-  # - Part:
-  #   - part/index.md
+  - Part:
+    - part/index.md
+    - Tools:
+      - part/tools/index.md
+      - Primitives:
+        - Cube: part/tools/cube.md
+        - Cylinder: part/tools/cylinder.md
+        - Sphere: part/tools/sphere.md
+        - Cone: part/tools/cone.md
+        - Torus: part/tools/torus.md
+        - Tube: part/tools/tube.md
+        - Primitives Dialog: part/tools/primitives.md
+        - Shape Builder: part/tools/shape-builder.md
+      - Mesh & Solid:
+        - Mesh and Solid Conversion: part/tools/mesh-and-solid.md
+      - Copy:
+        - Copy Tools: part/tools/copy-tools.md
+      - Boolean Operations:
+        - Boolean Dialog: part/tools/boolean.md
+        - Boolean Cut: part/tools/boolean-cut.md
+        - Boolean Fuse: part/tools/boolean-fuse.md
+        - Boolean Common: part/tools/boolean-common.md
+      - Join Features: part/tools/join-features.md
+      - Split Features: part/tools/split-features.md
+      - Compound Tools: part/tools/compound.md
+      - Modeling Tools:
+        - Extrude: part/tools/extrude.md
+        - Revolve: part/tools/revolve.md
+        - Mirror: part/tools/mirror.md
+        - Scale: part/tools/scale.md
+        - Fillet: part/tools/fillet.md
+        - Chamfer: part/tools/chamfer.md
+        - Face from Wires: part/tools/face-from-wires.md
+        - Ruled Surface: part/tools/ruled-surface.md
+        - Loft: part/tools/loft.md
+        - Sweep: part/tools/sweep.md
+        - Section: part/tools/section.md
+        - Cross-Sections: part/tools/cross-sections.md
+        - Offset 3D Surface: part/tools/offset-3d.md
+        - Offset 2D: part/tools/offset-2d.md
+        - Thickness: part/tools/thickness.md
+        - Projection on Surface: part/tools/projection-on-surface.md
+      - Analysis:
+        - Check Geometry: part/tools/check-geometry.md
+        - Defeaturing: part/tools/defeaturing.md
+        - Persistent Section Cut: part/tools/section-cut.md
+        - Appearance per Face: part/tools/appearance-per-face.md

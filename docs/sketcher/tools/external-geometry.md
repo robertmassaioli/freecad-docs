@@ -71,6 +71,10 @@ and constrained independently.
   an independent copy; changes to the source sketch do not propagate.
   Use a [ShapeBinder](../../part-design/tools/shape-binder.md) if you need a live
   parametric link.
+- **You need to offset an entire 3-D surface outward or inward** — use the
+  [Part Offset 3D Surface](../../part/tools/offset-3d.md) operation instead;
+  External Geometry only brings references into a sketch, it does not reshape
+  3-D surfaces.
 
 ---
 
