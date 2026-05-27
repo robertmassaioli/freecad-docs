@@ -82,10 +82,115 @@ The **Reversed** option inverts the direction: instead of hollowing inward, mate
 |-----------|------|---------|-------------|
 | Faces (Base sub-elements) | Face references list | — | The open faces of the result. Selected faces are removed; all remaining faces are offset by Value. |
 | Thickness (Value) | Length (≥ 0) | 1.0 mm | Uniform wall thickness. Must be less than half the minimum solid dimension. |
-| Mode | Enumeration: Skin / Pipe / Recto verso | Skin | Controls the OCCT offset mode. **Skin** is the standard shell mode. **Pipe** treats each face independently. **Recto verso** offsets symmetrically. |
-| Join type | Enumeration: Arc / Intersection | Arc | Controls how adjacent offset faces meet at edges. **Arc** produces rounded interior corners. **Intersection** produces sharp corners. |
+| Mode | Enumeration: Skin / Pipe / Recto verso | Skin | OCCT offset mode. See deep dive below. |
+| Join type | Enumeration: Arc / Intersection | Arc | How adjacent offset faces meet at interior edges. See deep dive below. |
 | Reversed | Boolean | `True` | When `True`, thickness is applied toward the solid interior (hollow out). When `False`, material is added outward. |
 | Intersection | Boolean | `False` | Enable OCCT intersection handling. Helps with shapes where offset faces would self-intersect at open face boundaries. |
+
+### Mode in depth
+
+The Mode dropdown selects the OCCT thick-solid algorithm. Each algorithm
+handles the geometric problem of offsetting a shell differently, with
+different trade-offs between robustness and behaviour at edges and corners.
+
+#### Skin (default)
+
+All faces of the closed shell are offset together as one connected surface,
+preserving continuity between adjacent faces. The resulting inner shell is
+a single connected object.
+
+Intuition: imagine inflating a balloon inside the solid — the entire inner
+surface inflates uniformly inward as one connected skin.
+
+**Use this mode when:**
+- The solid has a smoothly connected outer surface with no sharp re-entrant
+  features (the common case: boxes, housings, brackets)
+- You want the inner walls to remain tangent-continuous at convex corners
+
+**Watch out for:** Skin is the most likely mode to fail with "Could not make
+thick solid" on solids with complex topology (many short edges, very sharp
+re-entrant corners, nearly-tangent faces). If Skin fails, try Intersection join
+type first, then consider Pipe mode.
+
+#### Pipe
+
+Each face is offset independently, without maintaining continuity between
+adjacent faces. The faces are then intersected or blended together to form the
+inner shell.
+
+Intuition: imagine peeling each panel of a cardboard box separately and then
+gluing them back together — each face shifts on its own before the joins are
+resolved.
+
+**Use this mode when:**
+- The solid has faces at very different angles and the Skin algorithm produces
+  twisted or self-intersecting geometry at shared edges
+- Diagnosing a Skin failure — Pipe is sometimes more robust on complex solids
+
+**Watch out for:** Pipe can produce different inner-corner geometry than Skin.
+The join quality at edges depends on the Join type setting and on how well the
+offset faces intersect. On solids with many faces meeting at a point, Pipe can
+also fail.
+
+#### Recto verso
+
+The original face is placed at the mid-plane of the resulting wall. The solid
+offsets equally on both sides, so the wall is centred on the original surface.
+
+Intuition: imagine the original surface is the neutral axis of a plate — material
+is added equally to both sides so the plate is centred on where the surface was.
+
+**Use this mode when:**
+- Importing mid-surface geometry (e.g. thin-shell FEA models expressed as
+  mid-surfaces) and converting it to a solid with physical thickness
+- The design specifies wall thickness about a nominal surface, not measured from
+  one face
+
+**Watch out for:** This mode is uncommon in typical Part Design work. The
+**Reversed** checkbox has no effect in Recto verso — the offset is always
+symmetric. Total wall thickness = 2 × Value.
+
+### Join type in depth
+
+Join type controls how the inner offset faces meet at edges — the sharp corners
+on the inside of the hollowed shell.
+
+#### Arc (default)
+
+At concave interior corners, a fillet arc is added to join adjacent offset faces
+smoothly. The radius of the arc equals the wall thickness.
+
+Intuition: the inside corner of the hollow is rounded, like the inside of a
+bent plastic tube.
+
+**Use this mode when:**
+- The design is injection-moulded or cast, where sharp interior corners are
+  stress concentrators and should be radiused
+- A smooth interior surface is needed (cosmetic, flow simulation, or FEA)
+- This is the standard choice for most plastic housings
+
+**Watch out for:** Arc mode adds extra geometry (the fillet faces) at every
+interior corner. This increases face count and can slow down downstream
+operations. On very complex solids with many corners it may also fail — try
+Intersection if Arc produces errors.
+
+#### Intersection
+
+Adjacent offset faces are extended until they intersect at a sharp edge, with
+no rounding. The inside corners are crisp right-angle (or acute) edges.
+
+Intuition: the inside corner of the hollow is sharp, like the inside corner of
+a machined metal box.
+
+**Use this mode when:**
+- The design is machined metal or sheet metal, where inside corners are
+  inherently sharp
+- FEM meshing quality requires clean, sharp edges with no small-radius fillets
+- Arc mode is producing errors or unexpected geometry
+
+**Watch out for:** Very thin walls on a solid with a large open face can produce
+Intersection joins that look correct but have zero-area faces (the intersection
+is at an edge). Check the model carefully with a section view.
 
 ---
 

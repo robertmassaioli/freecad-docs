@@ -116,14 +116,128 @@ Sub-Shape Binder has no task panel. All configuration is done through the
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `Support` | `App::PropertyXLinkSubList` | — | Source objects and their sub-elements. Accepts multiple objects. Set programmatically or by re-running the command with a new selection. |
-| `BindMode` | Enumeration | `Synchronized` | `Synchronized`: the binder recomputes whenever the source changes. `Frozen`: auto-update is disabled; right-click the binder and choose "Refresh" to update manually. `Detached`: removes the link entirely and keeps only the shape. |
+| `BindMode` | Enumeration | `Synchronized` | Update policy for the bound shape. See deep dive below. |
 | `Relative` | `App::PropertyBool` | `True` | When `True`, placement is stored relative to the source's container Body. When `False`, placement is in absolute document coordinates. |
 | `ClaimChildren` | `App::PropertyBool` | `False` | If `True`, the bound objects appear as children of this binder in the model tree. |
-| `PartialLoad` | `App::PropertyBool` | `False` | When `True`, the binder does not force-load an external document that contains the source. Useful for large assemblies. |
-| `BindCopyOnChange` | Enumeration | `Disabled` | `Disabled`: no copy-on-change behaviour. `Enabled`: duplicate any properties on the source that are marked `CopyOnChange`; a local copy of the source is made with altered properties to produce a different shape. `Mutated`: the binder has already diverged from the source via copy-on-change. |
+| `PartialLoad` | `App::PropertyBool` | `False` | When `True`, the binder does not force-load an external document containing the source. Useful for large assemblies. |
+| `BindCopyOnChange` | Enumeration | `Disabled` | Parametric variation mode. See deep dive below. |
 | `Refine` | `App::PropertyBool` | `True` | Remove redundant edges from the resulting shape after binding. |
 | `Fuse` | `App::PropertyBool` | `False` | Fuse all bound solid sub-shapes into a single solid. |
 | `MakeFace` | `App::PropertyBool` | `True` | Automatically create a face from bound wires when the result is otherwise a set of wires. |
+
+### BindMode in depth
+
+BindMode is the most important day-to-day property of a Sub-Shape Binder. It
+controls when — or whether — the binder pulls updated geometry from its source.
+
+#### Synchronized (default)
+
+The binder recomputes every time the source feature changes. The bound shape
+always matches the current state of the source. This is the "live link" mode.
+
+Intuition: the binder is a mirror — any change to the source is instantly
+reflected in the binder's shape.
+
+**Use this mode when:**
+- You want the reference geometry in the current Body to automatically track
+  changes in the source Body (the standard use-case for cross-Body references)
+- The source feature is still being actively designed and you want the downstream
+  geometry to update continuously
+
+**Watch out for:** Every recompute of the source triggers a recompute of the
+binder and everything downstream of it. In large models with many Synchronized
+binders, this can slow recompute significantly. Use Frozen for references that
+are stable and unlikely to change.
+
+#### Frozen
+
+Auto-update is disabled. The binder retains the shape it captured at the last
+manual refresh and does not recompute when the source changes. To pull in
+changes, right-click the binder in the model tree and choose **Refresh**.
+
+Intuition: a photograph of the source taken at a moment in time — it does not
+change until you choose to take a new photograph.
+
+**Use this mode when:**
+- The source geometry is finalised and should not affect the current Body's
+  downstream features until explicitly approved
+- Performance is a concern: freezing stable references prevents unnecessary
+  recompute cascades
+- You are implementing a design-intent approval workflow where cross-Body
+  references are updated only at explicit checkpoints
+
+**Watch out for:** It is easy to forget a Frozen binder and work with stale
+geometry. Add a `<!-- TODO: refresh binder -->` comment in the model notes, or
+use a naming convention (e.g. prefix the feature name with "FROZEN-") to make
+frozen binders visible in the tree.
+
+#### Detached
+
+The parametric link to the source is permanently severed. The binder retains
+the last-captured shape as static geometry. The `Support` property is cleared.
+
+Intuition: the photograph was printed, the negative destroyed — the image is
+permanent and independent of the original scene.
+
+**Use this mode when:**
+- You want a permanent copy of the geometry that survives even if the source
+  feature is deleted or the source file is moved
+- Exporting a snapshot of a cross-Body reference for use in a long-term archive
+
+**Watch out for:** Detach is irreversible via the UI — you cannot re-attach to
+the source without deleting the binder and creating a new one. The shape is
+frozen permanently, not just until the next Refresh.
+
+### BindCopyOnChange in depth
+
+BindCopyOnChange enables a parametric variation workflow: the binder can hold a
+locally modified copy of the source with different parameter values, producing a
+different shape.
+
+#### Disabled (default)
+
+No copy-on-change behaviour. The binder simply tracks the source shape as-is.
+This is correct for the vast majority of binders.
+
+**Use this mode when:** You want a reference copy of the source geometry, not a
+variant of it.
+
+**Watch out for:** Nothing — Disabled is the safe default.
+
+#### Enabled
+
+When enabled, FreeCAD looks for properties on the source that are marked
+`CopyOnChange`. If any exist, the binder creates a local independent copy of
+the source feature and exposes those properties for editing on the binder. The
+binder's shape is then computed from the local copy with its modified property
+values.
+
+Intuition: the binder becomes a "variant" of the source — same topology,
+different dimensions. Like copying a parametric sketch and adjusting the
+dimensions of the copy without affecting the original.
+
+**Use this mode when:**
+- You need multiple variants of a source feature with different parameter values
+  in the same document (e.g. a family of similar parts)
+- The source feature's author has explicitly marked certain properties as
+  `CopyOnChange` to allow this workflow
+
+**Watch out for:** Only properties explicitly tagged `CopyOnChange` by the
+feature author are exposed for local editing. If no such properties exist,
+Enabled behaves identically to Disabled. This is an advanced workflow that
+requires deliberate setup on the source feature side.
+
+#### Mutated
+
+This value is set automatically by FreeCAD — you do not set it manually. It
+means the binder has already been modified from the source via the copy-on-change
+mechanism and has diverged. The binder now has its own independent copy.
+
+**Use this mode when:** You do not set this manually; it is a status indicator.
+
+**Watch out for:** Once Mutated, the binder no longer updates from the source
+even if the source changes non-CopyOnChange properties. The link is partially
+severed.
 
 ### Offsetting group
 

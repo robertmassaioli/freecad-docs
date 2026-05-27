@@ -126,6 +126,111 @@ are enabled.
 | **Face Normal** | 1 curved face + 1 vertex | Line normal to the face at the vertex. |
 | **Axis of Inertia 1 / 2 / 3** | 1–4 any shapes | Principal inertia axes of the selection. |
 
+### Attachment mode in depth
+
+Datum Line's attachment engine (`AttachEngineLine`) defines a directed line
+rather than a plane. The mode determines what geometry the line tracks and
+how the direction vector is derived from it.
+
+#### Deactivated
+
+The line stays at its last-placed position with no parametric link to model
+geometry. Use the Attachment Offset to position it manually.
+
+**Use this mode when:** Placing a line at fixed world coordinates before the
+reference geometry exists, or intentionally breaking the parametric link.
+
+**Watch out for:** A Deactivated line silently stops updating. If a datum line
+does not follow model changes, check this mode first.
+
+#### Two Point Line
+
+A line is drawn through two selected vertices. Direction: from the first vertex
+to the second. Origin: the first vertex. Like stretching a rubber band between
+two pins.
+
+**Use this mode when:**
+- Defining a revolution or extrusion axis between two specific model points
+- Creating a diagonal reference axis that does not coincide with any face edge
+
+**Watch out for:** The line direction is from vertex 1 to vertex 2 — the
+direction reverses if you change the selection order. Use **Flip sides** in the
+Attachment Offset to reverse without reselecting.
+
+#### Axis of Curvature
+
+The line passes through the centre of a circular or arc edge and is directed
+along its rotational axis. Like the axle through the centre of a wheel.
+
+**Use this mode when:**
+- Defining a revolution axis for a **Revolution** or **Groove** feature that
+  tracks a cylindrical boss, hole, or fillet edge
+- You need the axis of a torus, cylinder, or cone as a parametric reference
+
+**Watch out for:** This is one of the most commonly useful modes — for any hole
+or cylindrical feature, selecting the circular top edge gives you the axis for
+free. On partial arcs the computed centre is the full-circle arc centre, not the
+arc's geometric midpoint.
+
+#### Intersection Line
+
+The line runs along the intersection of two selected planar faces. Like the
+crease at a box fold — it is the line where two flat faces meet.
+
+**Use this mode when:**
+- You need the edge between two faces as a standalone parametric axis (for
+  a mirror plane intersection, a fold line, or a jig reference)
+- The edge is not explicitly present in the model topology (e.g. two datum
+  planes that intersect but don't produce a solid edge)
+
+**Watch out for:** Both selected faces must be planar — the mode is invalid for
+curved faces. Also, if the two faces are parallel, no intersection exists and
+the mode fails.
+
+#### Tangent
+
+The line is tangent to a curve at a specified point, directed along the curve's
+local tangent vector. Like the velocity arrow on a particle moving along a path.
+
+**Use this mode when:**
+- You need the tangent direction of a sketch curve or edge at a point (useful
+  for aligning a profile sketch when starting an Additive Pipe)
+- A direction that smoothly follows a curve's tangent is needed
+
+**Watch out for:** The tangent direction flips when the MapPathParameter value
+crosses a cusp or the curve direction reverses. On closed curves, the tangent
+at parameter 0 = parameter 1 may differ in direction.
+
+#### Face Normal
+
+The line is directed along the normal to a curved face at the nearest point to
+a selected vertex. Like a pin sticking out of a ball at a specific spot.
+
+**Use this mode when:**
+- You need the outward normal of a sphere, cone, or other curved surface at a
+  specific angular position
+- Defining a machining axis that must be perpendicular to a curved surface at a
+  point
+
+**Watch out for:** The normal direction depends on which side of the face is
+considered "outward" by OCCT — this follows the face topology winding order.
+If the line points inward, use Flip sides.
+
+#### Axis of Inertia 1 / 2 / 3
+
+The principal axes of the selection's mass distribution, ordered by moment of
+inertia (1 = smallest moment = axis along the longest dimension; 3 = largest
+moment = axis along the flattest dimension).
+
+**Use this mode when:**
+- You need the symmetry axis of a symmetric shape without picking a specific
+  edge (e.g. the long axis of an ellipsoid or an imported casting)
+- Aligning a datum to the natural orientation of a complex shape
+
+**Watch out for:** For nearly-symmetric shapes, axis 1 and 2 may swap with
+small geometry changes. These are most stable for clearly elongated or flat
+shapes.
+
 ### Attachment Offset
 
 | Parameter | Type | Default | Description |

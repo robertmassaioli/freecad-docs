@@ -98,32 +98,86 @@ common in cast or moulded parts (for strength and mould release).
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| Type | Dropdown | `Equal distance` | The geometric mode. Options: `Equal distance`, `Two distances`, `Distance and Angle`. Controls which of the fields below are active. |
-| Size | Length | `1 mm` | The setback distance from the edge on the first (or only) side. Must be greater than zero. |
-| Size2 | Length | `1 mm` | The setback distance on the second side. Active only in *Two distances* mode. Must be greater than zero. |
-| Angle | Angle | `45°` | The inclination of the chamfer face. Active only in *Distance and Angle* mode. Valid range: `> 0°` and `< 180°`. |
-| Flip direction | Toggle | off | Swaps which adjacent face receives *Size* and which receives *Size2* or is used as the angle reference. Disabled in *Equal distance* mode. |
-| Use all edges | Toggle | off | Chamfers every edge of the base solid; the reference list is ignored when enabled. |
-| References (edge list) | Sub-element links | — | The edges or faces whose edges will be chamfered. Active only when *Use all edges* is off. |
+| Type | Dropdown | `Equal distance` | The geometric mode: `Equal distance`, `Two distances`, or `Distance and Angle`. See deep dive below. |
+| Size | Length | `1 mm` | Setback distance on the first (or only) side. Must be > 0. |
+| Size2 | Length | `1 mm` | Setback distance on the second side. Active only in *Two distances* mode. Must be > 0. |
+| Angle | Angle | `45°` | Inclination of the chamfer face. Active only in *Distance and Angle* mode. Range: > 0° and < 180°. |
+| Flip direction | Toggle | off | Swaps which face receives *Size* vs *Size2* (or the angle reference). Disabled in *Equal distance* mode. |
+| Use all edges | Toggle | off | Chamfers every edge on the solid; the reference list is ignored. |
+| References (edge list) | Sub-element links | — | Edges to chamfer. Active only when *Use all edges* is off. |
+
+### Type in depth
+
+The Type dropdown controls the geometry of the chamfer face — specifically,
+how the two measurements that define the bevel are specified.
+
+#### Equal distance (default)
+
+Both sides of the chamfer set back by the same distance (*Size*). The chamfer
+face bisects the angle between the two adjacent faces symmetrically.
+
+Intuition: imagine sanding a 45° bevel where both faces are touched equally —
+regardless of what angle the original edge subtends, each adjacent face loses
+the same amount of material.
+
+**Use this mode when:**
+- You want a clean symmetric bevel and the setback is the same on both sides
+- Dimensioning by a single value (callout: "chamfer 1×45°" in machining)
+- The two adjacent faces meet at 90° (the most common case)
+
+**Watch out for:** On edges where the two faces meet at an angle other than 90°,
+"equal distance" still means equal *setback*, not a 45° angle face. The chamfer
+face angle will vary depending on the dihedral angle of the edge.
+
+#### Two distances
+
+Each side of the chamfer has an independent setback: *Size* on the first face
+and *Size2* on the second face. The chamfer face is a plane that connects the
+two setback lines.
+
+Intuition: one side retreats 2 mm and the other retreats 0.5 mm — like a
+ramp that is steep on one side and shallow on the other.
+
+**Use this mode when:**
+- The chamfer must be asymmetric (e.g. more clearance on one side than the other)
+- Matching a specific engineering callout (e.g. "chamfer 2 × 0.5")
+- The edge connects faces of different functional importance and each needs its
+  own setback
+
+Sub-parameters active: **Size2**, **Flip direction**
+
+**Watch out for:** FreeCAD assigns "first face" and "second face" based on
+topological face index, which is not always predictable from the viewport. If
+the result looks swapped, click **Flip direction** — this is the correct fix,
+not changing which edge you selected.
+
+#### Distance and angle
+
+One side is set back by *Size* and the chamfer face is inclined at *Angle* from
+that face. The second side's setback is derived from the geometry.
+
+Intuition: lay a ruler flat on one face, measure *Size* in from the edge, then
+tilt a blade up from that point at *Angle* degrees — the tilted blade face is
+the chamfer.
+
+**Use this mode when:**
+- The chamfer is specified by one distance and one angle (common in machining
+  drawings: "chamfer 1 mm × 30°")
+- The chamfer needs to reach a specific depth on one face while the angle is the
+  primary design constraint
+- You are modelling a chamfer that guides a fastener into a hole (60°–90°
+  entry chamfers)
+
+Sub-parameters active: **Angle**, **Flip direction**
+
+**Watch out for:** The angle is measured from the *first face* to the chamfer
+surface — not from the edge bisector. If the angle is applied from the wrong
+face, the result will look correct in angle but incorrect in which face is
+being measured from. Use **Flip direction** to change the reference face.
 
 ---
 
 ## Advanced usage
-
-### Chamfer type mode details
-
-In **Equal distance** mode, OCCT uses the same inset distance on both sides,
-producing a symmetric bevel. The chamfer face is coplanar through the midpoint
-of the two faces' angular bisector.
-
-In **Two distances** mode, *Size* is the setback on the face that the viewport
-tooltip labels "first face" (typically the face with the lower topological index
-when selected), and *Size2* is the setback on the other face. If the result looks
-swapped, use **Flip direction** to correct it without changing the distance values.
-
-In **Distance and Angle** mode, *Size* sets how far back from the edge the
-chamfer starts on the first face, and *Angle* is measured from that face to the
-chamfer surface.
 
 ### Migration from FreeCAD 0.21
 

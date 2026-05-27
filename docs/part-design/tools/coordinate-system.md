@@ -155,8 +155,44 @@ useful modes for an LCS are:
 | **Tangent Plane** | 1 curved face + 1 vertex | Z normal to the face at the vertex. |
 | **Frenet NB / TN / TB** | 1 curve | Orients axes using the Frenet–Serret frame of the curve. |
 
-For the complete list of attachment modes and their reference requirements see
-[Datum Plane → Parameters → Attachment mode](datum-plane.md#attachment-mode).
+For the complete list of attachment modes and their reference requirements — with
+per-mode intuition, when-to-use guidance, and gotchas — see
+[Datum Plane → Attachment mode in depth](datum-plane.md#attachment-mode-in-depth).
+All modes described there apply identically to the LCS.
+
+### Attachment mode in depth (LCS-specific notes)
+
+The LCS uses the same `AttachEngine3D` as Datum Plane, so every mode works
+identically — refer to Datum Plane for the full per-mode deep dive. The
+following notes cover how LCS-specific behaviour differs from a plain plane.
+
+#### What makes LCS different from Datum Plane
+
+A Datum Plane gives you one thing: a plane (position + normal). A Local
+Coordinate System gives you three things simultaneously: an origin point, an
+X axis, and a Y axis (Z is derived by right-hand rule). This matters because:
+
+- Python code can read `lcs.getXAxis()`, `lcs.getYAxis()`, `lcs.getZAxis()`
+  directly — no need to decompose the placement quaternion.
+- In assembly contexts the full frame is needed, not just a plane normal.
+- The LCS Z axis corresponds to the Datum Plane normal — so **Flat Face** on
+  an LCS places the origin at the face centre with Z out of the face and X/Y
+  tangent to the face, ready to use as an assembly interface point.
+
+#### Recommended modes for common LCS use-cases
+
+| Use-case | Recommended mode | Notes |
+|----------|-----------------|-------|
+| Interface point on a flat face (assembly) | **Flat Face** | Z = face normal; X/Y in face plane |
+| Interface point at a hole centre | **Concentric** on the circular edge | Z = hole axis; origin at hole centre |
+| Align LCS to another object's frame | **Object XY / XZ / YZ** | Copies the object's own coordinate system |
+| Origin at a corner, axes along edges | **OZX** (or variant) | Most explicit: nail origin, aim axes |
+| Match the Frenet frame of a spine | **Frenet NB / TN / TB** | For sweep path visualisation |
+
+**Watch out for:** Unlike Datum Plane, a misaligned LCS that is used as an
+assembly interface will cause mating parts to be placed at the wrong orientation
+*and* the wrong position — both axes matter, not just the normal. Always check
+the X axis direction in the viewport after attaching.
 
 ### Attachment Offset
 
