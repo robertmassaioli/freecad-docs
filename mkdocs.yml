@@ -314,6 +314,8 @@ nav:
     - Tools:
       - fem/tools/index.md
       - Analysis Container: fem/tools/analysis.md
+      - Materials: fem/tools/materials.md
+      - Element Geometry: fem/tools/element-geometry.md
   - TechDraw:
     - techdraw/index.md
     - Tools:
