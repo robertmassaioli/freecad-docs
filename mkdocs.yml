@@ -383,3 +383,8 @@ nav:
       - inspection/tools/index.md
       - Visual Inspection: inspection/tools/visual-inspection.md
       - Inspect Element: inspection/tools/inspect-element.md
+  - Points:
+    - points/index.md
+    - Tools:
+      - points/tools/index.md
+      - All Tools: points/tools/tools.md
