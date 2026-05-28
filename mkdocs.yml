@@ -314,6 +314,7 @@ nav:
     - Tools:
       - techdraw/tools/index.md
       - Pages: techdraw/tools/pages.md
+      - Views: techdraw/tools/views.md
   - Assembly:
     - assembly/index.md
     - Tools:

@@ -276,6 +276,6 @@ TechDrawGui.exportPageAsDXF(page, "/path/to/drawing.dxf")
 
 ## See also
 
-- Views — project 3-D geometry onto the page
+- [Views](views.md) — project 3-D geometry onto the page
 - Dimensions — add linked measurements to views
 - Fill Template Fields — fill in the title block text
