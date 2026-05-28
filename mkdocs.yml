@@ -413,3 +413,11 @@ nav:
       - Building Elements: bim/tools/elements.md
       - Annotation and Documentation: bim/tools/annotation.md
       - IFC Management: bim/tools/ifc.md
+  - CAM:
+    - cam/index.md
+    - Tools:
+      - cam/tools/index.md
+      - Job Setup: cam/tools/job.md
+      - Operations: cam/tools/operations.md
+      - Dress-ups: cam/tools/dressup.md
+      - Tool Bits and Libraries: cam/tools/toolbits.md
