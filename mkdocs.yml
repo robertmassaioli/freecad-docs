@@ -320,6 +320,7 @@ nav:
       - Thermal Constraints and Loads: fem/tools/constraints-thermal.md
       - Electromagnetic, Fluid and Geometrical Constraints: fem/tools/constraints-other.md
       - Mesh: fem/tools/mesh.md
+      - Solvers and Equations: fem/tools/solvers-and-equations.md
   - TechDraw:
     - techdraw/index.md
     - Tools:
