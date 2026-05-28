@@ -355,3 +355,12 @@ nav:
       - Arrays: draft/tools/arrays.md
       - Utilities: draft/tools/utilities.md
       - Snapping: draft/tools/snapping.md
+  - Mesh:
+    - mesh/index.md
+    - Tools:
+      - mesh/tools/index.md
+      - Import and Export: mesh/tools/import-export.md
+      - Analyse: mesh/tools/analyse.md
+      - Modify: mesh/tools/modify.md
+      - Boolean and Cutting: mesh/tools/boolean-cutting.md
+      - Segmentation: mesh/tools/segmentation.md
