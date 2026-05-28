@@ -405,3 +405,11 @@ nav:
     - Tools:
       - robot/tools/index.md
       - All Tools: robot/tools/tools.md
+  - BIM:
+    - bim/index.md
+    - Tools:
+      - bim/tools/index.md
+      - Structure and IFC Hierarchy: bim/tools/structure.md
+      - Building Elements: bim/tools/elements.md
+      - Annotation and Documentation: bim/tools/annotation.md
+      - IFC Management: bim/tools/ifc.md
