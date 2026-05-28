@@ -364,3 +364,8 @@ nav:
       - Modify: mesh/tools/modify.md
       - Boolean and Cutting: mesh/tools/boolean-cutting.md
       - Segmentation: mesh/tools/segmentation.md
+  - Surface:
+    - surface/index.md
+    - Tools:
+      - surface/tools/index.md
+      - All Tools: surface/tools/tools.md
