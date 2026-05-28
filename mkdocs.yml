@@ -400,3 +400,8 @@ nav:
     - Tools:
       - openscad/tools/index.md
       - All Tools: openscad/tools/tools.md
+  - Robot:
+    - robot/index.md
+    - Tools:
+      - robot/tools/index.md
+      - All Tools: robot/tools/tools.md
