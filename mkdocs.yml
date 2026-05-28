@@ -37,8 +37,11 @@ theme:
     # Navigation
     - navigation.footer          # previous / next page links at page bottom
     - navigation.indexes         # section folders can have their own index.md
+    - navigation.path            # breadcrumbs above page title (OSS experimental ≥9.7)
+    - navigation.prune           # sidebar shows only current section (OSS experimental ≥9.2)
     - navigation.sections        # top-level nav entries rendered as groups
     - navigation.tabs            # top-level sections as horizontal tabs
+    - navigation.tabs.sticky     # tabs stay pinned below header while scrolling
     - navigation.top             # back-to-top button
     - navigation.tracking        # active anchor reflected in URL hash
     # Search
@@ -133,298 +136,304 @@ markdown_extensions:
 # Each section folder must have an index.md for navigation.indexes to work.
 nav:
   - Home: index.md
-  - Part Design:
-    - part-design/index.md
-    - Concepts:
-      - Body, Origin and Feature Tree: part-design/concepts/body-and-origin.md
-      - Attachment: part-design/concepts/attachment.md
-    - Tools:
-      - part-design/tools/index.md
-      - Structure & Setup:
-        - Body: part-design/tools/body.md
-        - New Sketch: part-design/tools/new-sketch.md
-        - Datum Plane: part-design/tools/datum-plane.md
-        - Datum Line: part-design/tools/datum-line.md
-        - Datum Point: part-design/tools/datum-point.md
-        - Coordinate System: part-design/tools/coordinate-system.md
-        - Shape Binder: part-design/tools/shape-binder.md
-        - Sub-Shape Binder: part-design/tools/sub-shape-binder.md
-        - Clone: part-design/tools/clone.md
-      - Additive Features:
-        - Pad: part-design/tools/pad.md
-        - Revolution: part-design/tools/revolution.md
-        - Additive Loft: part-design/tools/additive-loft.md
-        - Additive Pipe: part-design/tools/additive-pipe.md
-        - Additive Helix: part-design/tools/additive-helix.md
-      - Additive Primitives:
-        - Additive Box: part-design/tools/additive-box.md
-        - Additive Cylinder: part-design/tools/additive-cylinder.md
-        - Additive Sphere: part-design/tools/additive-sphere.md
-        - Additive Cone: part-design/tools/additive-cone.md
-        - Additive Ellipsoid: part-design/tools/additive-ellipsoid.md
-        - Additive Torus: part-design/tools/additive-torus.md
-        - Additive Prism: part-design/tools/additive-prism.md
-        - Additive Wedge: part-design/tools/additive-wedge.md
-      - Subtractive Features:
-        - Pocket: part-design/tools/pocket.md
-        - Groove: part-design/tools/groove.md
-        - Hole: part-design/tools/hole.md
-        - Subtractive Loft: part-design/tools/subtractive-loft.md
-        - Subtractive Pipe: part-design/tools/subtractive-pipe.md
-        - Subtractive Helix: part-design/tools/subtractive-helix.md
-      - Subtractive Primitives:
-        - Subtractive Box: part-design/tools/subtractive-box.md
-        - Subtractive Cylinder: part-design/tools/subtractive-cylinder.md
-        - Subtractive Sphere: part-design/tools/subtractive-sphere.md
-        - Subtractive Cone: part-design/tools/subtractive-cone.md
-        - Subtractive Ellipsoid: part-design/tools/subtractive-ellipsoid.md
-        - Subtractive Torus: part-design/tools/subtractive-torus.md
-        - Subtractive Prism: part-design/tools/subtractive-prism.md
-        - Subtractive Wedge: part-design/tools/subtractive-wedge.md
-      - Dress-up:
-        - Fillet: part-design/tools/fillet.md
-        - Chamfer: part-design/tools/chamfer.md
-        - Draft: part-design/tools/draft.md
-        - Thickness: part-design/tools/thickness.md
-      - Transformations:
-        - Mirrored: part-design/tools/mirrored.md
-        - Linear Pattern: part-design/tools/linear-pattern.md
-        - Polar Pattern: part-design/tools/polar-pattern.md
-        - Multi-Transform: part-design/tools/multi-transform.md
-      - Boolean Operations:
-        - Boolean: part-design/tools/boolean.md
-      - Specialised Tools:
-        - Involute Gear: part-design/tools/involute-gear.md
-        - Sprocket: part-design/tools/sprocket.md
-        - Shaft Wizard: part-design/tools/wizard-shaft.md
-      - Tree Management:
-        - Move Tip: part-design/tools/move-tip.md
-        - Move Feature: part-design/tools/move-feature.md
-        - Move Feature in Tree: part-design/tools/move-feature-in-tree.md
-        - Duplicate Selection: part-design/tools/duplicate-selection.md
-  - Sketcher:
-    - sketcher/index.md
-    - Tools:
-      - sketcher/tools/index.md
-      - Sketch Lifecycle:
-        - New Sketch / Edit / Leave: sketcher/tools/new-sketch.md
-        - Map Sketch to Face: sketcher/tools/map-sketch.md
-        - Validate Sketch: sketcher/tools/validate-sketch.md
-        - Mirror Sketch: sketcher/tools/mirror-sketch.md
-        - Merge Sketches: sketcher/tools/merge-sketches.md
-        - View Tools: sketcher/tools/view-sketch.md
-      - Geometry:
-        - Point: sketcher/tools/create-point.md
-        - Line / Polyline: sketcher/tools/create-line.md
-        - Arc: sketcher/tools/create-arc.md
-        - Circle / Ellipse: sketcher/tools/create-circle.md
-        - Rectangle: sketcher/tools/create-rectangle.md
-        - Regular Polygon: sketcher/tools/create-regular-polygon.md
-        - Slot: sketcher/tools/create-slot.md
-        - Fillet / Chamfer: sketcher/tools/create-fillet.md
-        - B-Spline: sketcher/tools/create-bspline.md
-      - Editing:
-        - Trim / Split / Extend: sketcher/tools/trim-split-extend.md
-        - External Geometry: sketcher/tools/external-geometry.md
-      - Geometric Constraints:
-        - Coincident: sketcher/tools/constraint-coincident.md
-        - Horizontal / Vertical: sketcher/tools/constraint-horizontal-vertical.md
-        - Parallel: sketcher/tools/constraint-parallel.md
-        - Perpendicular: sketcher/tools/constraint-perpendicular.md
-        - Tangent: sketcher/tools/constraint-tangent.md
-        - Equal: sketcher/tools/constraint-equal.md
-        - Symmetric: sketcher/tools/constraint-symmetric.md
-        - Block: sketcher/tools/constraint-block.md
-        - Point on Object: sketcher/tools/constraint-point-on-object.md
-        - Lock Position: sketcher/tools/constraint-lock.md
-      - Dimensional Constraints:
-        - Dimension: sketcher/tools/dimension.md
-        - Distance: sketcher/tools/constraint-distance.md
-        - Radius / Diameter: sketcher/tools/constraint-radius-diameter.md
-        - Angle: sketcher/tools/constraint-angle.md
-        - Toggle Driving / Active: sketcher/tools/toggle-constraint.md
-        - Snell's Law: sketcher/tools/constraint-snells-law.md
-      - Transform Tools:
-        - Offset: sketcher/tools/offset.md
-        - Move / Array Transform: sketcher/tools/translate.md
-        - Rotate / Polar Transform: sketcher/tools/rotate.md
-        - Scale: sketcher/tools/scale.md
-        - Mirror: sketcher/tools/symmetry.md
-        - Copy / Clone / Move: sketcher/tools/copy-clone-move.md
-      - Analysis:
-        - Sketch Analysis: sketcher/tools/sketch-analysis.md
-  - Part:
-    - part/index.md
-    - Tools:
-      - part/tools/index.md
-      - Primitives:
-        - Cube: part/tools/cube.md
-        - Cylinder: part/tools/cylinder.md
-        - Sphere: part/tools/sphere.md
-        - Cone: part/tools/cone.md
-        - Torus: part/tools/torus.md
-        - Tube: part/tools/tube.md
-        - Primitives Dialog: part/tools/primitives.md
-        - Shape Builder: part/tools/shape-builder.md
-      - Mesh & Solid:
-        - Mesh and Solid Conversion: part/tools/mesh-and-solid.md
-      - Copy:
-        - Copy Tools: part/tools/copy-tools.md
-      - Boolean Operations:
-        - Boolean Dialog: part/tools/boolean.md
-        - Boolean Cut: part/tools/boolean-cut.md
-        - Boolean Fuse: part/tools/boolean-fuse.md
-        - Boolean Common: part/tools/boolean-common.md
-      - Join Features: part/tools/join-features.md
-      - Split Features: part/tools/split-features.md
-      - Compound Tools: part/tools/compound.md
-      - Modeling Tools:
-        - Extrude: part/tools/extrude.md
-        - Revolve: part/tools/revolve.md
-        - Mirror: part/tools/mirror.md
-        - Scale: part/tools/scale.md
-        - Fillet: part/tools/fillet.md
-        - Chamfer: part/tools/chamfer.md
-        - Face from Wires: part/tools/face-from-wires.md
-        - Ruled Surface: part/tools/ruled-surface.md
-        - Loft: part/tools/loft.md
-        - Sweep: part/tools/sweep.md
-        - Section: part/tools/section.md
-        - Cross-Sections: part/tools/cross-sections.md
-        - Offset 3D Surface: part/tools/offset-3d.md
-        - Offset 2D: part/tools/offset-2d.md
-        - Thickness: part/tools/thickness.md
-        - Projection on Surface: part/tools/projection-on-surface.md
-      - Analysis:
-        - Check Geometry: part/tools/check-geometry.md
-        - Defeaturing: part/tools/defeaturing.md
-        - Persistent Section Cut: part/tools/section-cut.md
-        - Appearance per Face: part/tools/appearance-per-face.md
-  - Spreadsheet:
-    - spreadsheet/index.md
-    - Tools:
-      - spreadsheet/tools/index.md
-      - Create Spreadsheet: spreadsheet/tools/create-spreadsheet.md
-      - Formulas and Expressions: spreadsheet/tools/formulas-and-expressions.md
-      - Aliases: spreadsheet/tools/aliases.md
-      - Model Integration: spreadsheet/tools/model-integration.md
-      - Import / Export: spreadsheet/tools/import-export.md
-      - Merge / Split Cells: spreadsheet/tools/merge-split.md
-      - Cell Formatting: spreadsheet/tools/cell-formatting.md
-      - Bind Sheet: spreadsheet/tools/bind-sheet.md
-  - FEM:
-    - fem/index.md
-    - Tools:
-      - fem/tools/index.md
-      - Analysis Container: fem/tools/analysis.md
-      - Materials: fem/tools/materials.md
-      - Element Geometry: fem/tools/element-geometry.md
-      - Mechanical Constraints and Loads: fem/tools/constraints-mechanical.md
-      - Thermal Constraints and Loads: fem/tools/constraints-thermal.md
-      - Electromagnetic, Fluid and Geometrical Constraints: fem/tools/constraints-other.md
-      - Mesh: fem/tools/mesh.md
-      - Solvers and Equations: fem/tools/solvers-and-equations.md
-      - Results and Post-Processing: fem/tools/results.md
-  - TechDraw:
-    - techdraw/index.md
-    - Tools:
-      - techdraw/tools/index.md
-      - Pages: techdraw/tools/pages.md
-      - Views: techdraw/tools/views.md
-      - Dimensions: techdraw/tools/dimensions.md
-      - Annotations and Hatching: techdraw/tools/annotations.md
-      - Symbols: techdraw/tools/symbols.md
-      - Extension Pack: techdraw/tools/extensions.md
-  - Assembly:
-    - assembly/index.md
-    - Tools:
-      - assembly/tools/index.md
-      - Assembly Setup: assembly/tools/create-assembly.md
-      - Toggle Grounded: assembly/tools/grounded.md
-      - Joints — Kinematic: assembly/tools/joints-kinematic.md
-      - Joints — Geometric: assembly/tools/joints-geometric.md
-      - Joints — Coupled Motion: assembly/tools/joints-coupled.md
-      - Solve Assembly: assembly/tools/solve.md
-      - Exploded View: assembly/tools/exploded-view.md
-      - Simulation: assembly/tools/simulation.md
-      - Bill of Materials: assembly/tools/bom.md
-  - Draft:
-    - draft/index.md
-    - Tools:
-      - draft/tools/index.md
-      - Drafting: draft/tools/drafting.md
-      - Annotation: draft/tools/annotation.md
-      - Modification: draft/tools/modification.md
-      - Arrays: draft/tools/arrays.md
-      - Utilities: draft/tools/utilities.md
-      - Snapping: draft/tools/snapping.md
-  - Mesh:
-    - mesh/index.md
-    - Tools:
-      - mesh/tools/index.md
-      - Import and Export: mesh/tools/import-export.md
-      - Analyse: mesh/tools/analyse.md
-      - Modify: mesh/tools/modify.md
-      - Boolean and Cutting: mesh/tools/boolean-cutting.md
-      - Segmentation: mesh/tools/segmentation.md
-  - Surface:
-    - surface/index.md
-    - Tools:
-      - surface/tools/index.md
-      - All Tools: surface/tools/tools.md
-  - Measure:
-    - measure/index.md
-    - Tools:
-      - measure/tools/index.md
-      - Measure: measure/tools/measure.md
-  - Inspection:
-    - inspection/index.md
-    - Tools:
-      - inspection/tools/index.md
-      - Visual Inspection: inspection/tools/visual-inspection.md
-      - Inspect Element: inspection/tools/inspect-element.md
-  - Points:
-    - points/index.md
-    - Tools:
-      - points/tools/index.md
-      - All Tools: points/tools/tools.md
-  - Reverse Engineering:
-    - reverse-engineering/index.md
-    - Tools:
-      - reverse-engineering/tools/index.md
-      - Surface Reconstruction: reverse-engineering/tools/surface-reconstruction.md
-      - Segmentation: reverse-engineering/tools/segmentation.md
-      - Approximation: reverse-engineering/tools/approximation.md
-  - OpenSCAD:
-    - openscad/index.md
-    - Tools:
-      - openscad/tools/index.md
-      - All Tools: openscad/tools/tools.md
-  - Robot:
-    - robot/index.md
-    - Tools:
-      - robot/tools/index.md
-      - All Tools: robot/tools/tools.md
-  - BIM:
-    - bim/index.md
-    - Tools:
-      - bim/tools/index.md
-      - Structure and IFC Hierarchy: bim/tools/structure.md
-      - Building Elements: bim/tools/elements.md
-      - Annotation and Documentation: bim/tools/annotation.md
-      - IFC Management: bim/tools/ifc.md
-  - CAM:
-    - cam/index.md
-    - Tools:
-      - cam/tools/index.md
-      - Job Setup: cam/tools/job.md
-      - Operations: cam/tools/operations.md
-      - Dress-ups: cam/tools/dressup.md
-      - Tool Bits and Libraries: cam/tools/toolbits.md
-  - Curves Workbench:
-    - curves-wb/index.md
-    - Tools:
-      - curves-wb/tools/index.md
-      - Curve Tools: curves-wb/tools/curves.md
-      - Surface Tools: curves-wb/tools/surfaces.md
-      - Analysis and Utilities: curves-wb/tools/analysis.md
+  - Workbenches:
+    - workbenches/index.md
+    # ── Core Modelling ─────────────────────────────────────────────────────────
+    - Part Design:
+      - part-design/index.md
+      - Concepts:
+        - Body, Origin and Feature Tree: part-design/concepts/body-and-origin.md
+        - Attachment: part-design/concepts/attachment.md
+      - Tools:
+        - part-design/tools/index.md
+        - Structure & Setup:
+          - Body: part-design/tools/body.md
+          - New Sketch: part-design/tools/new-sketch.md
+          - Datum Plane: part-design/tools/datum-plane.md
+          - Datum Line: part-design/tools/datum-line.md
+          - Datum Point: part-design/tools/datum-point.md
+          - Coordinate System: part-design/tools/coordinate-system.md
+          - Shape Binder: part-design/tools/shape-binder.md
+          - Sub-Shape Binder: part-design/tools/sub-shape-binder.md
+          - Clone: part-design/tools/clone.md
+        - Additive Features:
+          - Pad: part-design/tools/pad.md
+          - Revolution: part-design/tools/revolution.md
+          - Additive Loft: part-design/tools/additive-loft.md
+          - Additive Pipe: part-design/tools/additive-pipe.md
+          - Additive Helix: part-design/tools/additive-helix.md
+        - Additive Primitives:
+          - Additive Box: part-design/tools/additive-box.md
+          - Additive Cylinder: part-design/tools/additive-cylinder.md
+          - Additive Sphere: part-design/tools/additive-sphere.md
+          - Additive Cone: part-design/tools/additive-cone.md
+          - Additive Ellipsoid: part-design/tools/additive-ellipsoid.md
+          - Additive Torus: part-design/tools/additive-torus.md
+          - Additive Prism: part-design/tools/additive-prism.md
+          - Additive Wedge: part-design/tools/additive-wedge.md
+        - Subtractive Features:
+          - Pocket: part-design/tools/pocket.md
+          - Groove: part-design/tools/groove.md
+          - Hole: part-design/tools/hole.md
+          - Subtractive Loft: part-design/tools/subtractive-loft.md
+          - Subtractive Pipe: part-design/tools/subtractive-pipe.md
+          - Subtractive Helix: part-design/tools/subtractive-helix.md
+        - Subtractive Primitives:
+          - Subtractive Box: part-design/tools/subtractive-box.md
+          - Subtractive Cylinder: part-design/tools/subtractive-cylinder.md
+          - Subtractive Sphere: part-design/tools/subtractive-sphere.md
+          - Subtractive Cone: part-design/tools/subtractive-cone.md
+          - Subtractive Ellipsoid: part-design/tools/subtractive-ellipsoid.md
+          - Subtractive Torus: part-design/tools/subtractive-torus.md
+          - Subtractive Prism: part-design/tools/subtractive-prism.md
+          - Subtractive Wedge: part-design/tools/subtractive-wedge.md
+        - Dress-up:
+          - Fillet: part-design/tools/fillet.md
+          - Chamfer: part-design/tools/chamfer.md
+          - Draft: part-design/tools/draft.md
+          - Thickness: part-design/tools/thickness.md
+        - Transformations:
+          - Mirrored: part-design/tools/mirrored.md
+          - Linear Pattern: part-design/tools/linear-pattern.md
+          - Polar Pattern: part-design/tools/polar-pattern.md
+          - Multi-Transform: part-design/tools/multi-transform.md
+        - Boolean Operations:
+          - Boolean: part-design/tools/boolean.md
+        - Specialised Tools:
+          - Involute Gear: part-design/tools/involute-gear.md
+          - Sprocket: part-design/tools/sprocket.md
+          - Shaft Wizard: part-design/tools/wizard-shaft.md
+        - Tree Management:
+          - Move Tip: part-design/tools/move-tip.md
+          - Move Feature: part-design/tools/move-feature.md
+          - Move Feature in Tree: part-design/tools/move-feature-in-tree.md
+          - Duplicate Selection: part-design/tools/duplicate-selection.md
+    - Sketcher:
+      - sketcher/index.md
+      - Tools:
+        - sketcher/tools/index.md
+        - Sketch Lifecycle:
+          - New Sketch / Edit / Leave: sketcher/tools/new-sketch.md
+          - Map Sketch to Face: sketcher/tools/map-sketch.md
+          - Validate Sketch: sketcher/tools/validate-sketch.md
+          - Mirror Sketch: sketcher/tools/mirror-sketch.md
+          - Merge Sketches: sketcher/tools/merge-sketches.md
+          - View Tools: sketcher/tools/view-sketch.md
+        - Geometry:
+          - Point: sketcher/tools/create-point.md
+          - Line / Polyline: sketcher/tools/create-line.md
+          - Arc: sketcher/tools/create-arc.md
+          - Circle / Ellipse: sketcher/tools/create-circle.md
+          - Rectangle: sketcher/tools/create-rectangle.md
+          - Regular Polygon: sketcher/tools/create-regular-polygon.md
+          - Slot: sketcher/tools/create-slot.md
+          - Fillet / Chamfer: sketcher/tools/create-fillet.md
+          - B-Spline: sketcher/tools/create-bspline.md
+        - Editing:
+          - Trim / Split / Extend: sketcher/tools/trim-split-extend.md
+          - External Geometry: sketcher/tools/external-geometry.md
+        - Geometric Constraints:
+          - Coincident: sketcher/tools/constraint-coincident.md
+          - Horizontal / Vertical: sketcher/tools/constraint-horizontal-vertical.md
+          - Parallel: sketcher/tools/constraint-parallel.md
+          - Perpendicular: sketcher/tools/constraint-perpendicular.md
+          - Tangent: sketcher/tools/constraint-tangent.md
+          - Equal: sketcher/tools/constraint-equal.md
+          - Symmetric: sketcher/tools/constraint-symmetric.md
+          - Block: sketcher/tools/constraint-block.md
+          - Point on Object: sketcher/tools/constraint-point-on-object.md
+          - Lock Position: sketcher/tools/constraint-lock.md
+        - Dimensional Constraints:
+          - Dimension: sketcher/tools/dimension.md
+          - Distance: sketcher/tools/constraint-distance.md
+          - Radius / Diameter: sketcher/tools/constraint-radius-diameter.md
+          - Angle: sketcher/tools/constraint-angle.md
+          - Toggle Driving / Active: sketcher/tools/toggle-constraint.md
+          - Snell's Law: sketcher/tools/constraint-snells-law.md
+        - Transform Tools:
+          - Offset: sketcher/tools/offset.md
+          - Move / Array Transform: sketcher/tools/translate.md
+          - Rotate / Polar Transform: sketcher/tools/rotate.md
+          - Scale: sketcher/tools/scale.md
+          - Mirror: sketcher/tools/symmetry.md
+          - Copy / Clone / Move: sketcher/tools/copy-clone-move.md
+        - Analysis:
+          - Sketch Analysis: sketcher/tools/sketch-analysis.md
+    - Part:
+      - part/index.md
+      - Tools:
+        - part/tools/index.md
+        - Primitives:
+          - Cube: part/tools/cube.md
+          - Cylinder: part/tools/cylinder.md
+          - Sphere: part/tools/sphere.md
+          - Cone: part/tools/cone.md
+          - Torus: part/tools/torus.md
+          - Tube: part/tools/tube.md
+          - Primitives Dialog: part/tools/primitives.md
+          - Shape Builder: part/tools/shape-builder.md
+        - Mesh & Solid:
+          - Mesh and Solid Conversion: part/tools/mesh-and-solid.md
+        - Copy:
+          - Copy Tools: part/tools/copy-tools.md
+        - Boolean Operations:
+          - Boolean Dialog: part/tools/boolean.md
+          - Boolean Cut: part/tools/boolean-cut.md
+          - Boolean Fuse: part/tools/boolean-fuse.md
+          - Boolean Common: part/tools/boolean-common.md
+        - Join Features: part/tools/join-features.md
+        - Split Features: part/tools/split-features.md
+        - Compound Tools: part/tools/compound.md
+        - Modeling Tools:
+          - Extrude: part/tools/extrude.md
+          - Revolve: part/tools/revolve.md
+          - Mirror: part/tools/mirror.md
+          - Scale: part/tools/scale.md
+          - Fillet: part/tools/fillet.md
+          - Chamfer: part/tools/chamfer.md
+          - Face from Wires: part/tools/face-from-wires.md
+          - Ruled Surface: part/tools/ruled-surface.md
+          - Loft: part/tools/loft.md
+          - Sweep: part/tools/sweep.md
+          - Section: part/tools/section.md
+          - Cross-Sections: part/tools/cross-sections.md
+          - Offset 3D Surface: part/tools/offset-3d.md
+          - Offset 2D: part/tools/offset-2d.md
+          - Thickness: part/tools/thickness.md
+          - Projection on Surface: part/tools/projection-on-surface.md
+        - Analysis:
+          - Check Geometry: part/tools/check-geometry.md
+          - Defeaturing: part/tools/defeaturing.md
+          - Persistent Section Cut: part/tools/section-cut.md
+          - Appearance per Face: part/tools/appearance-per-face.md
+    - Spreadsheet:
+      - spreadsheet/index.md
+      - Tools:
+        - spreadsheet/tools/index.md
+        - Create Spreadsheet: spreadsheet/tools/create-spreadsheet.md
+        - Formulas and Expressions: spreadsheet/tools/formulas-and-expressions.md
+        - Aliases: spreadsheet/tools/aliases.md
+        - Model Integration: spreadsheet/tools/model-integration.md
+        - Import / Export: spreadsheet/tools/import-export.md
+        - Merge / Split Cells: spreadsheet/tools/merge-split.md
+        - Cell Formatting: spreadsheet/tools/cell-formatting.md
+        - Bind Sheet: spreadsheet/tools/bind-sheet.md
+    # ── Engineering & Analysis ─────────────────────────────────────────────────
+    - FEM:
+      - fem/index.md
+      - Tools:
+        - fem/tools/index.md
+        - Analysis Container: fem/tools/analysis.md
+        - Materials: fem/tools/materials.md
+        - Element Geometry: fem/tools/element-geometry.md
+        - Mechanical Constraints and Loads: fem/tools/constraints-mechanical.md
+        - Thermal Constraints and Loads: fem/tools/constraints-thermal.md
+        - Electromagnetic, Fluid and Geometrical Constraints: fem/tools/constraints-other.md
+        - Mesh: fem/tools/mesh.md
+        - Solvers and Equations: fem/tools/solvers-and-equations.md
+        - Results and Post-Processing: fem/tools/results.md
+    - Assembly:
+      - assembly/index.md
+      - Tools:
+        - assembly/tools/index.md
+        - Assembly Setup: assembly/tools/create-assembly.md
+        - Toggle Grounded: assembly/tools/grounded.md
+        - Joints — Kinematic: assembly/tools/joints-kinematic.md
+        - Joints — Geometric: assembly/tools/joints-geometric.md
+        - Joints — Coupled Motion: assembly/tools/joints-coupled.md
+        - Solve Assembly: assembly/tools/solve.md
+        - Exploded View: assembly/tools/exploded-view.md
+        - Simulation: assembly/tools/simulation.md
+        - Bill of Materials: assembly/tools/bom.md
+    - Measure:
+      - measure/index.md
+      - Tools:
+        - measure/tools/index.md
+        - Measure: measure/tools/measure.md
+    - Inspection:
+      - inspection/index.md
+      - Tools:
+        - inspection/tools/index.md
+        - Visual Inspection: inspection/tools/visual-inspection.md
+        - Inspect Element: inspection/tools/inspect-element.md
+    # ── Drawing & Documentation ────────────────────────────────────────────────
+    - TechDraw:
+      - techdraw/index.md
+      - Tools:
+        - techdraw/tools/index.md
+        - Pages: techdraw/tools/pages.md
+        - Views: techdraw/tools/views.md
+        - Dimensions: techdraw/tools/dimensions.md
+        - Annotations and Hatching: techdraw/tools/annotations.md
+        - Symbols: techdraw/tools/symbols.md
+        - Extension Pack: techdraw/tools/extensions.md
+    - Draft:
+      - draft/index.md
+      - Tools:
+        - draft/tools/index.md
+        - Drafting: draft/tools/drafting.md
+        - Annotation: draft/tools/annotation.md
+        - Modification: draft/tools/modification.md
+        - Arrays: draft/tools/arrays.md
+        - Utilities: draft/tools/utilities.md
+        - Snapping: draft/tools/snapping.md
+    - BIM:
+      - bim/index.md
+      - Tools:
+        - bim/tools/index.md
+        - Structure and IFC Hierarchy: bim/tools/structure.md
+        - Building Elements: bim/tools/elements.md
+        - Annotation and Documentation: bim/tools/annotation.md
+        - IFC Management: bim/tools/ifc.md
+    # ── Advanced & Specialist ──────────────────────────────────────────────────
+    - CAM:
+      - cam/index.md
+      - Tools:
+        - cam/tools/index.md
+        - Job Setup: cam/tools/job.md
+        - Operations: cam/tools/operations.md
+        - Dress-ups: cam/tools/dressup.md
+        - Tool Bits and Libraries: cam/tools/toolbits.md
+    - Surface:
+      - surface/index.md
+      - Tools:
+        - surface/tools/index.md
+        - All Tools: surface/tools/tools.md
+    - Mesh:
+      - mesh/index.md
+      - Tools:
+        - mesh/tools/index.md
+        - Import and Export: mesh/tools/import-export.md
+        - Analyse: mesh/tools/analyse.md
+        - Modify: mesh/tools/modify.md
+        - Boolean and Cutting: mesh/tools/boolean-cutting.md
+        - Segmentation: mesh/tools/segmentation.md
+    - Curves Workbench:
+      - curves-wb/index.md
+      - Tools:
+        - curves-wb/tools/index.md
+        - Curve Tools: curves-wb/tools/curves.md
+        - Surface Tools: curves-wb/tools/surfaces.md
+        - Analysis and Utilities: curves-wb/tools/analysis.md
+    - Reverse Engineering:
+      - reverse-engineering/index.md
+      - Tools:
+        - reverse-engineering/tools/index.md
+        - Surface Reconstruction: reverse-engineering/tools/surface-reconstruction.md
+        - Segmentation: reverse-engineering/tools/segmentation.md
+        - Approximation: reverse-engineering/tools/approximation.md
+    - Robot:
+      - robot/index.md
+      - Tools:
+        - robot/tools/index.md
+        - All Tools: robot/tools/tools.md
+    - Points:
+      - points/index.md
+      - Tools:
+        - points/tools/index.md
+        - All Tools: points/tools/tools.md
+    - OpenSCAD:
+      - openscad/index.md
+      - Tools:
+        - openscad/tools/index.md
+        - All Tools: openscad/tools/tools.md
