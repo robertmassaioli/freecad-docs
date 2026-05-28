@@ -285,31 +285,34 @@ These workbenches correctly follow the one-file-per-tool rule:
 |-----------|-------|-------|
 | Part Design | ~40 tool files | Reference implementation |
 | Sketcher | ~40 tool files | Reference implementation |
-| Part | ~37 tool files | Reference implementation |
+| Part | ~37 tool files + 4 to split (Sprint 1) | Mostly compliant |
 | Spreadsheet | ~8 tool files | Compliant |
 | Inspection | 2 tool files | Small workbench, compliant |
 | Measure | 1 tool file | Compliant |
+| Assembly | 18 tool files | Compliant after Sprint 0 of the assembly restructure |
 
 ### Non-compliant workbenches (require refactoring)
 
 These workbenches currently use merged files and must be refactored. Each one is
-a sprint-sized body of work.
+a sprint-sized body of work. For the complete sprint-by-sprint plan including
+exact tool lists and target file names, see
+[workbench-restructure-plan.md](workbench-restructure-plan.md).
 
-| Workbench | Current files | Est. correct tool count | Anti-pattern |
-|-----------|---------------|------------------------|--------------|
-| Draft | 6 merged files | ~50 tools | AP-2 |
-| CAM | 4 merged files | ~40 tools | AP-2 |
-| FEM | 7 merged files | ~50 tools | AP-2 |
-| TechDraw | 4 merged files | ~30 tools | AP-2 |
-| Assembly | 3 merged files (joints) | ~15 tools | AP-2 |
-| BIM | 4 merged files | ~40 tools | AP-2 |
-| Mesh | 5 merged files | ~15 tools | AP-2 |
-| Surface | 1 merged file | 6 tools | AP-1 |
-| Curves Workbench | 3 merged files | ~20 tools | AP-2 |
-| Robot | 1 merged file | ~10 tools | AP-1 |
-| OpenSCAD | 1 merged file | ~8 tools | AP-1 |
-| Points | 1 merged file | ~6 tools | AP-1 |
-| Reverse Engineering | 3 files (partially merged) | ~8 tools | AP-2 |
+| Workbench | Merged files | Exact tool count | Anti-pattern | Priority |
+|-----------|-------------|-----------------|--------------|----------|
+| Points | 1 | 6 | AP-1 | Sprint 0 |
+| Surface | 1 | 6 | AP-1 | Sprint 0 |
+| Reverse Engineering | 3 | 12 | AP-2 | Sprint 0 |
+| OpenSCAD | 1 | 14 | AP-1 | Sprint 0 |
+| Robot | 1 | 15 | AP-1 | Sprint 0 |
+| Part | 4 | 15 | AP-2 | Sprint 1 |
+| Mesh | 5 | 33 | AP-2 | Sprint 2 |
+| CAM | 4 | 35 | AP-2 | Sprint 3 |
+| BIM | 4 | 38 | AP-2 | Sprint 4 |
+| FEM | 9 | ~51 | AP-2 | Sprint 5 |
+| Draft | 6 | ~64 + 16 snap modes | AP-2 | Sprint 6 |
+| TechDraw | 6 | ~77 | AP-2 | Sprint 7 |
+| Curves WB | 3 | 37 | AP-2 | Sprint 8 |
 
 ---
 
