@@ -395,3 +395,8 @@ nav:
       - Surface Reconstruction: reverse-engineering/tools/surface-reconstruction.md
       - Segmentation: reverse-engineering/tools/segmentation.md
       - Approximation: reverse-engineering/tools/approximation.md
+  - OpenSCAD:
+    - openscad/index.md
+    - Tools:
+      - openscad/tools/index.md
+      - All Tools: openscad/tools/tools.md
