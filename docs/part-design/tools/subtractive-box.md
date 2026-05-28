@@ -74,7 +74,7 @@ The box is placed relative to the Body's local coordinate system by default, wit
 | Width | Length (mm) | 10.0 mm | Dimension of the cut along the Body's local Y-axis. Must be greater than zero. |
 | Height | Length (mm) | 10.0 mm | Dimension of the cut along the Body's local Z-axis. Must be greater than zero. |
 
-The task panel also exposes the **Attachment** section (inherited from `Part::AttachExtension`), which lets you map the box origin to a face, edge, vertex, or datum object. See the [Datum Plane](datum-plane.md) documentation for the full list of attachment modes. <!-- TODO: verify link -->
+The task panel also exposes the **Attachment** section (inherited from `Part::AttachExtension`), which lets you map the box origin to a face, edge, vertex, or datum object. See the [Attachment](../concepts/attachment.md) reference for the full list of modes.
 
 ---
 

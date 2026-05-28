@@ -235,3 +235,4 @@ doc.addObject("PartDesign::Mirrored", "<name>")
 - [Polar Pattern](polar-pattern.md) — repeat features around an axis
 - [Multi-Transform](multi-transform.md) — chain multiple transformations in one feature
 - [Datum Plane](datum-plane.md) — how to create datum planes for use as mirror references
+- [Body, Origin and Feature Tree](../concepts/body-and-origin.md) — the built-in planes available as mirror references

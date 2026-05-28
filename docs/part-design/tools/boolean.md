@@ -223,5 +223,5 @@ doc.recompute()
 - [Pocket](pocket.md) — subtractive extrusion within a single Body
 - [Part Boolean](../../part/tools/boolean.md) — Part workbench equivalent that
   operates on arbitrary shapes rather than Bodies
-- [Body](body.md) — the Part Design container that Boolean
+- [Body and Origin](../concepts/body-and-origin.md) — the Part Design container that Boolean
   operates on

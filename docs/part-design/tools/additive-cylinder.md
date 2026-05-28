@@ -37,7 +37,7 @@ The **skew angles** (`FirstAngle` and `SecondAngle`) tilt the extrusion directio
 
 - **The cross-section is not circular** — draw the profile as a sketch and use [Pad](pad.md). Hexagonal bosses, oval protrusions, or any non-circular outline require a sketch.
 - **The cylinder follows a curved axis** — use [Additive Pipe](additive-pipe.md) with a circular profile and a spine sketch.
-- **You need to remove a cylindrical hole from existing material** — use [Subtractive Cylinder](subtractive-cylinder.md), which has identical parameters but cuts instead of adds. (For simple through-holes, [Hole](hole.md) is purpose-built and handles threads.) <!-- TODO: verify link to hole.md -->
+- **You need to remove a cylindrical hole from existing material** — use [Subtractive Cylinder](subtractive-cylinder.md), which has identical parameters but cuts instead of adds. (For simple through-holes, [Hole](hole.md) is purpose-built and handles threads.)
 - **The cylinder must be placed precisely relative to an existing circular face** — consider using the **Attachment** mode to snap the primitive, or create a sketch on that face and use Pad for more predictable behaviour.
 
 ---
@@ -65,7 +65,7 @@ The **skew angles** (`FirstAngle` and `SecondAngle`) tilt the extrusion directio
 9. **Click OK.** The cylinder is fused into the Body and appears in the model tree.
 
 !!! tip
-    For a simple round hole drilled into existing material, use [Subtractive Cylinder](subtractive-cylinder.md) rather than Additive Cylinder. For holes with standard thread specifications, use the dedicated [Hole](hole.md) tool instead. <!-- TODO: verify link to hole.md -->
+    For a simple round hole drilled into existing material, use [Subtractive Cylinder](subtractive-cylinder.md) rather than Additive Cylinder. For holes with standard thread specifications, use the dedicated [Hole](hole.md) tool instead.
 
 ---
 

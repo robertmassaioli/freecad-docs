@@ -135,6 +135,9 @@ nav:
   - Home: index.md
   - Part Design:
     - part-design/index.md
+    - Concepts:
+      - Body, Origin and Feature Tree: part-design/concepts/body-and-origin.md
+      - Attachment: part-design/concepts/attachment.md
     - Tools:
       - part-design/tools/index.md
       - Structure & Setup:

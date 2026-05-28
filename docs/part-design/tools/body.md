@@ -58,7 +58,7 @@ requires a Boolean operation or a Part container.
 
 - **You already have an active Body and just want to add another feature to
   it** — do not create a new Body; instead use
-  [New Sketch](new-sketch.md) or any additive/subtractive <!-- TODO: verify link -->
+  [New Sketch](new-sketch.md) or any additive/subtractive
   feature directly. Creating a second Body produces a completely independent
   solid.
 - **You want to combine two existing Bodies into one solid** — use
@@ -290,7 +290,7 @@ visible = body.VisibleFeature  # TODO: verify attribute name; source: BodyPyImp.
 
 - [Part Design index](../index.md) — overview of the Part Design workflow
 - [Pad](pad.md) — the most common first feature to add inside a Body
-- [New Sketch](new-sketch.md) — create the sketch that a Pad or Pocket uses <!-- TODO: verify link -->
+- [New Sketch](new-sketch.md) — create the sketch that a Pad or Pocket uses
 - [Move Tip](move-tip.md) — move the active Tip to inspect or insert at an intermediate step
 - [Boolean](boolean.md) — combine two or more Bodies into a single solid
 - [Sub-Shape Binder](sub-shape-binder.md) — reference geometry from another Body

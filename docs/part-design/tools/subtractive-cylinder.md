@@ -75,7 +75,7 @@ The cylinder's axis runs along the Body's local Z-axis by default. The **Attachm
 | Height | Length (mm) | 10.0 mm | Length of the cylinder along its axis (depth of the cut). Must be greater than zero. |
 | Angle | Angle (°) | 360.0° | Sweep angle of the cylinder around its axis. Range: 0° < Angle ≤ 360°. Values below 360° produce a partial cylindrical sector rather than a complete cylinder. |
 
-The task panel also exposes the **Attachment** section (inherited from `Part::AttachExtension`), which controls the position and orientation of the cylinder's axis. See the [Datum Plane](datum-plane.md) documentation for the full list of modes. <!-- TODO: verify link -->
+The task panel also exposes the **Attachment** section (inherited from `Part::AttachExtension`), which controls the position and orientation of the cylinder's axis. See the [Attachment](../concepts/attachment.md) reference for the full list of modes.
 
 ---
 

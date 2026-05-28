@@ -217,4 +217,4 @@ doc.recompute()
 - [Set Tip](move-tip.md) — change where the Body stops evaluating, without reordering
 - [Move Object To…](move-feature.md) — move a feature to a different Body
 - [Duplicate Object](duplicate-selection.md) — copy a feature to a new position
-- [Body](body.md) — how features are ordered and evaluated in a Body
+- [Body, Origin and Feature Tree](../concepts/body-and-origin.md) — how features are ordered and evaluated in a Body

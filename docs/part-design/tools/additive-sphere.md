@@ -39,7 +39,7 @@ These three angles can be combined to produce spherical caps, segments, zones, a
 - **The cross-section is not spherical** — use [Revolution](revolution.md) with a sketch profile for ellipsoids, paraboloids, or other surfaces of revolution. (For a true ellipsoid, see [Additive Ellipsoid](additive-ellipsoid.md).)
 - **You need to remove a spherical depression from existing material** — use [Subtractive Sphere](subtractive-sphere.md), which has identical parameters but cuts instead of adds.
 - **You need fine control over the surface normal at the equator** — in that case a revolve sketch with a controlled profile gives more precision.
-- **The sphere needs to blend smoothly into adjacent geometry via a fillet** — the Part Design [Fillet](../tools/fillet.md) tool operates on the edges of the resulting Body; plan the edge topology before choosing a primitive. <!-- TODO: verify link -->
+- **The sphere needs to blend smoothly into adjacent geometry via a fillet** — the Part Design [Fillet](fillet.md) tool operates on the edges of the resulting Body; plan the edge topology before choosing a primitive.
 
 ---
 

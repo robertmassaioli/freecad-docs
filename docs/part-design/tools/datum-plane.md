@@ -437,4 +437,5 @@ doc.recompute()
 - [Datum Point](datum-point.md) — reference point, same attachment system
 - [Local Coordinate System](coordinate-system.md) — reference frame with all three axes
 - [Additive Pipe](additive-pipe.md) — sweep along a path; datum planes are often used as section planes
-- [Body](body.md) — the built-in XY, XZ, YZ planes
+- [Body, Origin and Feature Tree](../concepts/body-and-origin.md) — the built-in XY, XZ, YZ planes
+- [Attachment](../concepts/attachment.md) — complete reference for all attachment modes

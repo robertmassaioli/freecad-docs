@@ -80,7 +80,7 @@ At default angles the result is a full spherical cavity. Adjust the angles only 
 | Angle2 | Angle (°) | 90.0° | Upper latitude clipping angle. Range: −90° to +90°. The default +90° includes the north pole. Decreasing Angle2 clips the top of the sphere. Angle2 must be greater than Angle1. |
 | Angle3 | Angle (°) | 360.0° | Sweep angle around the vertical axis (longitude). Range: 0° < Angle3 ≤ 360°. The default 360° gives a complete revolution. Values below 360° produce a partial spherical sector. |
 
-The task panel also exposes the **Attachment** section (inherited from `Part::AttachExtension`), which controls the position of the sphere centre. See the [Datum Plane](datum-plane.md) documentation for the full list of modes. <!-- TODO: verify link -->
+The task panel also exposes the **Attachment** section (inherited from `Part::AttachExtension`), which controls the position of the sphere centre. See the [Attachment](../concepts/attachment.md) reference for the full list of modes.
 
 ---
 

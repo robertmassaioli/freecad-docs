@@ -339,4 +339,5 @@ print(line.Placement)
 - [Datum Plane](datum-plane.md) — reference plane, same attachment system
 - [Datum Point](datum-point.md) — reference point, same attachment system
 - [Local Coordinate System](coordinate-system.md) — full reference frame with three axes
-- [Body](body.md) — the built-in X, Y, Z origin axes
+- [Body, Origin and Feature Tree](../concepts/body-and-origin.md) — the built-in X, Y, Z origin axes
+- [Attachment](../concepts/attachment.md) — the attachment mode reference for all datum objects
