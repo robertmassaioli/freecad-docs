@@ -317,6 +317,8 @@ nav:
       - Materials: fem/tools/materials.md
       - Element Geometry: fem/tools/element-geometry.md
       - Mechanical Constraints and Loads: fem/tools/constraints-mechanical.md
+      - Thermal Constraints and Loads: fem/tools/constraints-thermal.md
+      - Electromagnetic, Fluid and Geometrical Constraints: fem/tools/constraints-other.md
   - TechDraw:
     - techdraw/index.md
     - Tools:
