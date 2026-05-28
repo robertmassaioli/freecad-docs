@@ -336,15 +336,35 @@ nav:
       - assembly/index.md
       - Tools:
         - assembly/tools/index.md
-        - Assembly Setup: assembly/tools/create-assembly.md
-        - Toggle Grounded: assembly/tools/grounded.md
-        - Joints — Kinematic: assembly/tools/joints-kinematic.md
-        - Joints — Geometric: assembly/tools/joints-geometric.md
-        - Joints — Coupled Motion: assembly/tools/joints-coupled.md
-        - Solve Assembly: assembly/tools/solve.md
-        - Exploded View: assembly/tools/exploded-view.md
-        - Simulation: assembly/tools/simulation.md
-        - Bill of Materials: assembly/tools/bom.md
+        - Assembly Setup:
+          - New Assembly: assembly/tools/new-assembly.md
+          - Insert Component: assembly/tools/insert-component.md
+          - New Part: assembly/tools/new-part.md
+        - Grounding:
+          - Toggle Grounded: assembly/tools/grounded.md
+        - Joints — Kinematic:
+          - Fixed: assembly/tools/joint-fixed.md
+          - Revolute: assembly/tools/joint-revolute.md
+          - Cylindrical: assembly/tools/joint-cylindrical.md
+          - Slider: assembly/tools/joint-slider.md
+          - Ball: assembly/tools/joint-ball.md
+        - Joints — Geometric:
+          - Distance: assembly/tools/joint-distance.md
+          - Parallel: assembly/tools/joint-parallel.md
+          - Perpendicular: assembly/tools/joint-perpendicular.md
+          - Angle: assembly/tools/joint-angle.md
+        - Joints — Coupled Motion:
+          - Rack and Pinion: assembly/tools/joint-rack-pinion.md
+          - Screw: assembly/tools/joint-screw.md
+          - Gears: assembly/tools/joint-gears.md
+          - Belt: assembly/tools/joint-belt.md
+        - Solving:
+          - Solve Assembly: assembly/tools/solve.md
+        - Documentation & Output:
+          - Exploded View: assembly/tools/exploded-view.md
+          - Simulation: assembly/tools/simulation.md
+          - Bill of Materials: assembly/tools/bom.md
+          - Export ASMT: assembly/tools/export-asmt.md
     - Measure:
       - measure/index.md
       - Tools:

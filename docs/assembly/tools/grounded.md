@@ -131,6 +131,7 @@ doc.recompute()
 
 ## See also
 
-- [Assembly Setup](create-assembly.md) — create the assembly and insert parts first
-- [Joints — Kinematic](joints-kinematic.md) — constrain relative motion between parts after grounding
+- [New Assembly](new-assembly.md) — create the assembly and insert parts first
+- [Fixed Joint](joint-fixed.md) — lock two parts together with no motion
+- [Revolute Joint](joint-revolute.md) — constrain relative motion between parts after grounding
 - [Solve Assembly](solve.md) — run the solver once grounding and joints are in place

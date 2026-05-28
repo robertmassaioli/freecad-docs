@@ -162,6 +162,8 @@ sim = doc.getObject("Simulation")  # or its actual name
 ## See also
 
 - [Solve Assembly](solve.md) — prerequisites for running a simulation
-- [Joints — Kinematic](joints-kinematic.md) — the driver joint types
-- [Joints — Coupled Motion](joints-coupled.md) — coupled joints that follow drivers automatically
+- [Revolute Joint](joint-revolute.md) — the primary driver joint type
+- [Slider Joint](joint-slider.md) — linear driver joint type
+- [Gears Joint](joint-gears.md) — coupled joints that follow drivers automatically
+- [Belt Joint](joint-belt.md) — coupled joints that follow drivers automatically
 - [Exploded View](exploded-view.md) — static step-by-step animation (alternative to simulation)
