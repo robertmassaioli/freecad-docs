@@ -345,3 +345,13 @@ nav:
       - Exploded View: assembly/tools/exploded-view.md
       - Simulation: assembly/tools/simulation.md
       - Bill of Materials: assembly/tools/bom.md
+  - Draft:
+    - draft/index.md
+    - Tools:
+      - draft/tools/index.md
+      - Drafting: draft/tools/drafting.md
+      - Annotation: draft/tools/annotation.md
+      - Modification: draft/tools/modification.md
+      - Arrays: draft/tools/arrays.md
+      - Utilities: draft/tools/utilities.md
+      - Snapping: draft/tools/snapping.md
