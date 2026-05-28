@@ -388,3 +388,10 @@ nav:
     - Tools:
       - points/tools/index.md
       - All Tools: points/tools/tools.md
+  - Reverse Engineering:
+    - reverse-engineering/index.md
+    - Tools:
+      - reverse-engineering/tools/index.md
+      - Surface Reconstruction: reverse-engineering/tools/surface-reconstruction.md
+      - Segmentation: reverse-engineering/tools/segmentation.md
+      - Approximation: reverse-engineering/tools/approximation.md
