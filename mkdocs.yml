@@ -309,6 +309,11 @@ nav:
       - Merge / Split Cells: spreadsheet/tools/merge-split.md
       - Cell Formatting: spreadsheet/tools/cell-formatting.md
       - Bind Sheet: spreadsheet/tools/bind-sheet.md
+  - TechDraw:
+    - techdraw/index.md
+    - Tools:
+      - techdraw/tools/index.md
+      - Pages: techdraw/tools/pages.md
   - Assembly:
     - assembly/index.md
     - Tools:
