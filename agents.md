@@ -17,6 +17,23 @@ workbenches are the first priority.
 
 ---
 
+## ⚠️ CRITICAL: Content architecture rules
+
+Before writing, editing, or generating any documentation page, you MUST read:
+
+- **`AI-planning/content-architecture.md`** — governs where pages live, how the
+  nav is structured, and which structural patterns are forbidden
+- **`AI-planning/tool-documentation-format.md`** — governs what goes inside each
+  tool page (sections, order, depth)
+
+**The single most important rule:** Every FreeCAD tool gets its own dedicated
+Markdown file and its own individual nav entry in `mkdocs.yml`. Never merge
+multiple tools into one file. Never use `##`-level sections to separate tools
+within a shared file. See `content-architecture.md` §1 for the full rationale
+and §6 for a catalogue of anti-patterns to avoid.
+
+---
+
 ## Authoritative sources of truth
 
 ### FreeCAD source
@@ -107,42 +124,27 @@ Configuration lives in **`mkdocs.yml`** at the repo root.
   a new page is added.
 - Screenshots and diagrams go in `docs/assets/` (create subdirectories as needed).
 
-### Suggested directory structure
+### Required directory structure
 
 ```
 docs/
-├── index.md                      Landing / overview page
-├── sketcher/
-│   ├── index.md                  Sketcher overview
-│   ├── concepts/
-│   │   ├── constraints.md
-│   │   ├── degrees-of-freedom.md
-│   │   └── sketch-lifecycle.md
-│   ├── tools/                    One page per tool / command group
-│   │   ├── lines-and-arcs.md
-│   │   ├── constraints-coincident.md
-│   │   └── …
-│   └── reference/
-│       └── python-api.md
-├── part-design/
-│   ├── index.md
-│   ├── concepts/
-│   │   ├── body-and-origin.md
-│   │   ├── feature-tree.md
-│   │   └── tip.md
-│   ├── features/                 Pad, Pocket, Revolution, Loft, …
-│   │   └── …
-│   └── reference/
-│       └── python-api.md
-└── part/
-    ├── index.md
+├── index.md                        Landing / overview page
+└── <workbench-slug>/
+    ├── index.md                    Workbench overview
     ├── concepts/
-    │   └── brep-topology.md
-    ├── operations/               Boolean, Fillet, Chamfer, …
-    │   └── …
-    └── reference/
-        └── python-api.md
+    │   └── <concept-slug>.md       Conceptual deep-dives (optional)
+    └── tools/
+        ├── index.md                Navigation table linking to all tool pages
+        └── <tool-slug>.md          ONE FILE PER TOOL — no exceptions
 ```
+
+**Canonical example:** `docs/part-design/tools/` contains ~40 files, one per
+tool (pad.md, pocket.md, hole.md, fillet.md, …). Every other workbench must
+follow the same pattern.
+
+See `AI-planning/content-architecture.md` for the complete specification,
+including the full list of workbench slugs, tool slug conventions, and the
+`mkdocs.yml` nav patterns that correspond to this structure.
 
 ---
 
