@@ -372,3 +372,8 @@ nav:
     - Tools:
       - surface/tools/index.md
       - All Tools: surface/tools/tools.md
+  - Measure:
+    - measure/index.md
+    - Tools:
+      - measure/tools/index.md
+      - Measure: measure/tools/measure.md
