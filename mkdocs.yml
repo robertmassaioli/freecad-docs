@@ -317,6 +317,8 @@ nav:
       - Views: techdraw/tools/views.md
       - Dimensions: techdraw/tools/dimensions.md
       - Annotations and Hatching: techdraw/tools/annotations.md
+      - Symbols: techdraw/tools/symbols.md
+      - Extension Pack: techdraw/tools/extensions.md
   - Assembly:
     - assembly/index.md
     - Tools:
