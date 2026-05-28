@@ -86,9 +86,10 @@ The workbench adds a **Reverse Engineering** menu with three submenus:
 
 ## See also
 
-- [Surface Reconstruction](tools/surface-reconstruction.md) — Poisson, structured triangulation
-- [Segmentation](tools/segmentation.md) — automatic and manual mesh segmentation
-- [Approximation](tools/approximation.md) — primitive and free-form surface fitting
+- [Poisson Reconstruction](tools/poisson-reconstruction.md) — watertight mesh from point cloud
+- [Mesh Segmentation](tools/mesh-segmentation.md) — auto-split mesh by surface type
+- [Approximate B-Spline Surface](tools/approx-bspline-surface.md) — fit free-form NURBS
+- [All Tools](tools/index.md) — complete tool reference
 - Points workbench — import and manage point clouds
 - Mesh workbench — mesh repair before reverse engineering
 - Surface workbench — free-form surface tools for the resulting geometry

@@ -418,7 +418,12 @@ nav:
       - surface/index.md
       - Tools:
         - surface/tools/index.md
-        - All Tools: surface/tools/tools.md
+        - Filling: surface/tools/filling.md
+        - Fill Boundary Curves: surface/tools/fill-boundary-curves.md
+        - Sections: surface/tools/sections.md
+        - Extend Face: surface/tools/extend-face.md
+        - Blend Curve: surface/tools/blend-curve.md
+        - Curve on Mesh: surface/tools/curve-on-mesh.md
     - Mesh:
       - mesh/index.md
       - Tools:
@@ -439,21 +444,69 @@ nav:
       - reverse-engineering/index.md
       - Tools:
         - reverse-engineering/tools/index.md
-        - Surface Reconstruction: reverse-engineering/tools/surface-reconstruction.md
-        - Segmentation: reverse-engineering/tools/segmentation.md
-        - Approximation: reverse-engineering/tools/approximation.md
+        - Surface Reconstruction:
+          - Poisson Reconstruction: reverse-engineering/tools/poisson-reconstruction.md
+          - Structured Point Clouds: reverse-engineering/tools/structured-point-clouds.md
+        - Segmentation:
+          - Mesh Segmentation: reverse-engineering/tools/mesh-segmentation.md
+          - Manual Segmentation: reverse-engineering/tools/manual-segmentation.md
+          - From Components: reverse-engineering/tools/from-components.md
+          - Wire From Mesh Boundary: reverse-engineering/tools/wire-from-mesh-boundary.md
+        - Approximation:
+          - Approximate Plane: reverse-engineering/tools/approx-plane.md
+          - Approximate Cylinder: reverse-engineering/tools/approx-cylinder.md
+          - Approximate Sphere: reverse-engineering/tools/approx-sphere.md
+          - Approximate Polynomial Surface: reverse-engineering/tools/approx-polynomial-surface.md
+          - Approximate B-Spline Surface: reverse-engineering/tools/approx-bspline-surface.md
+          - Approximate B-Spline Curve: reverse-engineering/tools/approx-bspline-curve.md
     - Robot:
       - robot/index.md
       - Tools:
         - robot/tools/index.md
-        - All Tools: robot/tools/tools.md
+        - Robot Setup:
+          - Robot Tool: robot/tools/robot-tool.md
+          - Place Robot: robot/tools/place-robot.md
+          - Set Home Position: robot/tools/set-home-position.md
+          - Move to Home: robot/tools/move-to-home.md
+        - Trajectory Creation:
+          - Trajectory: robot/tools/trajectory.md
+          - Insert in Trajectory (Tool Position): robot/tools/insert-trajectory-tool-position.md
+          - Insert in Trajectory (Preselect): robot/tools/insert-trajectory-preselect.md
+          - Set Default Orientation: robot/tools/set-default-orientation.md
+          - Set Default Values: robot/tools/set-default-values.md
+          - Edge to Trajectory: robot/tools/edge-to-trajectory.md
+        - Trajectory Management:
+          - Dress-Up Trajectory: robot/tools/dress-up-trajectory.md
+          - Trajectory Compound: robot/tools/trajectory-compound.md
+        - Simulation and Export:
+          - Simulate Trajectory: robot/tools/simulate-trajectory.md
+          - Kuka Compact Subroutine: robot/tools/kuka-compact-subroutine.md
+          - Kuka Full Subroutine: robot/tools/kuka-full-subroutine.md
     - Points:
       - points/index.md
       - Tools:
         - points/tools/index.md
-        - All Tools: points/tools/tools.md
+        - Import Points: points/tools/import-points.md
+        - Export Points: points/tools/export-points.md
+        - Convert to Points: points/tools/convert-to-points.md
+        - Structured Point Cloud: points/tools/structured-point-cloud.md
+        - Cut Point Cloud: points/tools/cut-point-cloud.md
+        - Merge Point Clouds: points/tools/merge-point-clouds.md
     - OpenSCAD:
       - openscad/index.md
       - Tools:
         - openscad/tools/index.md
-        - All Tools: openscad/tools/tools.md
+        - Replace Object: openscad/tools/replace-object.md
+        - Remove Objects and Children: openscad/tools/remove-objects-and-children.md
+        - Refine Shape Feature: openscad/tools/refine-shape-feature.md
+        - Mirror Mesh Feature: openscad/tools/mirror-mesh-feature.md
+        - Scale Mesh Feature: openscad/tools/scale-mesh-feature.md
+        - Resize Mesh Feature: openscad/tools/resize-mesh-feature.md
+        - Increase Tolerance Feature: openscad/tools/increase-tolerance-feature.md
+        - Convert Edges to Faces: openscad/tools/convert-edges-to-faces.md
+        - Expand Placements: openscad/tools/expand-placements.md
+        - Explode Group: openscad/tools/explode-group.md
+        - Add OpenSCAD Element: openscad/tools/add-openscad-element.md
+        - Mesh Boolean: openscad/tools/mesh-boolean.md
+        - Hull: openscad/tools/hull.md
+        - Minkowski Sum: openscad/tools/minkowski-sum.md
