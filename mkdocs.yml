@@ -474,12 +474,93 @@ nav:
       - techdraw/index.md
       - Tools:
         - techdraw/tools/index.md
-        - Pages: techdraw/tools/pages.md
-        - Views: techdraw/tools/views.md
-        - Dimensions: techdraw/tools/dimensions.md
-        - Annotations and Hatching: techdraw/tools/annotations.md
-        - Symbols: techdraw/tools/symbols.md
-        - Extension Pack: techdraw/tools/extensions.md
+        - Pages:
+          - Insert Default Page: techdraw/tools/page-insert-default.md
+          - Insert Page Using Template: techdraw/tools/page-insert-template.md
+          - Fill Template Fields: techdraw/tools/page-fill-fields.md
+          - Redraw Page: techdraw/tools/page-redraw.md
+          - Print All Pages: techdraw/tools/page-print-all.md
+          - Export Page as SVG: techdraw/tools/page-export-svg.md
+          - Export Page as DXF: techdraw/tools/page-export-dxf.md
+        - Views:
+          - Insert View: techdraw/tools/view-insert.md
+          - Insert Broken View: techdraw/tools/view-broken.md
+          - Insert Section View: techdraw/tools/view-section.md
+          - Insert Complex Section: techdraw/tools/view-complex-section.md
+          - Insert Detail View: techdraw/tools/view-detail.md
+          - Insert Projection Group: techdraw/tools/view-projection-group.md
+          - Insert Clip Group: techdraw/tools/view-clip-group.md
+          - Insert SVG Symbol: techdraw/tools/view-svg-symbol.md
+          - Insert Bitmap Image: techdraw/tools/view-bitmap.md
+          - Share View: techdraw/tools/view-share.md
+          - Toggle Frames: techdraw/tools/view-toggle-frames.md
+          - Project Shape: techdraw/tools/view-project-shape.md
+          - Insert Active View: techdraw/tools/view-active.md
+          - Insert Draft View: techdraw/tools/view-draft.md
+          - Insert Arch View: techdraw/tools/view-arch.md
+          - Insert Spreadsheet View: techdraw/tools/view-spreadsheet.md
+        - Dimensions:
+          - Insert Dimension: techdraw/tools/dim-insert.md
+          - Insert Length Dimension: techdraw/tools/dim-length.md
+          - Insert Horizontal Dimension: techdraw/tools/dim-horizontal.md
+          - Insert Vertical Dimension: techdraw/tools/dim-vertical.md
+          - Insert Radius Dimension: techdraw/tools/dim-radius.md
+          - Insert Diameter Dimension: techdraw/tools/dim-diameter.md
+          - Insert Angle Dimension: techdraw/tools/dim-angle.md
+          - Insert 3-Point Angle Dimension: techdraw/tools/dim-3point-angle.md
+          - Insert Area Annotation: techdraw/tools/dim-area.md
+          - Insert Horizontal Extent Dimension: techdraw/tools/dim-horizontal-extent.md
+          - Insert Vertical Extent Dimension: techdraw/tools/dim-vertical-extent.md
+          - Repair Dimension References: techdraw/tools/dim-repair.md
+          - Insert Balloon Annotation: techdraw/tools/dim-balloon.md
+          - Insert Axonometric Length Dimension: techdraw/tools/dim-axonometric.md
+        - Annotations:
+          - Insert Annotation: techdraw/tools/annotation-text.md
+          - Insert Rich Text Annotation: techdraw/tools/annotation-rich-text.md
+          - Insert Leader Line: techdraw/tools/annotation-leader.md
+          - Hatch a Face: techdraw/tools/hatch-face.md
+          - Apply Geometric Hatch: techdraw/tools/hatch-geometric.md
+          - Add Face Centerline: techdraw/tools/centerline-face.md
+          - Add Centerline Between 2 Lines: techdraw/tools/centerline-2lines.md
+          - Add Centerline Between 2 Points: techdraw/tools/centerline-2points.md
+          - Add Cosmetic Line Through 2 Points: techdraw/tools/cosmetic-line-2points.md
+          - Change Appearance of Lines: techdraw/tools/change-line-appearance.md
+          - Show / Hide Invisible Edges: techdraw/tools/show-hide-edges.md
+          - Remove Cosmetic Objects: techdraw/tools/remove-cosmetic.md
+          - Add Cosmetic Vertex: techdraw/tools/cosmetic-vertex.md
+          - Add Midpoint Vertices: techdraw/tools/cosmetic-midpoint-vertices.md
+          - Add Quadrant Vertices: techdraw/tools/cosmetic-quadrant-vertices.md
+          - Move View to Top of Stack: techdraw/tools/stack-top.md
+          - Move View to Bottom of Stack: techdraw/tools/stack-bottom.md
+          - Move View Up One Level: techdraw/tools/stack-up.md
+          - Move View Down One Level: techdraw/tools/stack-down.md
+        - Symbols:
+          - Insert Welding Symbol: techdraw/tools/symbol-welding.md
+          - Insert Surface Finish Symbol: techdraw/tools/symbol-surface-finish.md
+          - Insert Hole / Shaft Fit: techdraw/tools/symbol-hole-shaft-fit.md
+        - Extension Pack:
+          - Select Line Attributes: techdraw/tools/ext/select-line-attributes.md
+          - Change Line Attributes: techdraw/tools/ext/change-line-attributes.md
+          - Extend / Shorten Line: techdraw/tools/ext/extend-shorten-line.md
+          - Lock / Unlock View: techdraw/tools/ext/lock-unlock-view.md
+          - Position Section View: techdraw/tools/ext/position-section-view.md
+          - Position Chain Dimensions: techdraw/tools/ext/position-chain-dimensions.md
+          - Cascade Dimensions: techdraw/tools/ext/cascade-dimensions.md
+          - Area / Arc Length Annotation: techdraw/tools/ext/area-annotation.md
+          - Customise Dimension Format: techdraw/tools/ext/customise-dimension-format.md
+          - Add Circle Centerlines: techdraw/tools/ext/circle-centerlines.md
+          - Add Bolt Circle Centerlines: techdraw/tools/ext/bolt-circle-centerlines.md
+          - Thread Representations: techdraw/tools/ext/thread-representations.md
+          - Add Vertex at Intersection: techdraw/tools/ext/vertex-intersection.md
+          - Add Offset Vertex: techdraw/tools/ext/vertex-offset.md
+          - Cosmetic Circle / Arc Tools: techdraw/tools/ext/cosmetic-circles.md
+          - Draw Parallel / Perpendicular Line: techdraw/tools/ext/parallel-perpendicular-line.md
+          - Chain Dimensions: techdraw/tools/ext/chain-dimensions.md
+          - Coordinate Dimensions: techdraw/tools/ext/coordinate-dimensions.md
+          - Chamfer Dimensions: techdraw/tools/ext/chamfer-dimensions.md
+          - Arc Length Dimension: techdraw/tools/ext/arc-length-dimension.md
+          - Prefix Tools: techdraw/tools/ext/prefix-tools.md
+          - Increase / Decrease Decimal Places: techdraw/tools/ext/decimal-places.md
     - Draft:
       - draft/index.md
       - Tools:
