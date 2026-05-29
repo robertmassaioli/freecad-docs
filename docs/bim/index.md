@@ -88,7 +88,8 @@ Each level corresponds to an IFC class:
 
 ## See also
 
-- [Structure and IFC Hierarchy](tools/structure.md) — Site, Building, Level, Space
-- [Building Elements](tools/elements.md) — Walls, columns, slabs, doors, windows, etc.
-- [Annotation and Documentation](tools/annotation.md) — Dimensions, SectionPlane, TDPage
-- [IFC Management](tools/ifc.md) — Import, export, Native IFC, IfcElements panel
+- [Site](tools/site.md) / [Building](tools/building.md) / [Level](tools/level.md) — project hierarchy
+- [Wall](tools/wall.md) / [Column](tools/column.md) / [Slab](tools/slab.md) — structural elements
+- [Section Plane](tools/section-plane.md) / [Drawing Page](tools/drawing-page.md) — construction documents
+- [IFC Elements](tools/ifc-elements.md) / [Preflight](tools/preflight.md) — IFC data management
+- [All Tools](tools/index.md) — complete tool reference

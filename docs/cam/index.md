@@ -140,7 +140,7 @@ post-processors can be added to the user's macro directory.
 
 ## See also
 
-- [Job Setup](tools/job.md) — Job, Post Process, Sanity, Tool Controllers, Stock
-- [Operations](tools/operations.md) — all machining operations
-- [Dress-ups](tools/dressup.md) — path modifiers (tabs, lead-ins, dogbone…)
-- [Tool Bits and Libraries](tools/toolbits.md) — tool bit management
+- [New Job](tools/new-job.md) — Job, Post Process, Sanity, Tool Controllers, Stock
+- [All Operations](tools/index.md) — all machining operations
+- [Dress-ups](tools/dressup-dogbone.md) — path modifiers (tabs, lead-ins, dogbone…)
+- [Tool Bits and Libraries](tools/tool-bit-library.md) — tool bit management

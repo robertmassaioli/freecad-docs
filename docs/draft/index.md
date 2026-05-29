@@ -90,9 +90,10 @@ Construction Mode`.
 
 ## See also
 
-- [Drafting Tools](tools/drafting.md) — all 2-D creation tools
-- [Annotation Tools](tools/annotation.md) — text, dimensions, labels
-- [Modification Tools](tools/modification.md) — transform, edit, convert
-- [Array Tools](tools/arrays.md) — ortho, polar, circular, path arrays
-- [Utility Tools](tools/utilities.md) — layers, groups, style, working plane
-- [Snapping](tools/snapping.md) — snap types and the snap toolbar
+- [Line](tools/line.md) / [Wire](tools/wire.md) / [Arc](tools/arc.md) / [Circle](tools/circle.md) — 2-D creation tools
+- [Text](tools/text.md) / [Dimension](tools/dimension.md) / [Label](tools/label.md) — annotation tools
+- [Move](tools/move.md) / [Rotate](tools/rotate.md) / [Clone](tools/clone.md) — transformation tools
+- [Ortho Array](tools/array-ortho.md) / [Path Array](tools/array-path.md) — array tools
+- [Layer](tools/layer.md) / [Select Working Plane](tools/select-working-plane.md) — layer and working plane management
+- [Snap Lock](tools/snap-lock.md) — snap toolbar master toggle
+- [All Tools](tools/index.md) — complete tool reference

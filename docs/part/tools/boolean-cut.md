@@ -35,7 +35,7 @@ occupies is removed from the block. The cylinder "tool" itself is not destroyed
 
 - **Inside a Part Design Body** — use Subtractive primitives or Pocket.
 - **Cutting multiple shapes at once** — use
-  [Boolean Fragments](split-features.md#boolean-fragments) or apply successive
+  [Boolean Fragments](boolean-fragments.md) or apply successive
   cuts.
 - **The Tool does not intersect the Base** — Cut produces an unchanged copy of
   the Base. This is usually a sign of a wrong Placement.
@@ -121,4 +121,4 @@ print(f"Volume after:  {cut.Shape.Volume:.2f} mm³")
 - [Boolean Fuse](boolean-fuse.md) — union of two shapes
 - [Boolean Common](boolean-common.md) — intersection of two shapes
 - [Boolean Dialog](boolean.md) — choose the operation type interactively
-- [Refine Shape](copy-tools.md#refine-shape) — clean up redundant edges after cutting
+- [Refine Shape](refine-shape.md) — clean up redundant edges after cutting

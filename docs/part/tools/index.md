@@ -25,10 +25,10 @@ Parametric shapes that can be resized at any time by changing their properties.
 
 | Tool | Description |
 |------|-------------|
-| [Shape from Mesh](mesh-and-solid.md#shape-from-mesh) | Wrap a mesh object as a Part shape |
-| [Points from Shape](mesh-and-solid.md#points-from-shape) | Extract vertices from a shape as a Points object |
-| [Convert to Solid](mesh-and-solid.md#convert-to-solid) | Convert a shell or surface shape to a closed solid |
-| [Reverse Shapes](mesh-and-solid.md#reverse-shapes) | Flip the face normals of a shape |
+| [Shape from Mesh](shape-from-mesh.md) | Wrap a mesh object as a Part shape |
+| [Points from Shape](points-from-shape.md) | Extract vertices from a shape as a Points object |
+| [Convert to Solid](convert-to-solid.md) | Convert a shell or surface shape to a closed solid |
+| [Reverse Shapes](reverse-shapes.md) | Flip the face normals of a shape |
 
 ---
 
@@ -36,10 +36,10 @@ Parametric shapes that can be resized at any time by changing their properties.
 
 | Tool | Description |
 |------|-------------|
-| [Simple Copy](copy-tools.md#simple-copy) | Create a static, non-parametric copy of a shape |
-| [Transformed Copy](copy-tools.md#transformed-copy) | Copy a shape with an applied placement transform |
-| [Shape Element Copy](copy-tools.md#shape-element-copy) | Copy a single face, edge, or vertex from a shape |
-| [Refine Shape](copy-tools.md#refine-shape) | Remove redundant edges and merge co-planar faces |
+| [Simple Copy](simple-copy.md) | Create a static, non-parametric copy of a shape |
+| [Transformed Copy](transformed-copy.md) | Copy a shape with an applied placement transform |
+| [Shape Element Copy](shape-element-copy.md) | Copy a single face, edge, or vertex from a shape |
+| [Refine Shape](refine-shape.md) | Remove redundant edges and merge co-planar faces |
 
 ---
 
@@ -61,9 +61,9 @@ character through Boolean-like joins.
 
 | Tool | Description |
 |------|-------------|
-| [Connect Shapes](join-features.md#connect-shapes) | Fuse two walled objects sharing an edge, connecting their interiors |
-| [Embed Shapes](join-features.md#embed-shapes) | Embed a smaller walled solid inside a larger one |
-| [Cutout Shape](join-features.md#cutout-shape) | Cut a hole in a walled solid matching an embedded object |
+| [Connect Shapes](connect-shapes.md) | Fuse two walled objects sharing an edge, connecting their interiors |
+| [Embed Shapes](embed-shapes.md) | Embed a smaller walled solid inside a larger one |
+| [Cutout Shape](cutout-shape.md) | Cut a hole in a walled solid matching an embedded object |
 
 ---
 
@@ -74,10 +74,10 @@ them.
 
 | Tool | Description |
 |------|-------------|
-| [Boolean Fragments](split-features.md#boolean-fragments) | Split all input shapes at every mutual intersection |
-| [Slice Apart](split-features.md#slice-apart) | Cut a shape into separate objects using a tool shape |
-| [Slice to Compound](split-features.md#slice-to-compound) | Cut a shape and keep all fragments as a single compound |
-| [Boolean XOR](split-features.md#boolean-xor) | Keep only the non-overlapping portions of two shapes |
+| [Boolean Fragments](boolean-fragments.md) | Split all input shapes at every mutual intersection |
+| [Slice Apart](slice-apart.md) | Cut a shape into separate objects using a tool shape |
+| [Slice to Compound](slice-to-compound.md) | Cut a shape and keep all fragments as a single compound |
+| [Boolean XOR](boolean-xor.md) | Keep only the non-overlapping portions of two shapes |
 
 ---
 

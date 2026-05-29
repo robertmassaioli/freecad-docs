@@ -138,6 +138,6 @@ print("Run Part → Check Geometry from the menu for a full report.")
 ## See also
 
 - [Defeaturing](defeaturing.md) — remove problematic faces to simplify geometry
-- [Refine Shape](copy-tools.md#refine-shape) — clean up topology after Boolean operations
+- [Refine Shape](refine-shape.md) — clean up topology after Boolean operations
 - [Shape Builder](shape-builder.md) — manually close shells with missing faces
-- [Convert to Solid](mesh-and-solid.md#convert-to-solid) — close shells into solids
+- [Convert to Solid](convert-to-solid.md) — close shells into solids

@@ -103,8 +103,8 @@ becoming a separate `Part::Feature` object in the model tree.
 
 ### When to use it
 
-- After [Boolean Fragments](split-features.md#boolean-fragments) or
-  [Slice to Compound](split-features.md#slice-to-compound) to work with each
+- After [Boolean Fragments](boolean-fragments.md) or
+  [Slice to Compound](slice-to-compound.md) to work with each
   fragment independently.
 - After importing a STEP file that arrives as a compound of multiple bodies.
 - When you need to hide, move, or further process each part of a compound
@@ -230,6 +230,6 @@ print("Use Compound Filter interactively via Part → Compound → Compound Filt
 
 ## See also
 
-- [Boolean Fragments](split-features.md#boolean-fragments) — produces a compound of fragments
+- [Boolean Fragments](boolean-fragments.md) — produces a compound of fragments
 - [Boolean Fuse](boolean-fuse.md) — merges shapes (unlike Compound)
-- [Split Features](split-features.md) — split operations that produce compounds
+- [Split Features](index.md#split-features) — split operations that produce compounds

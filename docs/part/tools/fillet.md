@@ -65,7 +65,7 @@ parts look more polished and injection-moulded.
 !!! warning "Fillet failure on co-planar edges"
     After a Boolean Fuse, the merged solid may have internal seam edges where
     two faces were originally co-planar. Fillets on these edges fail.
-    Use [Refine Shape](copy-tools.md#refine-shape) before filleting.
+    Use [Refine Shape](refine-shape.md) before filleting.
 
 !!! warning "Radius too large — fillet exceeds the face size"
     If the fillet radius is larger than the adjacent face allows, OCCT raises
@@ -109,5 +109,5 @@ print(f"Filleted volume: {fillet.Shape.Volume:.2f} mm³")
 ## See also
 
 - [Chamfer](chamfer.md) — bevel (flat cut) instead of round
-- [Refine Shape](copy-tools.md#refine-shape) — remove co-planar seams before filleting
+- [Refine Shape](refine-shape.md) — remove co-planar seams before filleting
 - [Check Geometry](check-geometry.md) — verify the fillet result

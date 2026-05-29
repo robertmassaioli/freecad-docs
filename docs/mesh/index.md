@@ -97,8 +97,11 @@ and **Flip Normals** fix this.
 
 ## See also
 
-- [Import and Export](tools/import-export.md) — file formats and solid conversion
-- [Analyse](tools/analyse.md) — mesh quality evaluation
-- [Modify](tools/modify.md) — repair, smooth, decimate
-- [Boolean and Cutting](tools/boolean-cutting.md) — boolean ops and cross-sections
-- [Segmentation](tools/segmentation.md) — split and merge meshes
+- [Import Mesh](tools/import-mesh.md) — load mesh files
+- [From Part Shape](tools/from-part-shape.md) — convert solid to mesh for printing
+- [Evaluate and Repair](tools/evaluate-and-repair.md) — mesh quality evaluation and repair
+- [Harmonize Normals](tools/harmonize-normals.md) — fix inconsistent normals
+- [Fill Up Holes](tools/fill-up-holes.md) — close open boundaries
+- [Mesh Union](tools/mesh-union.md) — boolean union of meshes
+- [Segmentation](tools/segmentation-curvature.md) — split mesh by surface type
+- [All Tools](tools/index.md) — complete tool reference

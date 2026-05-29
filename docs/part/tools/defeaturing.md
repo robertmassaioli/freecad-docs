@@ -105,5 +105,5 @@ print("Use Part → Defeaturing interactively to select faces to remove.")
 ## See also
 
 - [Check Geometry](check-geometry.md) — verify the defeatured shape is valid
-- [Refine Shape](copy-tools.md#refine-shape) — clean up residual edges after defeaturing
-- [Copy Tools → Simple Copy](copy-tools.md#simple-copy) — create a static snapshot before defeaturing
+- [Refine Shape](refine-shape.md) — clean up residual edges after defeaturing
+- [Simple Copy](simple-copy.md) — create a static snapshot before defeaturing

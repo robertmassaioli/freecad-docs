@@ -143,4 +143,4 @@ doc.recompute()
 - [Face from Wires](face-from-wires.md) — simpler dedicated tool for face creation
 - [Check Geometry](check-geometry.md) — verify shells and solids for validity
 - [Extrude](extrude.md) — build a solid from a face or wire
-- [Convert to Solid](mesh-and-solid.md#convert-to-solid) — convert a shell to solid
+- [Convert to Solid](convert-to-solid.md) — convert a shell to solid

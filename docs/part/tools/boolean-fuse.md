@@ -44,7 +44,7 @@ Common uses:
 - **Inside a Part Design Body** — use Body Boolean (Fuse) or simply place
   additive features next to each other.
 - **More than two shapes** — apply successive Fuses, or use
-  [Boolean Fragments](split-features.md#boolean-fragments).
+  [Boolean Fragments](boolean-fragments.md).
 
 ---
 
@@ -54,7 +54,7 @@ Common uses:
 2. **Ctrl+click the second shape** (Tool).
 3. **Part → Boolean → Fuse.**
 4. A `Part::Fuse` object appears.
-5. Optionally run [Refine Shape](copy-tools.md#refine-shape) to merge redundant
+5. Optionally run [Refine Shape](refine-shape.md) to merge redundant
    co-planar faces.
 
 ---
@@ -119,5 +119,5 @@ print(f"Volume: {feat.Shape.Volume:.2f} mm³")
 
 - [Boolean Cut](boolean-cut.md) — subtract one shape from another
 - [Boolean Common](boolean-common.md) — keep only the shared volume
-- [Refine Shape](copy-tools.md#refine-shape) — clean up co-planar seams after fusing
-- [Boolean Fragments](split-features.md#boolean-fragments) — advanced multi-shape Boolean
+- [Refine Shape](refine-shape.md) — clean up co-planar seams after fusing
+- [Boolean Fragments](boolean-fragments.md) — advanced multi-shape Boolean

@@ -42,7 +42,7 @@ faster because they pick up the selection automatically.
 
 - **Repeated identical operations** — use the dedicated [Cut](boolean-cut.md),
   [Fuse](boolean-fuse.md), or [Common](boolean-common.md) buttons.
-- **More than two shapes** — use [Boolean Fragments](split-features.md#boolean-fragments)
+- **More than two shapes** — use [Boolean Fragments](boolean-fragments.md)
   for multi-shape operations.
 
 ---
@@ -119,5 +119,5 @@ common.Tool = cyl
 - [Boolean Cut](boolean-cut.md) — dedicated cut button
 - [Boolean Fuse](boolean-fuse.md) — dedicated fuse button
 - [Boolean Common](boolean-common.md) — dedicated common button
-- [Boolean Fragments](split-features.md#boolean-fragments) — split all
+- [Boolean Fragments](boolean-fragments.md) — split all
   intersecting shapes simultaneously

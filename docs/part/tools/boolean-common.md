@@ -107,4 +107,4 @@ print(f"Intersection volume: {common.Shape.Volume:.2f} mm³")
 - [Boolean Cut](boolean-cut.md) — remove one shape from another
 - [Boolean Fuse](boolean-fuse.md) — union of both shapes
 - [Boolean Dialog](boolean.md) — choose operation interactively
-- [Boolean XOR](split-features.md#boolean-xor) — keep only the non-shared regions
+- [Boolean XOR](boolean-xor.md) — keep only the non-shared regions

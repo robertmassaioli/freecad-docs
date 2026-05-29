@@ -93,7 +93,7 @@ print(f"Chamfered volume: {chamfer.Shape.Volume:.2f} mm³")
 
 !!! warning "Same failure modes as Fillet"
     Co-planar seam edges from Boolean operations will cause chamfer failures.
-    Run [Refine Shape](copy-tools.md#refine-shape) first.
+    Run [Refine Shape](refine-shape.md) first.
 
 !!! warning "Chamfer size must be smaller than adjacent face"
     If the chamfer size exceeds the width of an adjacent face, OCCT fails.
@@ -104,4 +104,4 @@ print(f"Chamfered volume: {chamfer.Shape.Volume:.2f} mm³")
 ## See also
 
 - [Fillet](fillet.md) — rounded edge (arc cross-section) instead of flat bevel
-- [Refine Shape](copy-tools.md#refine-shape) — remove seam edges before chamfering
+- [Refine Shape](refine-shape.md) — remove seam edges before chamfering

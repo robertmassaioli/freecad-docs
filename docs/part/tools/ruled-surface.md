@@ -81,7 +81,7 @@ depend on the direction in which each wire is traversed.
 !!! warning "Result is a shell (surface), not a solid"
     Ruled Surface produces an open shell. To get a solid, cap the open ends
     with [Face from Wires](face-from-wires.md) and use
-    [Shape Builder](shape-builder.md) or [Convert to Solid](mesh-and-solid.md#convert-to-solid).
+    [Shape Builder](shape-builder.md) or [Convert to Solid](convert-to-solid.md).
 
 ---
 

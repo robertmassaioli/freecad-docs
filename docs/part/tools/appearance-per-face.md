@@ -45,7 +45,7 @@ exports the shape; colour data may or may not export depending on the format).
   assignment, which associates material properties (density, Young's modulus) with
   the volume, not just the visual face colour.
 - **Splitting a solid by material** — use [Boolean Cut](boolean-cut.md) or
-  [Boolean Fragments](split-features.md#boolean-fragments) and assign materials
+  [Boolean Fragments](boolean-fragments.md) and assign materials
   to separate objects.
 
 ---
@@ -103,7 +103,7 @@ view_obj.DiffuseColor = [
 
 !!! warning "Per-face colours are view properties, not geometry"
     Per-face colours do not survive if the shape is copied with
-    [Simple Copy](copy-tools.md#simple-copy) or passed through a Boolean
+    [Simple Copy](simple-copy.md) or passed through a Boolean
     operation. The new result object starts with the default colour. Re-apply
     per-face colours after any shape operation.
 

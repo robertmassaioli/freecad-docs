@@ -273,16 +273,29 @@ nav:
           - Primitives Dialog: part/tools/primitives.md
           - Shape Builder: part/tools/shape-builder.md
         - Mesh & Solid:
-          - Mesh and Solid Conversion: part/tools/mesh-and-solid.md
+          - Shape from Mesh: part/tools/shape-from-mesh.md
+          - Points from Shape: part/tools/points-from-shape.md
+          - Convert to Solid: part/tools/convert-to-solid.md
+          - Reverse Shapes: part/tools/reverse-shapes.md
         - Copy:
-          - Copy Tools: part/tools/copy-tools.md
+          - Simple Copy: part/tools/simple-copy.md
+          - Transformed Copy: part/tools/transformed-copy.md
+          - Shape Element Copy: part/tools/shape-element-copy.md
+          - Refine Shape: part/tools/refine-shape.md
         - Boolean Operations:
           - Boolean Dialog: part/tools/boolean.md
           - Boolean Cut: part/tools/boolean-cut.md
           - Boolean Fuse: part/tools/boolean-fuse.md
           - Boolean Common: part/tools/boolean-common.md
-        - Join Features: part/tools/join-features.md
-        - Split Features: part/tools/split-features.md
+        - Join Features:
+          - Connect Shapes: part/tools/connect-shapes.md
+          - Embed Shapes: part/tools/embed-shapes.md
+          - Cutout Shape: part/tools/cutout-shape.md
+        - Split Features:
+          - Boolean Fragments: part/tools/boolean-fragments.md
+          - Slice Apart: part/tools/slice-apart.md
+          - Slice to Compound: part/tools/slice-to-compound.md
+          - Boolean XOR: part/tools/boolean-xor.md
         - Compound Tools: part/tools/compound.md
         - Modeling Tools:
           - Extrude: part/tools/extrude.md
@@ -323,15 +336,95 @@ nav:
       - fem/index.md
       - Tools:
         - fem/tools/index.md
-        - Analysis Container: fem/tools/analysis.md
-        - Materials: fem/tools/materials.md
-        - Element Geometry: fem/tools/element-geometry.md
-        - Mechanical Constraints and Loads: fem/tools/constraints-mechanical.md
-        - Thermal Constraints and Loads: fem/tools/constraints-thermal.md
-        - Electromagnetic, Fluid and Geometrical Constraints: fem/tools/constraints-other.md
-        - Mesh: fem/tools/mesh.md
-        - Solvers and Equations: fem/tools/solvers-and-equations.md
-        - Results and Post-Processing: fem/tools/results.md
+        - Model Setup:
+          - Analysis Container: fem/tools/analysis-container.md
+        - Materials:
+          - Material for Solid: fem/tools/material-solid.md
+          - Material for Fluid: fem/tools/material-fluid.md
+          - Nonlinear Mechanical Material: fem/tools/material-nonlinear.md
+          - Reinforced Material (Concrete): fem/tools/material-reinforced.md
+          - Material Editor: fem/tools/material-editor.md
+        - Element Geometry:
+          - Beam Cross Section: fem/tools/beam-cross-section.md
+          - Beam Rotation: fem/tools/beam-rotation.md
+          - Shell Thickness: fem/tools/shell-thickness.md
+          - Fluid Section for 1-D Flow: fem/tools/fluid-section.md
+        - Mechanical BCs and Loads:
+          - Fixed Constraint: fem/tools/constraint-fixed.md
+          - Rigid Body Constraint: fem/tools/constraint-rigid-body.md
+          - Displacement Constraint: fem/tools/constraint-displacement.md
+          - Contact Constraint: fem/tools/constraint-contact.md
+          - Tie Constraint: fem/tools/constraint-tie.md
+          - Spring Constraint: fem/tools/constraint-spring.md
+          - Force Load: fem/tools/load-force.md
+          - Pressure Load: fem/tools/load-pressure.md
+          - Centrifugal Load: fem/tools/load-centrifugal.md
+          - Self Weight: fem/tools/load-self-weight.md
+        - Thermal BCs and Loads:
+          - Initial Temperature: fem/tools/initial-temperature.md
+          - Heat Flux Load: fem/tools/load-heat-flux.md
+          - Temperature Constraint: fem/tools/constraint-temperature.md
+          - Body Heat Source: fem/tools/load-body-heat-source.md
+        - Electromagnetic BCs:
+          - Electrostatic Potential: fem/tools/constraint-electrostatic-potential.md
+          - Current Density: fem/tools/constraint-current-density.md
+          - Magnetization: fem/tools/constraint-magnetization.md
+          - Electric Charge Density: fem/tools/constraint-electric-charge.md
+        - Fluid BCs:
+          - Initial Flow Velocity: fem/tools/initial-flow-velocity.md
+          - Initial Pressure: fem/tools/initial-pressure.md
+          - Flow Velocity Constraint: fem/tools/constraint-flow-velocity.md
+        - Geometrical Features:
+          - Plane Rotation Constraint: fem/tools/constraint-plane-rotation.md
+          - Section Print: fem/tools/section-print.md
+          - Transform Constraint: fem/tools/constraint-transform.md
+        - Mesh:
+          - Mesh from Shape (Netgen): fem/tools/mesh-netgen.md
+          - Mesh from Shape (Gmsh): fem/tools/mesh-gmsh.md
+          - FEM Mesh Boundary Layer: fem/tools/mesh-boundary-layer.md
+          - FEM Mesh Region: fem/tools/mesh-region.md
+          - FEM Mesh Group: fem/tools/mesh-group.md
+          - Create Elements Set: fem/tools/mesh-elements-set.md
+          - Convert FEM Mesh to Mesh: fem/tools/mesh-convert.md
+        - Solvers:
+          - Solver CalculiX: fem/tools/solver-calculix.md
+          - Solver Elmer: fem/tools/solver-elmer.md
+          - Solver Mystran: fem/tools/solver-mystran.md
+          - Solver Z88: fem/tools/solver-z88.md
+          - Solver Job Control: fem/tools/solver-job-control.md
+          - Run Solver: fem/tools/run-solver.md
+        - Elmer Equations:
+          - Deformation Equation: fem/tools/equation-deformation.md
+          - Elasticity Equation: fem/tools/equation-elasticity.md
+          - Electrostatic Equation: fem/tools/equation-electrostatic.md
+          - Electricforce Equation: fem/tools/equation-electricforce.md
+          - Flow Equation: fem/tools/equation-flow.md
+          - Flux Equation: fem/tools/equation-flux.md
+          - Heat Equation: fem/tools/equation-heat.md
+          - Magnetodynamic Equation: fem/tools/equation-magnetodynamic.md
+          - Magnetodynamic 2D Equation: fem/tools/equation-magnetodynamic-2d.md
+          - Static Current Equation: fem/tools/equation-static-current.md
+        - Results:
+          - Purge Results: fem/tools/results-purge.md
+          - Show Results: fem/tools/results-show.md
+        - VTK Post-Processing:
+          - Pipeline from Result: fem/tools/vtk-pipeline.md
+          - Apply Changes: fem/tools/vtk-apply-changes.md
+          - Branch Filter: fem/tools/vtk-branch.md
+          - Warp by Vector: fem/tools/vtk-warp.md
+          - Clip Scalar: fem/tools/vtk-clip-scalar.md
+          - Cut Function: fem/tools/vtk-cut-function.md
+          - Clip Region: fem/tools/vtk-clip-region.md
+          - Contours: fem/tools/vtk-contours.md
+          - Glyph: fem/tools/vtk-glyph.md
+          - Data Along Line: fem/tools/vtk-data-along-line.md
+          - Linearised Stresses: fem/tools/vtk-linearised-stresses.md
+          - Data at Point: fem/tools/vtk-data-at-point.md
+          - Calculator: fem/tools/vtk-calculator.md
+          - Create Filter Functions: fem/tools/vtk-filter-functions.md
+        - Utilities:
+          - Clipping Plane: fem/tools/clipping-plane.md
+          - FEM Examples: fem/tools/fem-examples.md
     - Assembly:
       - assembly/index.md
       - Tools:
@@ -391,29 +484,186 @@ nav:
       - draft/index.md
       - Tools:
         - draft/tools/index.md
-        - Drafting: draft/tools/drafting.md
-        - Annotation: draft/tools/annotation.md
-        - Modification: draft/tools/modification.md
-        - Arrays: draft/tools/arrays.md
-        - Utilities: draft/tools/utilities.md
-        - Snapping: draft/tools/snapping.md
+        - Drafting:
+          - Line: draft/tools/line.md
+          - Wire (Polyline): draft/tools/wire.md
+          - Fillet: draft/tools/fillet.md
+          - Arc: draft/tools/arc.md
+          - Arc by 3 Points: draft/tools/arc-3points.md
+          - Circle: draft/tools/circle.md
+          - Ellipse: draft/tools/ellipse.md
+          - Rectangle: draft/tools/rectangle.md
+          - Polygon: draft/tools/polygon.md
+          - B-Spline: draft/tools/bspline.md
+          - Cubic Bézier Curve: draft/tools/bezier-cubic.md
+          - Bézier Curve: draft/tools/bezier-curve.md
+          - Point: draft/tools/point.md
+          - Facebinder: draft/tools/facebinder.md
+          - ShapeString: draft/tools/shapestring.md
+          - Hatch: draft/tools/hatch.md
+        - Annotation:
+          - Text: draft/tools/text.md
+          - Dimension: draft/tools/dimension.md
+          - Label: draft/tools/label.md
+          - Annotation Style Editor: draft/tools/annotation-style-editor.md
+        - Modification:
+          - Move: draft/tools/move.md
+          - Rotate: draft/tools/rotate.md
+          - Scale: draft/tools/scale.md
+          - Mirror: draft/tools/mirror.md
+          - Offset: draft/tools/offset.md
+          - Trim / Extend: draft/tools/trim-extend.md
+          - Stretch: draft/tools/stretch.md
+          - Clone: draft/tools/clone.md
+          - Edit: draft/tools/edit.md
+          - Subelement Highlight: draft/tools/subelement-highlight.md
+          - Join: draft/tools/join.md
+          - Split: draft/tools/split.md
+          - Upgrade: draft/tools/upgrade.md
+          - Downgrade: draft/tools/downgrade.md
+          - Wire to B-Spline: draft/tools/wire-to-bspline.md
+          - Draft to Sketch: draft/tools/draft-to-sketch.md
+          - Slope: draft/tools/slope.md
+          - Flip Dimension: draft/tools/flip-dimension.md
+          - Shape 2D View: draft/tools/shape-2d-view.md
+        - Array Tools:
+          - Ortho Array: draft/tools/array-ortho.md
+          - Polar Array: draft/tools/array-polar.md
+          - Circular Array: draft/tools/array-circular.md
+          - Path Array: draft/tools/array-path.md
+          - Path Link Array: draft/tools/array-path-link.md
+          - Point Array: draft/tools/array-point.md
+          - Point Link Array: draft/tools/array-point-link.md
+          - Path Twisted Array: draft/tools/array-path-twisted.md
+          - Path Twisted Link Array: draft/tools/array-path-twisted-link.md
+        - Utilities:
+          - Set Style: draft/tools/set-style.md
+          - Apply Style: draft/tools/apply-style.md
+          - Layer: draft/tools/layer.md
+          - Layer Manager: draft/tools/layer-manager.md
+          - Add Named Group: draft/tools/add-named-group.md
+          - Select Group: draft/tools/select-group.md
+          - Toggle Construction Mode: draft/tools/toggle-construction-mode.md
+          - Add to Layer: draft/tools/add-to-layer.md
+          - Add to Group: draft/tools/add-to-group.md
+          - Add to Construction: draft/tools/add-to-construction.md
+          - Toggle Display Mode: draft/tools/toggle-display-mode.md
+          - Toggle Grid: draft/tools/toggle-grid.md
+          - Select Working Plane: draft/tools/select-working-plane.md
+          - Working Plane Proxy: draft/tools/working-plane-proxy.md
+          - Heal: draft/tools/heal.md
+          - Show Snap Bar: draft/tools/show-snap-bar.md
+        - Snapping:
+          - Snap Lock: draft/tools/snap-lock.md
+          - Endpoint: draft/tools/snap-endpoint.md
+          - Midpoint: draft/tools/snap-midpoint.md
+          - Center: draft/tools/snap-center.md
+          - Angle: draft/tools/snap-angle.md
+          - Intersection: draft/tools/snap-intersection.md
+          - Perpendicular: draft/tools/snap-perpendicular.md
+          - Extension: draft/tools/snap-extension.md
+          - Parallel: draft/tools/snap-parallel.md
+          - Special: draft/tools/snap-special.md
+          - Near: draft/tools/snap-near.md
+          - Ortho: draft/tools/snap-ortho.md
+          - Grid: draft/tools/snap-grid.md
+          - Working Plane: draft/tools/snap-working-plane.md
+          - Dimensions: draft/tools/snap-dimensions.md
     - BIM:
       - bim/index.md
       - Tools:
         - bim/tools/index.md
-        - Structure and IFC Hierarchy: bim/tools/structure.md
-        - Building Elements: bim/tools/elements.md
-        - Annotation and Documentation: bim/tools/annotation.md
-        - IFC Management: bim/tools/ifc.md
+        - Structure:
+          - Site: bim/tools/site.md
+          - Building: bim/tools/building.md
+          - Level: bim/tools/level.md
+          - Space: bim/tools/space.md
+        - Building Elements:
+          - Wall: bim/tools/wall.md
+          - Curtain Wall: bim/tools/curtain-wall.md
+          - Column: bim/tools/column.md
+          - Beam: bim/tools/beam.md
+          - Slab: bim/tools/slab.md
+          - Door: bim/tools/door.md
+          - Window: bim/tools/window.md
+          - Stairs: bim/tools/stairs.md
+          - Roof: bim/tools/roof.md
+          - Panel: bim/tools/panel.md
+          - Frame: bim/tools/frame.md
+          - Fence: bim/tools/fence.md
+          - Truss: bim/tools/truss.md
+          - Equipment: bim/tools/equipment.md
+          - Rebar: bim/tools/rebar.md
+          - Pipe: bim/tools/pipe.md
+          - Pipe Connector: bim/tools/pipe-connector.md
+        - Annotation:
+          - Text: bim/tools/text.md
+          - Dimension (Aligned): bim/tools/dimension-aligned.md
+          - Dimension (Horizontal): bim/tools/dimension-horizontal.md
+          - Dimension (Vertical): bim/tools/dimension-vertical.md
+          - Leader: bim/tools/leader.md
+          - Axis: bim/tools/axis.md
+          - Axis System: bim/tools/axis-system.md
+          - Grid: bim/tools/grid.md
+          - Section Plane: bim/tools/section-plane.md
+          - Drawing Page: bim/tools/drawing-page.md
+          - Drawing View: bim/tools/drawing-view.md
+        - IFC Management:
+          - IFC Elements: bim/tools/ifc-elements.md
+          - IFC Quantities: bim/tools/ifc-quantities.md
+          - IFC Properties: bim/tools/ifc-properties.md
+          - Classification: bim/tools/classification.md
+          - Material: bim/tools/material.md
+          - Preflight: bim/tools/preflight.md
+          - Schedule: bim/tools/schedule.md
     # ── Advanced & Specialist ──────────────────────────────────────────────────
     - CAM:
       - cam/index.md
       - Tools:
         - cam/tools/index.md
-        - Job Setup: cam/tools/job.md
-        - Operations: cam/tools/operations.md
-        - Dress-ups: cam/tools/dressup.md
-        - Tool Bits and Libraries: cam/tools/toolbits.md
+        - Common Parameters: cam/tools/common-parameters.md
+        - Job Setup:
+          - New Job: cam/tools/new-job.md
+          - Post Process: cam/tools/post-process.md
+          - Sanity Check: cam/tools/sanity-check.md
+          - Inspect Path: cam/tools/inspect-path.md
+          - Simulate: cam/tools/simulate.md
+          - Toggle Active: cam/tools/toggle-active.md
+        - 2D Operations:
+          - Profile: cam/tools/profile.md
+          - Pocket Shape: cam/tools/pocket-shape.md
+          - Face Milling: cam/tools/face-milling.md
+          - Helix: cam/tools/helix.md
+          - Adaptive Clearing: cam/tools/adaptive-clearing.md
+          - Slot: cam/tools/slot.md
+        - 3D Operations:
+          - 3D Pocket: cam/tools/3d-pocket.md
+          - Surface: cam/tools/surface.md
+          - Waterline: cam/tools/waterline.md
+        - Drilling: cam/tools/drilling.md
+        - Engraving:
+          - Engrave: cam/tools/engrave.md
+          - Deburr: cam/tools/deburr.md
+          - V-Carve: cam/tools/v-carve.md
+        - Setup Operations:
+          - Comment: cam/tools/comment.md
+          - Stop: cam/tools/stop.md
+          - Custom: cam/tools/custom.md
+          - Probe: cam/tools/probe.md
+        - Dress-ups:
+          - Dogbone: cam/tools/dressup-dogbone.md
+          - Holding Tabs: cam/tools/dressup-holding-tabs.md
+          - Lead In/Out: cam/tools/dressup-lead-inout.md
+          - Ramp Entry: cam/tools/dressup-ramp-entry.md
+          - Boundary: cam/tools/dressup-boundary.md
+          - Axis Map: cam/tools/dressup-axis-map.md
+          - Z Correct: cam/tools/dressup-z-correct.md
+          - Array: cam/tools/dressup-array.md
+          - Drag Knife: cam/tools/dressup-drag-knife.md
+        - Tool Bits:
+          - Tool Bit Library: cam/tools/tool-bit-library.md
+          - Tool Bit Dock: cam/tools/tool-bit-dock.md
+          - Tool Controller: cam/tools/tool-controller.md
     - Surface:
       - surface/index.md
       - Tools:
@@ -428,11 +678,45 @@ nav:
       - mesh/index.md
       - Tools:
         - mesh/tools/index.md
-        - Import and Export: mesh/tools/import-export.md
-        - Analyse: mesh/tools/analyse.md
-        - Modify: mesh/tools/modify.md
-        - Boolean and Cutting: mesh/tools/boolean-cutting.md
-        - Segmentation: mesh/tools/segmentation.md
+        - Import and Export:
+          - Import Mesh: mesh/tools/import-mesh.md
+          - Export Mesh: mesh/tools/export-mesh.md
+          - From Part Shape: mesh/tools/from-part-shape.md
+          - Remesh with Gmsh: mesh/tools/remesh-with-gmsh.md
+          - Build Regular Solid: mesh/tools/build-regular-solid.md
+        - Analyse:
+          - Evaluate and Repair: mesh/tools/evaluate-and-repair.md
+          - Evaluate Facet: mesh/tools/evaluate-facet.md
+          - Curvature Info: mesh/tools/curvature-info.md
+          - Evaluate Solid: mesh/tools/evaluate-solid.md
+          - Bounding Box: mesh/tools/bounding-box.md
+          - Vertex Curvature: mesh/tools/vertex-curvature.md
+        - Modify:
+          - Harmonize Normals: mesh/tools/harmonize-normals.md
+          - Flip Normals: mesh/tools/flip-normals.md
+          - Fill Up Holes: mesh/tools/fill-up-holes.md
+          - Fill Hole Interactively: mesh/tools/fill-hole-interactively.md
+          - Add Facet: mesh/tools/add-facet.md
+          - Remove Components: mesh/tools/remove-components.md
+          - Remove Component by Hand: mesh/tools/remove-component-by-hand.md
+          - Smoothing: mesh/tools/smoothing.md
+          - Decimating: mesh/tools/decimating.md
+          - Scale: mesh/tools/scale.md
+        - Boolean Operations:
+          - Union: mesh/tools/mesh-union.md
+          - Intersection: mesh/tools/mesh-intersection.md
+          - Difference: mesh/tools/mesh-difference.md
+        - Cutting:
+          - Cut by Polygon: mesh/tools/cut-by-polygon.md
+          - Trim by Polygon: mesh/tools/trim-by-polygon.md
+          - Trim by Plane: mesh/tools/trim-by-plane.md
+          - Section by Plane: mesh/tools/section-by-plane.md
+          - Cross-Sections: mesh/tools/cross-sections.md
+        - Segmentation:
+          - Merge: mesh/tools/merge.md
+          - Split Components: mesh/tools/split-components.md
+          - Segmentation (Curvature): mesh/tools/segmentation-curvature.md
+          - Segmentation Best Fit: mesh/tools/segmentation-best-fit.md
     - Curves Workbench:
       - curves-wb/index.md
       - Tools:
