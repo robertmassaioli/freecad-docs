@@ -338,6 +338,8 @@ nav:
     # ── Engineering & Analysis ─────────────────────────────────────────────────
     - FEM:
       - fem/index.md
+      - Concepts:
+        - Solver and Equation Compatibility: fem/concepts/solver-equation-compatibility.md
       - Tools:
         - fem/tools/index.md
         - Model Setup:
@@ -478,6 +480,8 @@ nav:
     # ── Drawing & Documentation ────────────────────────────────────────────────
     - TechDraw:
       - techdraw/index.md
+      - Concepts:
+        - Projection Methods and Dimension Types: techdraw/concepts/projection-and-dimensions.md
       - Tools:
         - techdraw/tools/index.md
         - Pages:
@@ -569,6 +573,8 @@ nav:
           - Increase / Decrease Decimal Places: techdraw/tools/ext/decimal-places.md
     - Draft:
       - draft/index.md
+      - Concepts:
+        - Snapping: draft/concepts/snapping.md
       - Tools:
         - draft/tools/index.md
         - Drafting:
@@ -658,6 +664,8 @@ nav:
           - Dimensions: draft/tools/snap-dimensions.md
     - BIM:
       - bim/index.md
+      - Concepts:
+        - IFC Import and Export: bim/concepts/ifc-import-export.md
       - Tools:
         - bim/tools/index.md
         - Structure:
@@ -706,6 +714,10 @@ nav:
     # ── Advanced & Specialist ──────────────────────────────────────────────────
     - CAM:
       - cam/index.md
+      - Concepts:
+        - Operation Parameters: cam/concepts/operation-parameters.md
+        - Feeds and Speeds: cam/concepts/feeds-and-speeds.md
+        - Tool Bit Files: cam/concepts/tool-bit-files.md
       - Tools:
         - cam/tools/index.md
         - Common Parameters: cam/tools/common-parameters.md
