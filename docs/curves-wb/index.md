@@ -69,7 +69,7 @@ The workbench adds three menus:
 
 ## See also
 
-- [Curve Tools](tools/curves.md) — all curve construction and modification tools
-- [Surface Tools](tools/surfaces.md) — all surface construction and modification tools
-- [Analysis and Utilities](tools/analysis.md) — analysis, inspection, and utility tools
+- [Curve Tools](tools/index.md#curve-tools) — all curve construction and modification tools
+- [Surface Tools](tools/index.md#surface-tools) — all surface construction and modification tools
+- [Analysis and Utilities](tools/index.md#analysis-and-utilities) — analysis, inspection, and utility tools
 - Surface workbench — built-in NURBS tools

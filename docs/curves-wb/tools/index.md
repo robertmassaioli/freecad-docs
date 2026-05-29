@@ -1,53 +1,63 @@
 # Curves Workbench Tools
 
+!!! note "Third-party addon — installation required"
+    The Curves workbench is not included in FreeCAD. Install it via
+    **Tools → Addon Manager → search "Curves" → Install** and restart FreeCAD.
+
+---
+
 ## Curve Tools
 
 | Tool | Command | Description |
 |------|---------|-------------|
-| [Parametric Line](curves.md#parametric-line) | `Curves_line` | Parametric line between two vertices |
-| [Gordon Profile](curves.md#gordon-profile) | `gordon_profile` | Editable profile curve for Gordon surfaces |
-| [Mixed Curve](curves.md#mixed-curve) | `mixed_curve` | 3D curve as intersection of two projected curves |
-| [Extend Curve](curves.md#extend-curve) | `extend` | Extend an edge by a given distance |
-| [Join Curves](curves.md#join-curves) | `join` | Join selected edges into a single B-spline |
-| [Split Curve](curves.md#split-curve) | `split` | Split an edge at one or more points |
-| [Discretize](curves.md#discretize) | `Discretize` | Sample an edge or wire into a point array |
-| [Approximate](curves.md#approximate) | `Approximate` | Approximate a point set to a NURBS curve or surface |
-| [Interpolate](curves.md#interpolate) | `Interpolate` | Interpolate a NURBS curve through a point set |
-| [Blend Curve](curves.md#blend-curve) | `ParametricBlendCurve` | Blend curve between two edges with G0–G3 continuity |
-| [Comb Plot](curves.md#comb-plot) | `ParametricComb` | Visualise curvature as a comb on selected edges |
-| [Curve on Surface](curves.md#curve-on-surface) | `cos` | Create a curve constrained to lie on a surface |
+| [Parametric Line](parametric-line.md) | `Curves_line` | Parametric line between two vertices |
+| [Gordon Profile](gordon-profile.md) | `gordon_profile` | Editable profile curve for Gordon surfaces |
+| [Mixed Curve](mixed-curve.md) | `mixed_curve` | 3-D curve as intersection of two projected curves |
+| [Extend Curve](extend-curve.md) | `extend` | Extend an edge by a given distance |
+| [Join Curves](join-curves.md) | `join` | Join selected edges into a single B-spline |
+| [Split Curve](split-curve.md) | `split` | Split an edge at one or more points |
+| [Discretize](discretize.md) | `Discretize` | Sample an edge or wire into a point array |
+| [Approximate](approximate.md) | `Approximate` | Approximate a point set to a NURBS curve or surface |
+| [Interpolate](interpolate.md) | `Interpolate` | Interpolate a NURBS curve through a point set |
+| [Blend Curve](blend-curve.md) | `ParametricBlendCurve` | Blend curve between two edges with G1–G3 continuity |
+| [Comb Plot](comb-plot.md) | `ParametricComb` | Visualise curvature as a comb on selected edges |
+| [Curve on Surface](curve-on-surface.md) | `cos` | Create a curve constrained to lie on a surface |
+
+---
 
 ## Surface Tools
 
 | Tool | Command | Description |
 |------|---------|-------------|
-| [Trim Face](surfaces.md#trim-face) | `Trim` | Trim a face with a projected curve |
-| [IsoCurve](surfaces.md#isocurve) | `IsoCurve` | Extract iso-parameter curves from a face |
-| [Sketch on Surface](surfaces.md#sketch-on-surface) | `SoS` | Map a sketch onto a curved surface |
-| [Map on Face](surfaces.md#map-on-face) | `Curves_MapOnFace` | Map objects onto a target face |
-| [Sweep 2 Rails](surfaces.md#sweep-2-rails) | `sw2r` | Sweep a profile along two guide rails |
-| [Pipeshell](surfaces.md#pipeshell) | `pipeshell` | PipeShell sweep with orientation control |
-| [Gordon Surface](surfaces.md#gordon-surface) | `gordon` | Surface interpolating a network of crossing curves |
-| [Segment Surface](surfaces.md#segment-surface) | `segment_surface` | Divide a surface along iso-parameter lines |
-| [Multi-Loft](surfaces.md#multi-loft) | `MultiLoft` | Loft profiles composed of multiple faces |
-| [Blend Surface](surfaces.md#blend-surface) | `Curves_BlendSurf2` | Blend surface between two edges with continuity control |
-| [Blend Solid](surfaces.md#blend-solid) | `Curves_BlendSolid` | Blend solid between two faces |
-| [Flatten Face](surfaces.md#flatten-face) | `Curves_FlattenFace` | Unroll a conical or cylindrical face to a flat sheet |
-| [Rotation Sweep](surfaces.md#rotation-sweep) | `Curves_RotationSweep` | Sweep profiles around a centre point |
-| [Truncate/Extend](surfaces.md#truncate-extend) | `Curve_TruncateExtendCmd` | Cut shape at plane and truncate or extend |
-| [Waterline Curves](surfaces.md#waterline-curves) | `Curves_WaterlineCurves` | Generate horizontal waterline curves on a surface |
+| [Trim Face](trim-face.md) | `Trim` | Trim a face with a projected curve |
+| [IsoCurve](isocurve.md) | `IsoCurve` | Extract iso-parameter curves from a face |
+| [Sketch on Surface](sketch-on-surface.md) | `SoS` | Map a sketch onto a curved surface |
+| [Map on Face](map-on-face.md) | `Curves_MapOnFace` | Map objects onto a target face |
+| [Sweep 2 Rails](sweep-2-rails.md) | `sw2r` | Sweep a profile along two guide rails |
+| [Pipeshell](pipeshell.md) | `pipeshell` | Pipeshell sweep with orientation control |
+| [Gordon Surface](gordon-surface.md) | `gordon` | Surface interpolating a network of crossing curves |
+| [Segment Surface](segment-surface.md) | `segment_surface` | Divide a surface along iso-parameter lines |
+| [Multi-Loft](multi-loft.md) | `MultiLoft` | Loft profiles composed of multiple faces |
+| [Blend Surface](blend-surface.md) | `Curves_BlendSurf2` | Blend surface between two edges with continuity control |
+| [Blend Solid](blend-solid.md) | `Curves_BlendSolid` | Blend solid between two faces |
+| [Flatten Face](flatten-face.md) | `Curves_FlattenFace` | Unroll a conical or cylindrical face to a flat sheet |
+| [Rotation Sweep](rotation-sweep.md) | `Curves_RotationSweep` | Sweep profiles around a centre point |
+| [Truncate / Extend](truncate-extend.md) | `Curve_TruncateExtendCmd` | Cut shape at plane and truncate or extend |
+| [Waterline Curves](waterline-curves.md) | `Curves_WaterlineCurves` | Generate horizontal waterline curves on a surface |
+
+---
 
 ## Analysis and Utilities
 
 | Tool | Command | Description |
 |------|---------|-------------|
-| [Zebra Tool](analysis.md#zebra-tool) | `ZebraTool` | Zebra stripe continuity analysis |
-| [Reflect Lines](analysis.md#reflect-lines) | `ReflectLines` | Highlight reflection lines for a given view direction |
-| [Surface Analysis](analysis.md#surface-analysis) | `Curves_SurfaceAnalysis` | Colour map of surface curvature |
-| [Draft Analysis](analysis.md#draft-analysis) | `Curves_DraftAnalysis` | Colour map of draft angles for mould release |
-| [Geometry Info](analysis.md#geometry-info) | `GeomInfo` | Show geometric properties of selected shapes |
-| [Adjacent Faces](analysis.md#adjacent-faces) | `Curves_adjacent_faces` | Highlight faces adjacent to selected face |
-| [Extract Shapes](analysis.md#extract-shapes) | `extract` | Extract sub-shapes from a compound |
-| [Parametric Solid](analysis.md#parametric-solid) | `solid` | Create a solid from selected surfaces |
-| [To Console](analysis.md#to-console) | `to_console` | Print shape properties to Python console |
-| [B-Spline to Console](analysis.md#bspline-to-console) | `Curves_bspline_to_console` | Export B-spline control points to console |
+| [Zebra Tool](zebra-tool.md) | `ZebraTool` | Zebra stripe continuity analysis |
+| [Reflect Lines](reflect-lines.md) | `ReflectLines` | Highlight reflection lines for a given view direction |
+| [Surface Analysis](surface-analysis.md) | `Curves_SurfaceAnalysis` | Colour map of surface curvature |
+| [Draft Analysis](draft-analysis.md) | `Curves_DraftAnalysis` | Colour map of draft angles for mould release |
+| [Geometry Info](geometry-info.md) | `GeomInfo` | Show geometric properties of selected shapes |
+| [Adjacent Faces](adjacent-faces.md) | `Curves_adjacent_faces` | Highlight faces adjacent to selected face |
+| [Extract Shapes](extract-shapes.md) | `extract` | Extract sub-shapes from a compound |
+| [Parametric Solid](parametric-solid.md) | `solid` | Create a solid from selected surfaces |
+| [To Console](to-console.md) | `to_console` | Print shape properties to Python console |
+| [B-Spline to Console](bspline-to-console.md) | `Curves_bspline_to_console` | Export B-spline control points to console |

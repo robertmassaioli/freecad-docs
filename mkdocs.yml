@@ -802,9 +802,46 @@ nav:
       - curves-wb/index.md
       - Tools:
         - curves-wb/tools/index.md
-        - Curve Tools: curves-wb/tools/curves.md
-        - Surface Tools: curves-wb/tools/surfaces.md
-        - Analysis and Utilities: curves-wb/tools/analysis.md
+        - Curve Tools:
+          - Parametric Line: curves-wb/tools/parametric-line.md
+          - Gordon Profile: curves-wb/tools/gordon-profile.md
+          - Mixed Curve: curves-wb/tools/mixed-curve.md
+          - Extend Curve: curves-wb/tools/extend-curve.md
+          - Join Curves: curves-wb/tools/join-curves.md
+          - Split Curve: curves-wb/tools/split-curve.md
+          - Discretize: curves-wb/tools/discretize.md
+          - Approximate: curves-wb/tools/approximate.md
+          - Interpolate: curves-wb/tools/interpolate.md
+          - Blend Curve: curves-wb/tools/blend-curve.md
+          - Comb Plot: curves-wb/tools/comb-plot.md
+          - Curve on Surface: curves-wb/tools/curve-on-surface.md
+        - Surface Tools:
+          - Trim Face: curves-wb/tools/trim-face.md
+          - IsoCurve: curves-wb/tools/isocurve.md
+          - Sketch on Surface: curves-wb/tools/sketch-on-surface.md
+          - Map on Face: curves-wb/tools/map-on-face.md
+          - Sweep 2 Rails: curves-wb/tools/sweep-2-rails.md
+          - Pipeshell: curves-wb/tools/pipeshell.md
+          - Gordon Surface: curves-wb/tools/gordon-surface.md
+          - Segment Surface: curves-wb/tools/segment-surface.md
+          - Multi-Loft: curves-wb/tools/multi-loft.md
+          - Blend Surface: curves-wb/tools/blend-surface.md
+          - Blend Solid: curves-wb/tools/blend-solid.md
+          - Flatten Face: curves-wb/tools/flatten-face.md
+          - Rotation Sweep: curves-wb/tools/rotation-sweep.md
+          - Truncate / Extend: curves-wb/tools/truncate-extend.md
+          - Waterline Curves: curves-wb/tools/waterline-curves.md
+        - Analysis and Utilities:
+          - Zebra Tool: curves-wb/tools/zebra-tool.md
+          - Reflect Lines: curves-wb/tools/reflect-lines.md
+          - Surface Analysis: curves-wb/tools/surface-analysis.md
+          - Draft Analysis: curves-wb/tools/draft-analysis.md
+          - Geometry Info: curves-wb/tools/geometry-info.md
+          - Adjacent Faces: curves-wb/tools/adjacent-faces.md
+          - Extract Shapes: curves-wb/tools/extract-shapes.md
+          - Parametric Solid: curves-wb/tools/parametric-solid.md
+          - To Console: curves-wb/tools/to-console.md
+          - B-Spline to Console: curves-wb/tools/bspline-to-console.md
     - Reverse Engineering:
       - reverse-engineering/index.md
       - Tools:
