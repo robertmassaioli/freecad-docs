@@ -210,6 +210,8 @@ nav:
           - Duplicate Selection: part-design/tools/duplicate-selection.md
     - Sketcher:
       - sketcher/index.md
+      - Concepts:
+        - Constraints and Degrees of Freedom: sketcher/concepts/constraints-and-dof.md
       - Tools:
         - sketcher/tools/index.md
         - Sketch Lifecycle:
@@ -321,6 +323,8 @@ nav:
           - Appearance per Face: part/tools/appearance-per-face.md
     - Spreadsheet:
       - spreadsheet/index.md
+      - Concepts:
+        - Cell Aliases and Master-Model Pattern: spreadsheet/concepts/cell-aliases.md
       - Tools:
         - spreadsheet/tools/index.md
         - Create Spreadsheet: spreadsheet/tools/create-spreadsheet.md
@@ -427,6 +431,8 @@ nav:
           - FEM Examples: fem/tools/fem-examples.md
     - Assembly:
       - assembly/index.md
+      - Concepts:
+        - Joint Types and Degrees of Freedom: assembly/concepts/joint-types.md
       - Tools:
         - assembly/tools/index.md
         - Assembly Setup:
